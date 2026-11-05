@@ -28,6 +28,7 @@ Los archivos siguientes forman la plantilla. `EXAMPLE-001` es demostrativo y NO 
 - `docs/MISSIONS/README.md`
 - `docs/PROJECT_BOOTSTRAP_CHECKLIST.md`
 - `docs/PROJECT_CHARTER.md`
+- `docs/PROVENANCE.md`
 - `docs/QUALITY_EVIDENCE_PROTOCOL.md`
 - `docs/QUALITY_POLICY.md`
 - `docs/RELEASE_POLICY.md`
