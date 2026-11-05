@@ -8,6 +8,8 @@ No impone FastAPI, React, PostgreSQL ni otro stack. La estructura inicial contie
 
 1. Descomprime el ZIP y renombra la carpeta con el nombre del nuevo proyecto.
 2. Lee `START_HERE.md` y `AGENTS.md`.
+   Para usar estas instrucciones con cualquier herramienta de agentes, proporciona `AGENTS.md` al Orchestrator y verifica que sus instrucciones estén disponibles en ese entorno; no supongas que todas las herramientas lo cargan automáticamente.
+
 3. Completa `docs/PROJECT_CHARTER.md`, `docs/ARCHITECTURE.md` y `docs/QUALITY_POLICY.md` **antes de desarrollar**.
 4. Decide tu stack y sustituye los marcadores `[DECIDIR]`.
 5. Confirma **de verdad** cómo se invoca un revisor independiente en tus herramientas. Un archivo `agents/quality.md` **no crea automáticamente** un subagente.

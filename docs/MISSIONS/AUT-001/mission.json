@@ -24,7 +24,13 @@
         "verification": null
       }
     ],
-    "developer": []
+    "developer": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ]
   },
   "gates": {
     "gate1": {

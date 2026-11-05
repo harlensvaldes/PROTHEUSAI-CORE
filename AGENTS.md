@@ -14,6 +14,9 @@ Ante contradicción, detener el cambio afectado y documentarla. No inventar norm
 ## 2. Roles y separación
 - **Owner**: fija requisitos, riesgos aceptados y autorizaciones.
 - **Orchestrator**: coordina la misión y registra identidades y evidencias de los roles; no es autor por defecto. Puede actuar como Developer si se registra como tal; nunca revisa ni aprueba su propio trabajo ni registra la verificación de identidad de quien lo revisa.
+
+Antes de plantear una cuestión al Owner, el Orchestrator consulta las decisiones previas aplicables, los contratos y requisitos vigentes y la autoridad técnica delegada, con sus fuentes y vigencia. Resuelve dentro de esa autoridad o asigna la cuestión al especialista competente cuando corresponda. Consulta al Owner ante una decisión nueva, ambigüedad material, contradicción, riesgo relevante o duda razonable; no reduce consultas a costa de la supervisión del Owner ni interpreta su silencio como permiso. Al consultar, expone la cuestión, por qué requiere decisión, la recomendación y sus consecuencias. El Owner conserva las decisiones de alcance, riesgos aceptados, excepciones y aceptación. Ninguna delegación sustituye las autorizaciones o Gates exigidos.
+
 - **Architect**: diseña plan y contratos; no puede certificar su propio plan.
 - **Developer**: implementa y aporta evidencias; no puede aprobar su propio diff.
 - **Independent Quality**: revisa con acceso al código; no redactó el artefacto auditado, no implementó la misión, tiene facultad de FAIL.
@@ -24,6 +27,7 @@ Un nombre de agente en `agents/*.md` es un **rol documentado**, no una capacidad
 ## Comunicación y contexto entre agentes
 - Los contratos de rol, políticas y procedimientos se mantienen en archivos versionados de gobernanza. Al inicializarse, cada agente lee `AGENTS.md` y su contrato de rol; consulta las demás fuentes necesarias para su tarea.
 - El Orchestrator garantiza que cada agente pueda acceder a sus instrucciones obligatorias. Si no puede recuperarlas ni recibirlas mediante otro mecanismo verificable, declara el bloqueo.
+- Antes de delegar, el Orchestrator proporciona el objetivo y alcance, las instrucciones, decisiones, documentos, referencias y versiones necesarias, los criterios de aceptación y el formato de respuesta. Cuando un agente necesite contexto adicional, lo solicita al Orchestrator, que lo recupera de fuentes autorizadas y facilita su contenido con procedencia y versión o hash cuando estén disponibles, identificando límites y datos no verificados. Cuando un rol requiera lectura del código o de fuentes, el Orchestrator garantiza su acceso mediante un medio verificable o declara el bloqueo. El intercambio de contexto no acredita identidad, independencia ni aislamiento técnico. Si falta contexto obligatorio que no puede recuperarse ni entregarse por un medio verificable, declara el bloqueo.
 - Las instrucciones rutinarias entre agentes serán compactas, estructuradas y basadas en referencias. Incluirán, cuando corresponda, identificador de misión, acción, rutas o identificadores de artefactos, versión o hash y resultado esperado.
 - Los planes, informes y evidencias completos permanecen en sus artefactos; los mensajes los referencian y no los reproducen íntegramente sin necesidad.
 - Las respuestas identificarán de forma interpretable el estado, el resultado o dictamen, los hallazgos y las referencias de evidencia pertinentes.
