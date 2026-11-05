@@ -1,0 +1,16 @@
+﻿# Revisión técnica de la unidad de planes 01–03
+
+Fecha 2026-11-05. Revisor declarado /root/core_quality, agente delegado mediante colaboración; autor declarado /root/architect. No redacté los planes ni implementé la reforma. Acceso de lectura comprobado al checkout temporal; contexto heredado y entorno compartido. Identidad real, aislamiento I1 y garantía G1 no acreditados por esta declaración. Baseline Git indicada 11a6f189fd8dc2459232c438e046f58440070b91.
+
+Unidad y sha256_lf: PLAN-REFORMA-QUALITY-01.md 4e6c72f329fc8858ad737cb7beb2d8dd2bdd1ac4265000c5cd544285c74b96bd; PLAN-REFORMA-QUALITY-02.md 1540dbc0651c6b2cf265c906fcd9b57535665e952c535077bfd518d156a7462d; PLAN-REFORMA-QUALITY-03.md 69d51a0b2518db85cb484087915dc9f6809924be3bbd5fcceab36eebf7e702fe. Hashes verificados durante la revisión de cada versión; prevalece 03 ante conflicto.
+
+**Dictamen técnico: PASS. Gate 1 formal: PENDING.** El PASS es exclusivamente técnico sobre la unidad identificada: no acredita I1/G1 de la matriz HIGH vigente y no autoriza implementación. Solo un Gate 1 formal PASS bajo política actual habilita transición. FAIL de 01 y PASS_WITH_RESERVATIONS de 02 siguen conservados; no se convierten retrospectivamente en PASS. Sin pruebas ejecutadas. E2E NO EJECUTADO.
+
+## Resolución de reservas y alcance
+
+- Plan 03 líneas 5-11 elimina documento, bloque y hash de Owner adicionales; usa referencia existente y digest de tres campos. La fuente real debe consultarse y las limitaciones de autenticidad y restauración se declaran. La opción de v5 aislado conserva semántica de v1–v4 y rechazo por lectores anteriores; el diseño es suficientemente proporcional para revisión técnica, sin acreditar que no existan alternativas posibles.
+- Líneas 13-17 distinguen cambios semánticos de cambios de formato JSON y hash de informe, y reconocen restauración y alteración coordinada. Los oráculos antes contradictorios quedan precisados; pruebas propuestas, no ejecutadas.
+- Líneas 19-21 retiran la vía extraordinaria antes propuesta; no se crea ni aplica waiver nuevo. Bootstrap exige Gate 1 HIGH bajo matriz anterior, I1/G1 y autorizaciones aplicables, o permanece bloqueado. Aplicación posterior a APP-003 queda separada.
+- Se conserva revisión Quality distinta de autores, PASS exacto, secuencia de Gates, trazabilidad de versión y hallazgos, sesión declarada cuando disponible, pruebas operativas y controles reforzados fuera del perfil. La CLI comprueba declaraciones, no autenticidad, elegibilidad real ni historial completo. No se transfieren PASS históricos.
+
+Fuente Owner consultada directamente: evento user_message línea 800 en rollout-2026-11-05T16-57-50-01a1ac6e-4676-7602-b3b7-51c843e805d6.jsonl. Se contrastaron AGENTS.md, agents/quality.md, docs/QUALITY_POLICY.md, docs/QUALITY_EVIDENCE_PROTOCOL.md, quality/controls.json, scripts/quality_cli.py, scripts/quality_v3.py y referencias de pruebas. Charter leído DRAFT. Esta es una revisión estática de diseño; no comprueba ejecución v5 inexistente, identidad ni integridad externa. El trabajo real debe someterse a Gate 2, pruebas efectivas, Gate 3 y aceptación aplicable bajo política vigente.

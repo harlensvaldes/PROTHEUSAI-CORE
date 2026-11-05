@@ -49,4 +49,12 @@ En el esquema v4, el Gate 1 permanece PENDING y un informe separado conserva su 
 
 ## Independence minimums and reopening
 
-The current risk-by-Gate matrix is quality/controls.json independence_minimums. Authorship, declared isolation and evidence traceability are distinct; the CLI cannot certify identity or isolation. For a mission not yet accepted, changing the matrix or mission risk after Gate 1 reopens Gate 1 and requires the Owner. Accepted missions are not reopened; validate warns when they do not meet the current matrix, and transition commands always apply the current matrix. The CLI cannot reconstruct historical matrices.
+For v3/v4 the current risk-by-Gate matrix is quality/controls.json independence_minimums, subject to the narrowly scoped v4 waiver above; historical v1/v2 retain their existing treatment. The separate v5 local fictional experimental profile below uses its own I0/G0 rule rather than that matrix. Authorship, declared isolation and evidence traceability are distinct; the CLI cannot certify identity or isolation. For a mission not yet accepted, changing the applicable rule or mission risk after Gate 1 reopens Gate 1 and requires the Owner. Accepted v3/v4 missions are not reopened; validate warns when they do not meet the current matrix, and transition commands apply the current matrix. The CLI cannot reconstruct historical matrices.
+
+## Perfil ordinario v5 para pilotos locales ficticios
+
+Una nueva misión v5 puede declarar `LOCAL_FICTIONAL_EXPERIMENTAL` únicamente si es experimental, local, usa exclusivamente datos ficticios y no tiene exposición pública ni uso operativo. CRITICAL queda excluido. El Owner mantiene la autoridad sobre su elegibilidad y las autorizaciones de implementación y aceptación. Un cambio real de alcance o revocación conocida detiene la acción y se eleva según AGENTS.md.
+
+Para este perfil, los tres Gates conservan revisión de Quality por autor distinto, declaración de autoría y trazabilidad, pero admiten I0/G0 sin evidencia G1 de identidad. I0 no acredita identidad ni separación de contexto. Se conserva el anclaje Gate 2 MEDIUM/HIGH y el reporte de pruebas reales de Gate 3. PASS exacto sigue siendo necesario para transiciones y PWR no lo sustituye. El resultado de la CLI comprueba coherencia declarativa: no autentica personas, no verifica elegibilidad real ni concede autorizaciones. El alcance declarado se fija por digest en cada revisión; no prueba que no haya habido cambios y restauración entre comprobaciones.
+
+Este perfil no altera matrices, decisiones ni semántica de v1–v4, y no se adopta automáticamente en proyectos existentes. El Owner conserva la decisión de adopción. Las reservas e historia de misiones anteriores no se convierten en PASS.

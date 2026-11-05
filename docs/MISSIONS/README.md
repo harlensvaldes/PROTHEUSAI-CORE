@@ -1,5 +1,9 @@
 # Missions
 
+To create an explicitly opted-in v5 local fictional experimental mission, use `python scripts/new_mission.py --id APP-001 --title "Pilot" --risk HIGH --orchestrator orch --architect arch --profile LOCAL_FICTIONAL_EXPERIMENTAL --project-id pilot --owner-decision-ref "Owner decision reference"`. All Gates begin PENDING. Without the three scope arguments, creation remains v3. v5 is a new record, not a migration or conversion of historical decisions; existing missions require a separate adoption decision and preserved history.
+
+The v5 review block has the v3 fields plus `scope_digest` and `reviewer_session`; see `docs/QUALITY_EVIDENCE_PROTOCOL.md` for the canonical digest. `validate` and `status` check structural consistency, `can-implement` requires Gate 1 exact PASS, and `can-close` requires all three exact PASS and Owner acceptance. An exit code 0 is not an Owner authorization. The profile excludes CRITICAL, real data, public exposure and operational use. The CLI cannot verify these real-world conditions or the authenticity of declarations. I0/G0 do not certify independence or identity.
+
 Create a mission with python scripts/new_mission.py --id APP-001 --title "First mission" --risk MEDIUM --orchestrator orch-01 --architect arch-01. New schema v3 Gates start PENDING with review null; developer remains unassigned until actual work.
 
 A review is a single protheusai-review JSON block in a report, with the manifest storing only decision and review {file, sha256_lf, reviewer_verification}. See QUALITY_EVIDENCE_PROTOCOL.md and quality/controls.json for the A/B/C dimensions, evidence, risk matrix and limitations. The CLI validates consistency, not reviewer identity, isolation, truth or Quality certification. PWR never enables transitions.

@@ -82,7 +82,7 @@ def policy_errors(policy):
     return errs
 
 
-def parse_block(data):
+def parse_block(data, v5=False):
     try:
         text = data.replace(b'\r\n', b'\n').decode('utf-8')
     except UnicodeError:
@@ -101,6 +101,8 @@ def parse_block(data):
         value = json.loads('\n'.join(lines[start+1:end]), object_pairs_hook=_unique)
     except (ValueError, TypeError):
         return None
+    if v5:
+        return value if isinstance(value, dict) and set(value) == KEYS | {'scope_digest', 'reviewer_session'} else None
     return value if isinstance(value, dict) and set(value) == KEYS else None
 
 
@@ -134,7 +136,7 @@ def calculated_guarantee(required, present, reviewer_verified, authors_verified)
     return GUARANTEE[1]
 
 
-def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False):
+def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False, v5_scope_digest=None):
     errors, minima = [], []
     if exception_gate1 and (gate != 'gate1' or mission.get('risk') != 'HIGH'):
         return ['invalid exception scope'], []
@@ -155,9 +157,14 @@ def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False):
         return ['review unreadable'], []
     if digest(data).lower() != review['sha256_lf'].lower():
         errors.append('review hash mismatch')
-    block = parse_block(data)
+    block = parse_block(data, v5=v5_scope_digest is not None)
     if block is None:
         return errors + ['invalid structured review block'], []
+    if v5_scope_digest is not None:
+        if block['scope_digest'] != v5_scope_digest:
+            errors.append('scope digest mismatch')
+        if block['reviewer_session'] is not None and not canon(block['reviewer_session']):
+            errors.append('reviewer session invalid')
     for key, expected in (('mission', mission['id']), ('gate', gate), ('risk', mission['risk']), ('decision', decision)):
         if block.get(key) != expected:
             errors.append('review mismatch: ' + key)
@@ -237,11 +244,14 @@ def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False):
         return errors, minima
     if reviewer in all_authors or block['authorship_independent'] is not True:
         errors.append('self approval or authorship declaration invalid')
-    if not exception_gate1:
+    if not exception_gate1 and v5_scope_digest is None:
         if isolation == ISOLATION[0]:
             errors.append('I0 cannot enable decision')
     rule = policy['independence_minimums'][mission['risk']][gate]
-    if not exception_gate1:
+    if v5_scope_digest is not None:
+        rule = {'isolation': ISOLATION[0], 'guarantee': GUARANTEE[0], 'evidence': [],
+                'pinned_artifact': mission['risk'] in ('MEDIUM', 'HIGH') and gate == 'gate2'}
+    if not exception_gate1 and v5_scope_digest is None:
         if isolation in ISOLATION and ISOLATION.index(isolation) < ISOLATION.index(rule['isolation']):
             minima.append('isolation below minimum')
         if not set(rule['evidence']) <= present:
@@ -258,7 +268,7 @@ def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False):
     authors_verified = all(valid_verification(i.get('verification'), canon(i['id']), forbidden, canon)
                            for i in pertinent)
     level = calculated_guarantee(rule['evidence'], present, reviewer_verified, authors_verified)
-    if not exception_gate1:
+    if not exception_gate1 and v5_scope_digest is None:
         if GUARANTEE.index(level) < GUARANTEE.index(rule['guarantee']):
             minima.append('guarantee below minimum')
     if exception_gate1 and 'execution' not in present:

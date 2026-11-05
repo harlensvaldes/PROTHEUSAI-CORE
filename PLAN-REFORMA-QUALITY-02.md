@@ -1,0 +1,41 @@
+# Reforma Quality para pilotos locales ficticios · Plan 02
+
+**Estado:** propuesta para revisión independiente; autor `/root/architect`; 2026-11-05. Esta versión incorpora `PLAN-REFORMA-QUALITY-01.md`, SHA-256 LF `4e6c72f329fc8858ad737cb7beb2d8dd2bdd1ac4265000c5cd544285c74b96bd`, con las precisiones de este documento prevaleciendo. Ambos documentos son la unidad revisable y sus hashes se verifican. El FAIL técnico preliminar del plan 01 se conserva; no se transfiere a la versión nueva. No se ha implementado la reforma ni se han ejecutado pruebas.
+
+## Perfil mínimo y trazabilidad de sesión
+
+Para reducir carga, se sustituyen las cinco banderas del plan 01 por un único perfil literal `LOCAL_FICTIONAL_EXPERIMENTAL`: por definición engloba simultáneamente experimental, solo local, datos ficticios, sin exposición pública ni uso operativo; incumplir cualquiera excluye el perfil. El objeto `scope` v5 contiene exactamente `profile`, `project_id`, `owner_decision_ref` y `owner_decision_sha256_lf`. El Owner adopta el perfil como un todo, no se permiten opciones parciales. Frente a cambiar la matriz global, v5 dedicado evita rebajar controles de misiones previas y asegura rechazo por lectores antiguos; reutilizar v4 implicaría waiver y no PASS ordinario. Un único documento Owner enlazado, un digest por revisión y formato versionado son la mínima propuesta para relacionar alcance, decisión y revisiones sin atribuir identidad certificada. Quality debe evaluar si existe alternativa más ligera con iguales garantías.
+
+El bloque de revisión v5 añade a las claves v3 `scope_digest` y `reviewer_session`: esta última es cadena no vacía cuando el runtime proporciona un identificador verificable, `null` cuando no está disponible. La registra el revisor declarando fuente y límites en narrativa; no inventar un ID ni atribuir certificación de identidad, independencia o aislamiento por su presencia. El campo existente `reviewer` identifica al revisor declarado y continúa la regla de autoría; no se exige verificación G1 para este perfil.
+
+## Fijar el scope completo y el historial
+
+La huella `scope_digest` es SHA-256 hexadecimal minúsculo de UTF-8 de la serialización JSON canónica del objeto **completo** validado, mediante `json.dumps(scope, sort_keys=True, ensure_ascii=True, separators=(',', ':'), allow_nan=False)`, sin salto final. Prohibir claves duplicadas y valores fuera del esquema antes de serializar. Incluye perfil, proyecto y referencia/hash de decisión. No sustituye el hash LF del archivo de decisión Owner. La CLI recalcula tanto la huella completa como el hash LF de decisión y exige coincidencia con cada revisión decidida. El informe y su referencia siguen fijados por hash; Gate 2 conserva también su ancla de diff. Esta corrección sustituye los campos `scope_ref` y `scope_sha256_lf` propuestos para el bloque en plan 01: ya están incluidos en el digest del objeto completo.
+
+Un cambio en cualquier campo, incluso `project_id`, invalida revisiones existentes mientras no coincidan; no se permite sobrescribirlas para simular continuidad. Reabrir Gate 1 mediante nuevo registro de misión y preservar versión previa, informes, decisiones, referencias y hashes; no convertir PASS históricos. Restaurar bytes previos puede hacer coincidir los hashes otra vez: **la CLI no prueba que no hubo un cambio intermedio, revocación o restauración**, porque archivos e historial pueden ser editados por usuarios con acceso. La comparación con mensaje/historial bajo control del Owner es humana y necesaria antes de actuar; si el historial no puede cotejarse o el scope real cambió, no avanzar. No presentar la huella como cadena inmutable ni autentificación.
+
+## Formato mínimo de decisión Owner
+
+Archivo UTF-8 dentro de la misión, ruta canónica segura, con exactamente un bloque delimitado por ` ```protheusai-owner-scope ` y ` ``` ` (sin espacios de los delimitadores); el contenido JSON tiene exactamente `project_id`, `decision`, `date`, `owner`. `decision` debe ser `ADOPT_LOCAL_FICTIONAL_EXPERIMENTAL`, `date` fecha ISO válida, `owner` cadena no vacía declarada, `project_id` cadena no vacía igual **exactamente** al `scope.project_id` del manifiesto. El token de decisión adopta el perfil completo definido arriba. Rechazar claves duplicadas, bloques ausentes/múltiples, contenido inválido, proyecto distinto, referencia insegura y hash de bytes LF distinto al manifiesto. La narrativa puede acompañar al bloque sin que la CLI interprete su contenido. El documento debe proceder realmente del Owner y su adopción ser vigente; la CLI solo comprueba coincidencia y no puede comprobar autoría, vigencia o revocación. No exigir nombre civil, firma digital ni evidencia de identidad G1; el Owner conserva su canal y cotejo.
+
+## Semántica por comando
+
+| Comando | Registro v5 estructuralmente válido, Gate 1 PENDING | Registro válido con Gates requeridos PASS | Registro inválido, alcance inadecuado o huellas inconsistentes |
+|---|---|---|---|
+| `validate` | código 0 si el proyecto completo es estructuralmente consistente; informa PENDING, no certifica | código 0 si el proyecto completo es consistente | código 1 y errores; fallos de uso/lectura se distinguen según CLI |
+| `status --mission` | código 0, muestra PENDING y limitaciones | código 0, muestra estados sin dar autorización | código no cero y errores; sin afirmar elegibilidad |
+| `can-implement --mission` | código 1 BLOCKED | código 0 solo con Gate 1 PASS vigente y estructura/minimos consistentes | código no cero BLOCKED |
+| `can-close --mission` | código 1 BLOCKED | código 0 solo con tres PASS vigentes y aceptación Owner APPROVED consistente | código no cero BLOCKED |
+
+PASS_WITH_RESERVATIONS y FAIL no equivalen a PASS. `validate` y `status` comprueban coherencia, no exigen que una misión pendiente haya pasado sus Gates; cuando existe un Gate decidido verifican su revisión. Un código 0 de `can-*` expresa coherencia y no concede la autorización humana separada. Para v1–v4 no cambiar los retornos o excepciones existentes.
+
+## Arranque bajo política actual
+
+La reforma no se aplica a sí misma. Primera vía: misión de gobernanza con plan HIGH, Quality distinto, I1 y G1 correspondientes a la matriz vigente, Gate 1 PASS real y autorizaciones aplicables; luego Gate 2, Gate 3 y aceptación conforme a política antigua. El acceso al workspace no demuestra I1 ni G1: registrar únicamente evidencia que exista. Si no se logra la vía ordinaria, no inventar PASS ni repetir investigación descartada; presentar al Owner el bloqueo y propuesta concreta de autorización extraordinaria **específica de esta misión**, como precedente operativo de GOV-002/AUT-001, delimitando acciones, revisor, control y resultados, manteniendo Gates/CLI reales y sin declarar que dicha autorización sea un waiver v4. Esa vía requiere decisión expresa del Owner, no resulta automáticamente de autorizaciones históricas ni del encargo actual. Ejecutar solo lo que permita esa decisión y la política aplicable; aceptación y adopción posterior por otros proyectos siguen separadas. Si no existe vía válida, permanecer BLOCKED. `PROJECT_CHARTER.md` y `ARCHITECTURE.md` CORE siguen DRAFT: no atribuirles aceptación.
+
+## Verificación adicional prevista, NOT_RUN
+
+- Mutar individualmente cada propiedad scope, decisión, ID, tipo y hash después de cada Gate; verificar que `scope_digest` y el hash LF fallan ante cualquier cambio; cobertura de orden y espacios JSON de serialización, Unicode y claves duplicadas. Probar identificador de sesión disponible y ausente, sin inferir identidad certificada.
+- Guardar, alterar y restaurar scope: comprobar que la comparación de bytes vuelve a coincidir y que esto no prueba integridad histórica; exigir cotejo humano, no simular detección automática.
+- Casos de comandos para matriz anterior, incluyendo PENDING coherente y proyecto con otra misión inválida, y mensajes/códigos de salida diferenciados. Casos de Owner sin bloque, bloque duplicado, ID diferente, fecha inválida, decisión distinta y hash alterado.
+- Revisión independiente del plan 02 y su base fijada; pruebas v1–v4 y waiver v4 sin regresiones. Toda prueba se registrará con comando, entorno, fecha y exit code reales. **E2E NO EJECUTADO**.
