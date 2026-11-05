@@ -1,0 +1,25 @@
+# GOV-R03 Gate 2 - independent technical review 03
+
+Verdict: FAIL TECHNICAL. Gate 3 technical verdict is PENDING. Formal Gates and Owner acceptance remain PENDING. This verdict does not authorize a commit.
+
+Reviewer: Codex /root/quality_r03_g23, distinct delegated agent from declared developers Codex /root and Codex /root/adapt_tests. I declare I did not produce or modify the reviewed implementation or tests. Authorship separation and identity are not independently verified. Runtime, OS user, workspace, credentials and write permissions are shared; assignment includes author-supplied information and inherited context. I did not read the author's message history. I do not claim I1, I2, operational isolation, external authentication of the Owner transcript, or the separate author-team review required for closure.
+
+Base: 1ea0af638f3c8a66b29dd1b8beeb6e5a8fb97c86. GATE2-INPUT-09.sha256 sha256_lf c4b7aa0ff71e7abe464db37af93dcc7c064e8ddaad33fd34cf0481be20959cb2 matches the assignment anchor. All 30 listed files matched; status had no unlisted paths except input 09. The two Gate 2 and two Gate 3 reports from cycles 01 and 02 match their previously supplied hashes. The shared runtime and writable workspace are not immutable or externally authenticated.
+
+## Blocking findings
+
+1. HIGH - Empty-looking third-party verification fields are accepted for G2. scripts/quality_v3.py:116-125 checks record method, ref and date using str.strip(), which accepts U+200B as nonempty; scripts/quality_cli.py:49-63 applies the same check to author identity evidence and verification. In an independent temporary CRITICAL Gate 1 fixture, with I2 declared, identity and isolation files fixed, a valid third-party author verification and reviewer_verification.date set only to U+200B, mission_errors returned [] and can-implement returned 0. Individual substitutions of U+200B in reviewer verification method/ref/date, author verification method/ref/date and author identity evidence method/ref likewise produced no errors. This records G2 traceability and enables transition with visually empty required fields; it does not prove or disprove the actual identity of any person. Minimum correction: reject canonically empty required method/ref/date fields in the corresponding v3 validation and applicable role records, retain legitimate declarations and non-self verification checks, and add focused tests plus relevant mutation controls for each affected record/field. Preserve historical v1/v2 behavior as specified; do not silently rewrite historical records.
+
+2. HIGH - A visually empty artifact name is accepted. scripts/quality_v3.py:175-178 uses str.strip() for artifact.name. An independent HIGH Gate 1 fixture with artifact.name set to U+200B returned mission_errors []. Approved v15 section 3 requires a nonempty name identifying the reviewed artifact. This allows a structurally accepted review without a meaningful name. Minimum correction: reject canonically empty artifact names while preserving valid names, with a focused test and mutation control.
+
+## Prior findings and coverage
+
+Cycle 02 owner date U+200B is now rejected using canon (quality_v3.py:284), with regression and mutation controls. MEDIUM Gate 2 pinned-artifact and Gate 3 execution boundary controls are present at tests/test_governance_mutations.py:1038-1070; the latter combines two relevant mutations for redundant protections. A v2 historical validate warning case/control is present at 1072-1097. The prior cycle's specific missing coverage is addressed; these observations do not erase this cycle's defects.
+
+Reviewed v15 negative categories and the corresponding tests and controls for A/B/C, G2 third parties, report equalities and parser, artifact pinning, hashes, Windows paths/junction, matrix and historical/transition rules. The mutation suite includes combined mutants, parser simulations and mocked link signals as identified in cycle 02; they are not all individual production end-to-end mutants. The real junction test ran in the suite; the real symlink test was skipped due to OS privilege and is not a pass. These limitations are stated separately from the defects above. No exhaustive proof of all malformed input, OS versions, identity truth or isolation is claimed.
+
+The post-commit comparison and separate independent anchor reading remain outstanding; there is no new commit to compare. git references are declarations and are not verified by the CLI. E2E NO EJECUTADO. No code, prior file, manifest, input, Git state or environment was modified by this reviewer; only these two additive reports were created. Correct the findings, fix a new input and request fresh review.
+
+```protheusai-review
+{"mission":"GOV-001","gate":"gate2","risk":"HIGH","decision":"FAIL","reviewer":"codex /root/quality_r03_g23","artifact":{"name":"GOV-R03 diff input 09","ref":"sha256_lf:c4b7aa0ff71e7abe464db37af93dcc7c064e8ddaad33fd34cf0481be20959cb2","path":"GATE2-INPUT-09.sha256"},"effective_authors":["codex /root","codex /root/adapt_tests"],"authorship_independent":true,"isolation":"I0_CONTEXTO_COMPARTIDO","evidence":[],"date":"2026-11-05"}
+```

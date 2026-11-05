@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "gate_order": [
     "gate1",
     "gate2",
@@ -20,5 +20,105 @@
     "CRITICAL"
   ],
   "tool_is_not_a_reviewer": "Los scripts solo verifican coherencia documental, no emiten dictamen.",
-  "identity_verification_record_required": true
+  "independence_minimums": {
+    "LOW": {
+      "gate1": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
+        "pinned_artifact": false
+      },
+      "gate2": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
+        "pinned_artifact": false
+      },
+      "gate3": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
+        "pinned_artifact": false
+      }
+    },
+    "MEDIUM": {
+      "gate1": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
+        "pinned_artifact": false
+      },
+      "gate2": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
+        "pinned_artifact": true
+      },
+      "gate3": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G1_EVIDENCIA_REGISTRADA",
+        "evidence": [
+          "execution"
+        ],
+        "pinned_artifact": false
+      }
+    },
+    "HIGH": {
+      "gate1": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G1_EVIDENCIA_REGISTRADA",
+        "evidence": [
+          "identity"
+        ],
+        "pinned_artifact": false
+      },
+      "gate2": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G1_EVIDENCIA_REGISTRADA",
+        "evidence": [
+          "identity"
+        ],
+        "pinned_artifact": true
+      },
+      "gate3": {
+        "isolation": "I1_CONTEXTO_SEPARADO",
+        "guarantee": "G1_EVIDENCIA_REGISTRADA",
+        "evidence": [
+          "identity",
+          "execution"
+        ],
+        "pinned_artifact": false
+      }
+    },
+    "CRITICAL": {
+      "gate1": {
+        "isolation": "I2_PERMISOS_SEPARADOS",
+        "guarantee": "G2_VERIFICACION_REGISTRADA",
+        "evidence": [
+          "identity",
+          "isolation"
+        ],
+        "pinned_artifact": false
+      },
+      "gate2": {
+        "isolation": "I2_PERMISOS_SEPARADOS",
+        "guarantee": "G2_VERIFICACION_REGISTRADA",
+        "evidence": [
+          "identity",
+          "isolation"
+        ],
+        "pinned_artifact": true
+      },
+      "gate3": {
+        "isolation": "I2_PERMISOS_SEPARADOS",
+        "guarantee": "G2_VERIFICACION_REGISTRADA",
+        "evidence": [
+          "identity",
+          "isolation",
+          "execution"
+        ],
+        "pinned_artifact": false
+      }
+    }
+  }
 }

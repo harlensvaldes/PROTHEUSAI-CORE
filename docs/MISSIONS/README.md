@@ -1,21 +1,9 @@
-# Misiones
+# Missions
 
-Una carpeta por misión, creada con:
+Create a mission with python scripts/new_mission.py --id APP-001 --title "First mission" --risk MEDIUM --orchestrator orch-01 --architect arch-01. New schema v3 Gates start PENDING with review null; developer remains unassigned until actual work.
 
-```bash
-python scripts/new_mission.py --id APP-001 --title "Primera función" --risk MEDIUM --orchestrator "orch-01" --architect "arch-01"
-```
+A review is a single protheusai-review JSON block in a report, with the manifest storing only decision and review {file, sha256_lf, reviewer_verification}. See QUALITY_EVIDENCE_PROTOCOL.md and quality/controls.json for the A/B/C dimensions, evidence, risk matrix and limitations. The CLI validates consistency, not reviewer identity, isolation, truth or Quality certification. PWR never enables transitions.
 
-El script crea `mission.json` (esquema v2) y los formularios Markdown. El registro nace con **todos los Gates en PENDING**, identidades **solo declaradas** y `roles.developer` vacío: el Developer se registra cuando existe implementación real, nunca por defecto. `--author` es un alias obsoleto de `--orchestrator`: emite un aviso y no asigna Developer ni Architect.
+v1 and v2 manifests with any non-PENDING Gate are historical: validate checks structure only and emits a warning, without extending their approvals; can-implement and can-close never enable them. v2 with every Gate PENDING can migrate mechanically to v3. If preserving a v2 manifest, record its raw SHA-256 and rename the unchanged bytes to mission.v2.json; then create a v3 manifest with new PENDING Gates. Do not infer identities or transfer prior approvals.
 
-Antes de registrar un dictamen, el Orchestrator completa en `mission.json` la `evidence` de cada identidad (método y referencia reproducible). Quien comprueba efectivamente esa evidencia registra `verification` (`by`, método, referencia, fecha). Nadie verifica su propia identidad, y el autor revisado no verifica la identidad de su revisor. La CLI comprueba que estos registros existen y son coherentes; no comprueba identidades. Reglas completas: `docs/QUALITY_EVIDENCE_PROTOCOL.md`.
-
-Un revisor real (distinto de cualquier autor) produce su informe; solo entonces puede registrarse la decisión explícita con evidencia. `PASS_WITH_RESERVATIONS` no habilita transiciones.
-
-### Manifiestos v1 (históricos)
-`validate` los acepta con un aviso y sus dictámenes se conservan, pero `can-implement` y `can-close` siempre los bloquean. Para obtener nuevas autorizaciones:
-1. Registra el SHA-256 de `mission.json` v1 y renómbralo a `mission.v1.json` sin alterar su contenido. Comprueba que el hash no cambia; la CLI ignora ese archivo.
-2. Crea `mission.json` v2 con las identidades reales y su evidencia; nunca las infieras de `author`/`implementation_author`.
-3. Cada Gate queda en PENDING salvo que Quality lo revalide con un informe nuevo que cumpla las reglas v2. Los informes históricos no se modifican.
-
-El ejemplo `EXAMPLE-001` demuestra estructura sin fingir que ningún Gate pasó. Validación formal automática: `python scripts/quality_cli.py validate`. No sustituye auditoría técnica.
+Derived projects must upgrade quality/controls.json to schema_version 2 with complete independence_minimums. Without a valid monotonic matrix the v3 CLI fails closed.

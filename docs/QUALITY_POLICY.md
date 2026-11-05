@@ -40,3 +40,7 @@ Ver `quality/RISK_MATRIX.md`. LOW usa evidencias ligeras y revisión proporciona
 
 ## Separación del release
 Gate 3 PASS **no despliega** ni asegura aptitud legal o validación profesional de un dominio crítico. Seguir `docs/RELEASE_POLICY.md`.
+
+## Independence minimums and reopening
+
+The current risk-by-Gate matrix is quality/controls.json independence_minimums. Authorship, declared isolation and evidence traceability are distinct; the CLI cannot certify identity or isolation. For a mission not yet accepted, changing the matrix or mission risk after Gate 1 reopens Gate 1 and requires the Owner. Accepted missions are not reopened; validate warns when they do not meet the current matrix, and transition commands always apply the current matrix. The CLI cannot reconstruct historical matrices.

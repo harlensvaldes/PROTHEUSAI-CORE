@@ -1,22 +1,25 @@
-# [MISSION-ID] · Gate 2 — Diff review
+# GATE2 review
 
-**Dictamen:** PENDING
-**Revisor:** [IDENTIDAD REAL]
-**Verificación de identidad:** [evidencia del revisor: método + ref; quién la comprobó]
-**Independencia verificada:** [sí/no + evidencia de no autoría del diff]
-**Artefacto revisado:** [diff + git:<base>..<head> o sha256:<64 hex> del árbol revisado]
-**Autor efectivo:** [ID(s) del Developer del diff revisado, separados por comas]
-**Plan Gate 1:** [referencia]
+Narrative, findings, evidence, limitations and the reviewer declaration belong here.
 
-## Revisión de alcance y contratos
-[DECIDIR]
+```protheusai-review
+{
+  "mission": "[MISSION-ID]",
+  "gate": "gate2",
+  "risk": "HIGH",
+  "decision": "PENDING",
+  "reviewer": "",
+  "artifact": {
+    "name": "",
+    "ref": "",
+    "path": null
+  },
+  "effective_authors": [],
+  "authorship_independent": false,
+  "isolation": "I0_CONTEXTO_COMPARTIDO",
+  "evidence": [],
+  "date": ""
+}
+```
 
-## Regresiones, dependencias y tests alterados
-[DECIDIR]
-
-## Hallazgos
-| ID | Severidad | Archivo:línea | Contrato afectado | Remediación |
-|---|---|---|---|---|
-
-## Justificación del dictamen
-[Motivos del dictamen de cabecera. PASS_WITH_RESERVATIONS no equivale a PASS ni habilita transiciones.]
+Before review, record git status --porcelain --untracked-files=all and sha256_lf of each changed or new file in append-only GATE2-INPUT-<nn>.sha256. Send its sha256_lf or committed git reference in the review instruction. After commit compare every committed change with the input and compare the review reference to the instruction; append the result in POST-GATE-VALIDATION-<suffix>.md. Before Owner acceptance the Owner or a Quality reviewer who does not issue a Gate decision for the mission reads the anchor from the runtime message record. The Gate 3 reviewer treats the comparison as a declaration. See QUALITY_EVIDENCE_PROTOCOL.md for allowed additions and residual risk.

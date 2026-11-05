@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "GOV-001",
   "title": "Integridad de identidad y autoría (PROTHEUSAI v1.1)",
   "risk": "HIGH",
@@ -33,30 +33,37 @@
           "ref": "sesión e5be03ee-40b1-4d52-a967-aab163ad6f3c, agente principal (VS Code)"
         },
         "verification": null
+      },
+      {
+        "id": "codex /root",
+        "evidence": {
+          "method": "conversation",
+          "ref": "GOV-R01 and GOV-R03 implementation in current Codex session"
+        },
+        "verification": null
+      },
+      {
+        "id": "codex /root/adapt_tests",
+        "evidence": {
+          "method": "delegated-agent",
+          "ref": "current Codex session, adaptation of tests/test_governance.py"
+        },
+        "verification": null
       }
     ]
   },
   "gates": {
     "gate1": {
       "decision": "PENDING",
-      "reviewer": null,
-      "reviewed_artifact": null,
-      "evidence_file": null,
-      "date": null
+      "review": null
     },
     "gate2": {
       "decision": "PENDING",
-      "reviewer": null,
-      "reviewed_artifact": null,
-      "evidence_file": null,
-      "date": null
+      "review": null
     },
     "gate3": {
       "decision": "PENDING",
-      "reviewer": null,
-      "reviewed_artifact": null,
-      "evidence_file": null,
-      "date": null
+      "review": null
     }
   },
   "owner_acceptance": {

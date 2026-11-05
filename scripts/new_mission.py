@@ -39,13 +39,12 @@ def create_mission(root: Path, mission_id: str, title: str, risk: str, orchestra
     target = root / 'docs/MISSIONS' / mission_id
     target.mkdir(parents=True, exist_ok=False)
     manifest = {
-        'schema_version':2, 'id':mission_id, 'title':title, 'risk':risk,
+        'schema_version':3, 'id':mission_id, 'title':title, 'risk':risk,
         'created_at':date.today().isoformat(),
         'roles': {'orchestrator':[declared(orchestrator)],
                   'architect':[declared(architect)] if architect else [],
                   'developer':[]},
-        'gates': {g:{'decision':'PENDING','reviewer':None,'reviewed_artifact':None,
-                     'evidence_file':None,'date':None} for g in ('gate1','gate2','gate3')},
+        'gates': {g:{'decision':'PENDING','review':None} for g in ('gate1','gate2','gate3')},
         'owner_acceptance':{'status':'PENDING','approved_by':None,'date':None},
     }
     (target/'mission.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

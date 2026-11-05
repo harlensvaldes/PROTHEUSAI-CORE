@@ -1,0 +1,45 @@
+# GOV-R03 Gate 2 input; base 1ea0af638f3c8a66b29dd1b8beeb6e5a8fb97c86
+# git status --porcelain --untracked-files=all
+#  M docs/MISSIONS/EXAMPLE-001/02-GATE1-REVIEW.md
+#  M docs/MISSIONS/EXAMPLE-001/mission.json
+#  M docs/MISSIONS/GOV-001/mission.json
+#  M docs/MISSIONS/README.md
+#  M docs/QUALITY_EVIDENCE_PROTOCOL.md
+#  M docs/QUALITY_POLICY.md
+#  M docs/templates/GATE1_REVIEW.md
+#  M docs/templates/GATE2_REVIEW.md
+#  M docs/templates/GATE3_EVIDENCE.md
+#  M quality/controls.json
+#  M scripts/new_mission.py
+#  M scripts/quality_cli.py
+#  M tests/test_governance.py
+# ?? docs/MISSIONS/GOV-001/GATE2-INPUT-06.sha256
+# ?? docs/MISSIONS/GOV-001/POST-GATE-VALIDATION-R01.md
+# ?? docs/MISSIONS/GOV-001/R03-GATE1-REVIEW-01-ASCII-ADDENDUM.md
+# ?? docs/MISSIONS/GOV-001/R03-GATE1-REVIEW-01.md
+# ?? docs/MISSIONS/GOV-001/evidence/R03-execution-01.md
+# ?? docs/MISSIONS/GOV-001/mission.v2.json
+# ?? scripts/quality_v3.py
+# ?? tests/test_governance_v3.py
+# sha256_lf  path
+8f990e6c4ada160cebd4990bc22bb42f7295087a5ab68d9362874981cd556a0d  docs/MISSIONS/EXAMPLE-001/02-GATE1-REVIEW.md
+583cbf61b1b7fdd2ecf00e581d5623896e202a8e1045ee74bfd5754196eabd3d  docs/MISSIONS/EXAMPLE-001/mission.json
+8a3f8735267ac887bfb2965c8787d2845f601175be87bbf19778bc03308da6f9  docs/MISSIONS/GOV-001/mission.json
+59c337bffa7c94fff730a264401f316e9d6bfcac07a48b2c45d22a79c24ba998  docs/MISSIONS/README.md
+9773a1729ceae63732005c6bf32dfb7f4737a1c9c18252084028d116f053dd58  docs/QUALITY_EVIDENCE_PROTOCOL.md
+fb67d0fd3ef67c2efe81adbe6533399b5cb51d76bd688eb0353979d2fbdb1d18  docs/QUALITY_POLICY.md
+262f48779cf8126aaa20664363dca70c31992e15ceafd8ae6a46dc6c9c1462e0  docs/templates/GATE1_REVIEW.md
+604f611b5f00a1294a2cd0c19135bfe305204d8d2af2242394625718af30a4c7  docs/templates/GATE2_REVIEW.md
+698f43e0b1f94de4d7935435fd1294d1da256525edd4428420e749a6516ad188  docs/templates/GATE3_EVIDENCE.md
+c2d5e62a40481e97fcf4cc6b57d02d5ee40bc29affb041c62d607d8f5d02e037  quality/controls.json
+9cb71626c466739f0db9fd489b36944b37c9540cbf5e261c4efc28bad6170bba  scripts/new_mission.py
+ae134f6bbe7e887b763b961cb252ea9fad2c326adfaf6e6bc3e987e84226c5d1  scripts/quality_cli.py
+c61c077dfd2b9dad6c1e8b47b29c82a277df5a5b7b76c84850d9db7bad8e90cb  tests/test_governance.py
+895434328f7bf82352c9a8add7155ae5980e0aa2ee8680cdf712a96589cfcac3  docs/MISSIONS/GOV-001/GATE2-INPUT-06.sha256
+632ac25e4a3bea2dfbbd7e57ef1c50bd4b7f4e56e6e9eb19c335099ac75f4c0b  docs/MISSIONS/GOV-001/POST-GATE-VALIDATION-R01.md
+0a528967aabb9f8014a814eee1b76629c08f96d35b5a9c5ab3f797dc856a25cd  docs/MISSIONS/GOV-001/R03-GATE1-REVIEW-01-ASCII-ADDENDUM.md
+f6c27f0cf5717f0a06a021e41dc854db6986e92a9d34fec3ae2d31802da8d5ce  docs/MISSIONS/GOV-001/R03-GATE1-REVIEW-01.md
+ab5aa85d62da7022ca84d4324eb65d03ff3cf50cd081dc4f4a6f20c32493ea49  docs/MISSIONS/GOV-001/evidence/R03-execution-01.md
+f6a5c894c9cfc87ddcdfc17cfaf8d1c18f9cfa2a7d262e42c3c200bd7c468419  docs/MISSIONS/GOV-001/mission.v2.json
+b55cfc2ee3bb0cdfe6133e4d72f750f2b61533cd1c56016283594bf44d898083  scripts/quality_v3.py
+286567f31a595bc93cfa7deb065bc3bc65aa9a48d044d48d7c6adc8ceda58e7b  tests/test_governance_v3.py

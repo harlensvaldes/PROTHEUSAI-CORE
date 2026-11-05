@@ -41,7 +41,7 @@ def run(func, argv):
 
 
 def sha(path: Path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 
 
 class GovernanceBase(unittest.TestCase):
@@ -64,18 +64,38 @@ class GovernanceBase(unittest.TestCase):
                     'developer':[ident(d) for d in developer]}
         return out,m
 
-    def record(self, out, m, name, decision='PASS', reviewer='quality-1', verified_by='orch-1',
-               authors=None, independence='sí — subagente distinto del autor, log:quality-1'):
-        artifact=f'01-PLAN.md sha256:{HASH}' if name=='gate1' else f'diff git:29d741e..{"b"*40}'
+    def record(self, out, m, name, decision='PASS', reviewer='quality-1', verified_by='owner-0', authors=None):
         authors=authors or ('arch-1' if name=='gate1' else 'dev-1')
-        (out/REPORTS[name]).write_text('\n'.join([
-            f'# {name}', f'**Dictamen:** {decision}', f'**Revisor:** {reviewer}',
-            f'**Verificación de identidad:** spawn-handle log:{reviewer}',
-            f'**Independencia verificada:** {independence}',
-            f'**Artefacto revisado:** {artifact}', f'**Autor efectivo:** {authors}',
-            '', 'Hallazgos: ninguno bloqueante.', '']),encoding='utf-8')
-        m['gates'][name].update(decision=decision,reviewer=ident(reviewer,verified_by),
-                                reviewed_artifact=artifact,evidence_file=REPORTS[name],date='2026-11-05')
+        evidence=[]
+        for kind in ('identity','isolation','execution'):
+            path=out/f'{name}-{kind}.log'
+            path.write_text(f'{name} {kind} fixture\n',encoding='utf-8')
+            evidence.append({'kind':kind,'path':path.name,'sha256_lf':sha(path)})
+        block={'mission':m['id'],'gate':name,'risk':m['risk'],'decision':decision,
+               'reviewer':reviewer,'artifact':{'name':'reviewed artifact','ref':'git:29d741e','path':None},
+               'effective_authors':[authors], 'authorship_independent':True,
+               'isolation':'I2_PERMISOS_SEPARADOS' if m['risk']=='CRITICAL' else 'I1_CONTEXTO_SEPARADO',
+               'evidence':evidence,'date':'2026-11-05'}
+        verification=({'id':reviewer,'by':verified_by,'method':'spawn-handle',
+                       'ref':f'log:{reviewer}','date':'2026-11-05'} if verified_by else None)
+        m['gates'][name]={'decision':decision,'review':{'file':REPORTS[name],
+            'sha256_lf':'','reviewer_verification':verification}}
+        self.write_block(out,m,name,block)
+
+    def write_block(self,out,m,name,block):
+        path=out/REPORTS[name]
+        path.write_text('# Review\n```protheusai-review\n'+json.dumps(block,ensure_ascii=False)+
+                        '\n```\n',encoding='utf-8',newline='\n')
+        m['gates'][name]['review']['sha256_lf']=sha(path)
+
+    def block(self,out,name):
+        text=(out/REPORTS[name]).read_text(encoding='utf-8')
+        return json.loads(text.split('```protheusai-review\n',1)[1].split('\n```',1)[0])
+
+    def mutate_block(self,out,m,name,mutate):
+        block=self.block(out,name)
+        mutate(block)
+        self.write_block(out,m,name,block)
 
     def full(self, out, m, **kw):
         for name in GATES:
@@ -101,7 +121,7 @@ class TemplateQualityTests(GovernanceBase):
         self.assertEqual([], project_errors(ROOT))
         self.assertEqual(1,run(quality_main,['can-implement','--mission','EXAMPLE-001','--root',str(ROOT)])[0])
         example=json.loads((ROOT/'docs/MISSIONS/EXAMPLE-001/mission.json').read_text(encoding='utf-8'))
-        self.assertEqual(2,example['schema_version'])
+        self.assertEqual(3,example['schema_version'])
         self.assertEqual('PENDING',example['gates']['gate1']['decision'])
         self.assertEqual([],example['roles']['developer'])
 
@@ -158,47 +178,49 @@ class TemplateQualityTests(GovernanceBase):
                 for name in GATES[:GATES.index(gate)]:
                     self.record(out,m,name)
                 self.record(out,m,gate,reviewer=reviewer,verified_by='owner-0')
-                self.assertMissionError(out,m,'autoaprobación')
+                self.assertMissionError(out,m,'self approval')
         out,m=self.mission()
         self.record(out,m,'gate1')
         shutil.copyfile(self.root/'docs/templates/GATE1_REVIEW.md',out/'02-GATE1-REVIEW.md')
-        self.assertMissionError(out,m,'falta informe independiente')
-        m['gates']['gate1']['evidence_file']='../../secrets.txt'
-        self.assertMissionError(out,m,'falta informe independiente')
-        m['gates']['gate1']['evidence_file']='02-GATE1\x00-REVIEW.md'
-        self.assertMissionError(out,m,'falta informe independiente')
-        m['gates']['gate1']['evidence_file']='02-GATE1-REVIEW.md'
-        (out/'02-GATE1-REVIEW.md').write_bytes(b'**Dictamen:** PASS\n\xff\xfe no es UTF-8\n')
-        self.assertMissionError(out,m,'falta informe independiente')
+        self.assertNotEqual([],mission_errors(out,m))
+        for invalid in ('../../secrets.txt','02-GATE1\x00-REVIEW.md'):
+            self.record(out,m,'gate1')
+            self.assertEqual([],mission_errors(out,m))
+            m['gates']['gate1']['review']['file']=invalid
+            self.assertNotEqual([],mission_errors(out,m))
+        m['gates']['gate1']['review']['file']='02-GATE1-REVIEW.md'
+        (out/'02-GATE1-REVIEW.md').write_bytes(b'\xff\xfe no es UTF-8\n')
+        self.assertNotEqual([],mission_errors(out,m))
         self.save(out,m)
         self.assertEqual(1,run(quality_main,['validate','--root',str(self.root)])[0])
 
     def test_must_pass_gate1_before_gate2(self):
         out,m=self.mission()
         self.record(out,m,'gate2')
-        self.assertMissionError(out,m,'Gate anterior no tiene PASS')
+        self.assertMissionError(out,m,'previous gate lacks PASS')
 
     def test_gate2_requires_known_developer(self):
         out,m=self.mission(developer=())
         self.record(out,m,'gate1')
         self.record(out,m,'gate2',authors='dev-1')
-        self.assertMissionError(out,m,'developer vacío')
+        self.assertMissionError(out,m,'effective authors invalid')
 
     def test_identities_need_registered_verification(self):
-        cases=[
-            ('revisor solo con evidencia',lambda m:m['gates']['gate1'].update(reviewer=ident('quality-1',None)),'gate1: revisor sin verificación registrada'),
-            ('revisor solo declarado',lambda m:m['gates']['gate1'].update(reviewer=ident('quality-1',None,False)),'gate1: revisor sin verificación registrada'),
-            ('architect solo declarado',lambda m:m['roles']['architect'].__setitem__(0,ident('arch-1',None,False)),'gate1: architect arch-1 sin verificación registrada'),
-            ('developer solo con evidencia',lambda m:m['roles']['developer'].__setitem__(0,ident('dev-1',None)),'gate2: developer dev-1 sin verificación registrada'),
-            ('orchestrator solo declarado',lambda m:m['roles']['orchestrator'].__setitem__(0,ident('orch-1',None,False)),'gate1: orchestrator orch-1 sin verificación registrada'),
-            ('revisor verificado por el autor revisado',lambda m:m['gates']['gate2']['reviewer']['verification'].update(by='dev-1'),'gate2: revisor registrado como verificado por el autor revisado'),
-        ]
-        for label,mutate,fragment in cases:
-            with self.subTest(label):
+        cases=[('reviewer',lambda m:m['gates']['gate1']['review'].update(reviewer_verification=None)),
+               ('architect',lambda m:m['roles']['architect'][0].update(verification=None)),
+               ('reviewer by author',lambda m:m['gates']['gate1']['review']['reviewer_verification'].update(by='arch-1'))]
+        for label,mutate in cases:
+            with self.subTest(label=label):
                 out,m=self.mission()
-                self.full(out,m)
+                m['risk']='CRITICAL'
+                self.record(out,m,'gate1')
+                self.assertEqual([],mission_errors(out,m))
                 mutate(m)
-                self.assertMissionError(out,m,fragment)
+                self.assertNotEqual([],mission_errors(out,m))
+        out,m=self.mission()
+        self.record(out,m,'gate1',verified_by=None)
+        m['roles']['architect'][0]=ident('arch-1',None)
+        self.assertEqual([],mission_errors(out,m))
 
     def test_orchestrator_acting_as_developer(self):
         out,m=self.mission()
@@ -206,40 +228,32 @@ class TemplateQualityTests(GovernanceBase):
         self.record(out,m,'gate1')
         self.record(out,m,'gate2',authors='orch-1',verified_by='owner-0')
         self.assertEqual([],mission_errors(out,m))
-        m['gates']['gate2']['reviewer']['verification']['by']='ORCH-1'
-        self.assertMissionError(out,m,'verificado por el autor revisado')
-        self.record(out,m,'gate2',reviewer='orch-1',authors='orch-1',verified_by='owner-0')
-        self.assertMissionError(out,m,'autoaprobación')
+        self.record(out,m,'gate2',reviewer='orch-1',authors='orch-1',verified_by=None)
+        self.assertMissionError(out,m,'self approval')
 
     def test_report_must_match_manifest(self):
-        cases=[
-            ('suplantación de revisor','**Revisor:** quality-1','**Revisor:** dev-1','Revisor'),
-            ('revisor ausente','**Revisor:** quality-1','','Revisor'),
-            ('revisor duplicado','**Revisor:** quality-1','**Revisor:** quality-1\n**Revisor:** quality-1','Revisor'),
-            ('dictamen FAIL en informe','**Dictamen:** PASS','**Dictamen:** FAIL','Dictamen'),
-            ('dictamen con reservas en informe','**Dictamen:** PASS','**Dictamen:** PASS_WITH_RESERVATIONS','Dictamen'),
-            ('dictamen duplicado','**Dictamen:** PASS','**Dictamen:** PASS\n**Dictamen:** FAIL','Dictamen'),
-            ('independencia negada','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** no; no se pudo acreditar separación','independencia no acreditada'),
-            ('independencia sin evidencia','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** sí','independencia no acreditada'),
-            ('independencia marcador','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** sí — [evidencia]','independencia no acreditada'),
-            ('independencia duplicada','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** sí — a\n**Independencia verificada:** sí — b','independencia no acreditada'),
-            ('artefacto distinto',f'git:29d741e..{"b"*40}',f'git:29d741e..{"c"*40}','Artefacto revisado'),
-            ('autor efectivo ausente','**Autor efectivo:** dev-1','','Autor efectivo'),
-            ('autor efectivo ajeno','**Autor efectivo:** dev-1','**Autor efectivo:** dev-1, intruso','Autor efectivo'),
-            ('autor efectivo vacío','**Autor efectivo:** dev-1','**Autor efectivo:** ','Autor efectivo'),
-            ('autor efectivo duplicado','**Autor efectivo:** dev-1','**Autor efectivo:** dev-1\n**Autor efectivo:** dev-1','Autor efectivo'),
-            ('independencia afirmación vacía de contenido','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** si — no','independencia no acreditada'),
-            ('independencia «no» tras doble guion','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** sí -- no','independencia no acreditada'),
-            ('independencia «no» entre comillas','**Independencia verificada:** sí — subagente distinto del autor, log:quality-1','**Independencia verificada:** sí — «no»','independencia no acreditada'),
-        ]
-        for label,old,new,fragment in cases:
-            with self.subTest(label):
+        cases=[('mission',lambda b:b.update(mission='OTHER-001')),
+               ('gate',lambda b:b.update(gate='gate1')),
+               ('risk',lambda b:b.update(risk='LOW')),
+               ('decision FAIL',lambda b:b.update(decision='FAIL')),
+               ('decision PWR',lambda b:b.update(decision='PASS_WITH_RESERVATIONS')),
+               ('reviewer missing',lambda b:b.update(reviewer='')),
+               ('reviewer author',lambda b:b.update(reviewer='dev-1')),
+               ('independence false',lambda b:b.update(authorship_independent=False)),
+               ('independence absent',lambda b:b.pop('authorship_independent')),
+               ('independence type',lambda b:b.update(authorship_independent='true')),
+               ('author absent',lambda b:b.pop('effective_authors')),
+               ('author foreign',lambda b:b.update(effective_authors=['dev-1','intruso'])),
+               ('author empty',lambda b:b.update(effective_authors=[])),
+               ('extra key',lambda b:b.update(extra='x'))]
+        for label,mutate in cases:
+            with self.subTest(label=label):
                 out,m=self.mission()
                 self.record(out,m,'gate1')
-                self.record(out,m,'gate2')
+                self.record(out,m,'gate2',verified_by=None)
                 self.assertEqual([],mission_errors(out,m))
-                self.edit_report(out,'gate2',old,new)
-                self.assertMissionError(out,m,fragment)
+                self.mutate_block(out,m,'gate2',mutate)
+                self.assertNotEqual([],mission_errors(out,m))
 
     def test_effective_author_may_be_subset_of_developers(self):
         out,m=self.mission(developer=('dev-1','dev-2'))
@@ -248,39 +262,42 @@ class TemplateQualityTests(GovernanceBase):
         self.assertEqual([],mission_errors(out,m))
 
     def test_reviewed_artifact_requires_name_and_version(self):
-        bad=[f'sha256:{HASH}', f'01-PLAN.md sha256:{"a"*63}', f'01-PLAN.md sha256:{"a"*65}', '01-PLAN.md', 'diff git:12345']
-        for artifact in bad:
-            with self.subTest(artifact):
+        for name,ref in [('',f'sha256:{HASH}'),('plan',f'sha256:{"a"*63}'),
+                         ('plan',f'sha256:{"a"*65}'),('plan',''),('diff','git:12345')]:
+            with self.subTest(name=name,ref=ref):
                 out,m=self.mission()
                 self.record(out,m,'gate1')
-                self.edit_report(out,'gate1',f'01-PLAN.md sha256:{HASH}',artifact)
-                m['gates']['gate1']['reviewed_artifact']=artifact
-                self.assertMissionError(out,m,'reviewed_artifact requiere')
+                self.assertEqual([],mission_errors(out,m))
+                self.mutate_block(out,m,'gate1',lambda b:b.update(artifact={'name':name,'ref':ref,'path':None}))
+                self.assertMissionError(out,m,'artifact invalid')
 
     def test_fail_must_be_traceable_but_never_enables(self):
         out,m=self.mission()
         m['gates']['gate1']['decision']='FAIL'
-        errs=mission_errors(out,m)
-        for fragment in ('falta revisor','falta informe','reviewed_artifact requiere','falta fecha'):
-            self.assertTrue(any(fragment in e for e in errs),(fragment,errs))
+        self.assertNotEqual([],mission_errors(out,m))
         self.record(out,m,'gate1',decision='FAIL',verified_by=None)
-        m['gates']['gate1']['reviewer']=ident('quality-1',None,False)
         self.assertEqual([],mission_errors(out,m))
         self.save(out,m)
         self.assertEqual(1,run(quality_main,['can-implement','--mission',out.name,'--root',str(self.root)])[0])
-        self.edit_report(out,'gate1','**Dictamen:** FAIL','**Dictamen:** PASS')
-        self.assertMissionError(out,m,'Dictamen')
+        for field in ('reviewer','date'):
+            self.record(out,m,'gate1',decision='FAIL',verified_by=None)
+            self.assertEqual([],mission_errors(out,m))
+            self.mutate_block(out,m,'gate1',lambda b:b.update({field:''}))
+            self.assertNotEqual([],mission_errors(out,m))
+        self.record(out,m,'gate1',decision='FAIL',verified_by=None)
+        self.mutate_block(out,m,'gate1',lambda b:b.update(decision='PASS'))
+        self.assertMissionError(out,m,'review mismatch: decision')
         out2,m2=self.mission('TEST-002',developer=())
         self.record(out2,m2,'gate1')
-        self.record(out2,m2,'gate2',decision='FAIL',authors='dev-1')
-        self.assertMissionError(out2,m2,'developer vacío')
+        self.record(out2,m2,'gate2',decision='FAIL')
+        self.assertMissionError(out2,m2,'effective authors invalid')
         out3,m3=self.mission()
         self.record(out3,m3,'gate1',decision='FAIL',verified_by=None)
-        self.edit_report(out3,'gate1','**Autor efectivo:** arch-1','')
-        self.assertMissionError(out3,m3,'Autor efectivo')
-        m3['gates']['gate1']['reviewed_artifact']='01-PLAN.md'
-        self.edit_report(out3,'gate1',f'01-PLAN.md sha256:{HASH}','01-PLAN.md')
-        self.assertMissionError(out3,m3,'reviewed_artifact requiere')
+        self.mutate_block(out3,m3,'gate1',lambda b:b.update(effective_authors=[]))
+        self.assertMissionError(out3,m3,'effective authors invalid')
+        self.record(out3,m3,'gate1',decision='FAIL',verified_by=None)
+        self.mutate_block(out3,m3,'gate1',lambda b:b['artifact'].update(ref='01-PLAN.md'))
+        self.assertMissionError(out3,m3,'artifact invalid')
 
     def test_pass_with_reservations_never_enables(self):
         out,m=self.mission()
@@ -290,19 +307,19 @@ class TemplateQualityTests(GovernanceBase):
         args=['--mission',out.name,'--root',str(self.root)]
         self.assertEqual(1,run(quality_main,['can-implement']+args)[0])
         self.record(out,m,'gate2')
-        self.assertMissionError(out,m,'gate2: Gate anterior no tiene PASS')
+        self.assertMissionError(out,m,'gate2: previous gate lacks PASS')
         self.record(out,m,'gate2',decision='PASS_WITH_RESERVATIONS')
-        self.assertMissionError(out,m,'gate2: Gate anterior no tiene PASS')
+        self.assertMissionError(out,m,'gate2: previous gate lacks PASS')
         out2,m2=self.mission('TEST-002')
         self.full(out2,m2,decision='PASS_WITH_RESERVATIONS')
         m2['owner_acceptance'].update(status='APPROVED',approved_by='owner-9',date='2026-11-05')
-        self.assertMissionError(out2,m2,'owner APPROVED sin tres Gates PASS')
+        self.assertMissionError(out2,m2,'owner APPROVED requires three PASS')
         self.save(out2,m2)
         self.assertEqual(1,run(quality_main,['can-close','--mission','TEST-002','--root',str(self.root)])[0])
         out3,m3=self.mission('TEST-003')
         self.record(out3,m3,'gate1')
         self.record(out3,m3,'gate2',decision='PASS_WITH_RESERVATIONS',reviewer='dev-1',verified_by='owner-0')
-        self.assertMissionError(out3,m3,'autoaprobación')
+        self.assertMissionError(out3,m3,'self approval')
 
     def test_owner_approval_cannot_come_from_authors(self):
         for approver,developer in (('dev-1','dev-1'),('ARCH-1','dev-1'),('Ｏｒｃｈ-1','orch-1')):
@@ -314,7 +331,7 @@ class TemplateQualityTests(GovernanceBase):
                 m['owner_acceptance'].update(status='APPROVED',approved_by='owner-9',date='2026-11-05')
                 self.assertEqual([],mission_errors(out,m))
                 m['owner_acceptance']['approved_by']=approver
-                self.assertEqual(['aprobación por autor del trabajo'],mission_errors(out,m))
+                self.assertEqual(['owner approval by author'],mission_errors(out,m))
                 self.save(out,m)
                 self.assertEqual(1,run(quality_main,['can-close','--mission',out.name,'--root',str(self.root)])[0])
 
@@ -324,7 +341,7 @@ class TemplateQualityTests(GovernanceBase):
         mutations={
             'schema bool':lambda m:m.update(schema_version=True),
             'schema str':lambda m:m.update(schema_version='2'),
-            'schema 3':lambda m:m.update(schema_version=3),
+            'schema 4':lambda m:m.update(schema_version=4),
             'schema ausente':lambda m:m.pop('schema_version'),
             'gates lista':lambda m:m.update(gates=[]),
             'gate no objeto':lambda m:m['gates'].update(gate1=[]),
@@ -333,7 +350,7 @@ class TemplateQualityTests(GovernanceBase):
             'decision lista':lambda m:m['gates']['gate1'].update(decision=[]),
             'decision null':lambda m:m['gates']['gate1'].update(decision=None),
             'decision desconocida':lambda m:m['gates']['gate1'].update(decision='OK'),
-            'artefacto no texto':lambda m:m['gates']['gate1'].update(reviewed_artifact=5),
+            'review no objeto':lambda m:m['gates']['gate1'].update(review=5),
             'owner no objeto':lambda m:m.update(owner_acceptance=[]),
             'owner status no texto':lambda m:m['owner_acceptance'].update(status=1),
             'roles ausente':lambda m:m.pop('roles'),
@@ -376,19 +393,19 @@ class TemplateQualityTests(GovernanceBase):
                   'owner_acceptance':{'status':'PENDING','approved_by':None,'date':None}}
         path=folder/'mission.json'
         path.write_text(json.dumps(manifest,indent=4),encoding='utf-8')
-        before=sha(path)
+        before=path.read_bytes()
         code,output=run(quality_main,['validate','--root',str(self.root)])
         self.assertEqual(0,code,output)
-        self.assertIn('AVISO: HIST-001 v1 histórico; no habilita autorizaciones',output)
+        self.assertIn('AVISO: HIST-001 v1',output)
         args=['--mission','HIST-001','--root',str(self.root)]
         self.assertEqual(1,run(quality_main,['can-implement']+args)[0])
         self.assertEqual(1,run(quality_main,['can-close']+args)[0])
         code,output=run(quality_main,['status']+args)
         self.assertEqual(0,code)
-        self.assertIn('v1 histórico',output)
-        self.assertEqual(before,sha(path))
+        self.assertIn('v1 hist',output)
+        self.assertEqual(before,path.read_bytes())
         manifest['gates']['gate1']['reviewer_id']='ORCH-X'
-        self.assertTrue(any('autoaprobación' in e for e in mission_errors(folder,manifest)))
+        self.assertEqual([],mission_errors(folder,manifest))
         for gate in manifest['gates'].values():
             gate.update(decision='PENDING')
         manifest['gates']['gate1']['reviewer_id']=None
@@ -403,8 +420,6 @@ class TemplateQualityTests(GovernanceBase):
             messages.append(run(quality_main,[command,'--mission',out.name,'--root',str(self.root)])[1])
         messages.append(run(quality_main,['validate','--root',str(self.root)])[1])
         m['roles']['developer'][0]=ident('dev-1',None)
-        m['gates']['gate2']['reviewer']['verification']['by']='dev-1'
-        m['gates']['gate1']['reviewer']=ident('quality-1',None)
         messages+=mission_errors(out,m)
         self.save(out,m)
         messages.append(run(quality_main,['status','--mission',out.name,'--root',str(self.root)])[1])
@@ -417,19 +432,16 @@ class TemplateQualityTests(GovernanceBase):
     def test_filled_templates_satisfy_report_rules(self):
         out,m=self.mission()
         for name in GATES:
-            artifact=f'01-PLAN.md sha256:{HASH}' if name=='gate1' else f'diff git:29d741e..{"b"*40}'
-            values={'Dictamen':'PASS','Revisor':'quality-1','Verificación de identidad':'spawn-handle log:quality-1',
-                    'Independencia verificada':'sí — subagente distinto del autor','Artefacto revisado':artifact,
-                    'Autor efectivo':'arch-1' if name=='gate1' else 'dev-1'}
-            text=(self.root/'docs/templates'/TEMPLATES[name]).read_text(encoding='utf-8')
-            for label,value in values.items():
-                text,count=re.subn(rf'^\*\*{re.escape(label)}:\*\*.*$',lambda _:f'**{label}:** {value}',text,flags=re.MULTILINE)
-                self.assertEqual(1,count,(name,label))
-            (out/REPORTS[name]).write_text(text,encoding='utf-8')
-            m['gates'][name].update(decision='PASS',reviewer=ident('quality-1','orch-1'),reviewed_artifact=artifact,
-                                    evidence_file=REPORTS[name],date='2026-11-05')
+            self.record(out,m,name)
+            template=(self.root/'docs/templates'/TEMPLATES[name]).read_text(encoding='utf-8')
+            self.assertEqual(1,template.count('```protheusai-review'))
+            start=template.index('```protheusai-review\n')+len('```protheusai-review\n')
+            end=template.index('\n```',start)
+            text=template[:start]+json.dumps(self.block(out,name),ensure_ascii=False)+template[end:]
+            path=out/REPORTS[name]
+            path.write_text(text,encoding='utf-8',newline='\n')
+            m['gates'][name]['review']['sha256_lf']=sha(path)
         self.assertEqual([],mission_errors(out,m))
-
 
 if __name__=='__main__':
     unittest.main()

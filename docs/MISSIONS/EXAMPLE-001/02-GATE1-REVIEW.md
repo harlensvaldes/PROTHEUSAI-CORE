@@ -1,26 +1,23 @@
-# EXAMPLE-001 · Gate 1 — Revisión independiente
+# GATE1 review
 
-**Dictamen:** PENDING
-**Revisor:** [IDENTIDAD REAL]
-**Independencia verificada:** [sí/no + evidencia]
-**Fecha:** [AAAA-MM-DD]
-**Plan exacto:** [ruta + hash o revisión]
-**Baseline del repo:** [commit + estado local]
-**Método:** [estático / ejecución / ambos]
+Narrative, findings, evidence, limitations and the reviewer declaration belong here.
 
-## Archivos y documentación consultados
-[DECIDIR]
-
-## Hallazgos
-| ID | Gravedad | Evidencia archivo:línea | Riesgo | Corrección mínima |
-|---|---|---|---|---|
-| [DECIDIR] | BLOCKER/HIGH/MEDIUM/LOW | | | |
-
-## Cobertura de contratos
-[Qué se contrastó, qué no, hallazgos pendientes]
-
-## Dictamen justificado
-[PENDING / FAIL / PASS / PASS_WITH_RESERVATIONS]. No declarar PASS si no existe un revisor real e independiente.
-
-## Aprobación/decisión del propietario
-[PENDIENTE]
+```protheusai-review
+{
+  "mission": "EXAMPLE-001",
+  "gate": "gate1",
+  "risk": "HIGH",
+  "decision": "PENDING",
+  "reviewer": "",
+  "artifact": {
+    "name": "",
+    "ref": "",
+    "path": null
+  },
+  "effective_authors": [],
+  "authorship_independent": false,
+  "isolation": "I0_CONTEXTO_COMPARTIDO",
+  "evidence": [],
+  "date": ""
+}
+```
