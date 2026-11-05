@@ -21,7 +21,7 @@ No impone FastAPI, React, PostgreSQL ni otro stack. La estructura inicial contie
 7. Abre la primera misión:
 
    ```bash
-   python scripts/new_mission.py --id INIT-001 --title "Definir arquitectura inicial" --risk MEDIUM --author "developer-01"
+   python scripts/new_mission.py --id INIT-001 --title "Definir arquitectura inicial" --risk MEDIUM --orchestrator "orchestrator-01" --architect "architect-01"
    python scripts/quality_cli.py status --mission INIT-001
    ```
 

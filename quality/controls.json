@@ -19,5 +19,6 @@
     "HIGH",
     "CRITICAL"
   ],
-  "tool_is_not_a_reviewer": "Los scripts solo verifican coherencia documental, no emiten dictamen."
+  "tool_is_not_a_reviewer": "Los scripts solo verifican coherencia documental, no emiten dictamen.",
+  "identity_verification_record_required": true
 }

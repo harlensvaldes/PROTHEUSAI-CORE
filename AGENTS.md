@@ -13,6 +13,7 @@ Ante contradicción, detener el cambio afectado y documentarla. No inventar norm
 
 ## 2. Roles y separación
 - **Owner**: fija requisitos, riesgos aceptados y autorizaciones.
+- **Orchestrator**: coordina la misión y registra identidades y evidencias de los roles; no es autor por defecto. Puede actuar como Developer si se registra como tal; nunca revisa ni aprueba su propio trabajo ni registra la verificación de identidad de quien lo revisa.
 - **Architect**: diseña plan y contratos; no puede certificar su propio plan.
 - **Developer**: implementa y aporta evidencias; no puede aprobar su propio diff.
 - **Independent Quality**: revisa con acceso al código; no redactó el artefacto auditado, no implementó la misión, tiene facultad de FAIL.

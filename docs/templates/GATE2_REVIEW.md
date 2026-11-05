@@ -1,10 +1,12 @@
 # [MISSION-ID] · Gate 2 — Diff review
 
 **Dictamen:** PENDING
-**Revisor independiente:** [IDENTIDAD]
-**No autor del diff:** [EVIDENCIA]
+**Revisor:** [IDENTIDAD REAL]
+**Verificación de identidad:** [evidencia del revisor: método + ref; quién la comprobó]
+**Independencia verificada:** [sí/no + evidencia de no autoría del diff]
+**Artefacto revisado:** [diff + git:<base>..<head> o sha256:<64 hex> del árbol revisado]
+**Autor efectivo:** [ID(s) del Developer del diff revisado, separados por comas]
 **Plan Gate 1:** [referencia]
-**Diff exacto:** [base..head, working-tree, hash]
 
 ## Revisión de alcance y contratos
 [DECIDIR]
@@ -16,5 +18,5 @@
 | ID | Severidad | Archivo:línea | Contrato afectado | Remediación |
 |---|---|---|---|---|
 
-## Dictamen
-[PENDING / FAIL / PASS / PASS_WITH_RESERVATIONS]
+## Justificación del dictamen
+[Motivos del dictamen de cabecera. PASS_WITH_RESERVATIONS no equivale a PASS ni habilita transiciones.]

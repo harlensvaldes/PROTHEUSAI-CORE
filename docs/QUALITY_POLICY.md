@@ -6,7 +6,7 @@ Evitar errores que comprometan contratos, datos, seguridad y funcionamiento; apo
 ## Gate 1 · Design review
 **Entrada:** propósito, requisitos, límites, riesgos, contratos, alternativas descartadas, archivos afectados, pruebas previstas, reversión, responsable y baseline de código.
 
-**Revisión:** otro agente/persona que no redactó el plan; examina fuente real, conflictos y escenarios negativos. Puede declarar `PASS`, `PASS_WITH_RESERVATIONS`, `FAIL` o `PENDING` según el protocolo del proyecto. Si política exige PASS explícito, las reservas no lo sustituyen.
+**Revisión:** otro agente/persona que no redactó el plan; examina fuente real, conflictos y escenarios negativos. Puede declarar `PASS`, `PASS_WITH_RESERVATIONS`, `FAIL` o `PENDING` según el protocolo del proyecto. Solo `PASS` habilita transiciones; las reservas nunca lo sustituyen.
 
 **Salida necesaria:** informe con identidad, independencia, hallazgos, evidencia archivo/línea o documentación, fecha, decisión y autorización del propietario cuando proceda. **No implementar con Gate 1 FAIL/PENDING.**
 
@@ -24,7 +24,7 @@ Evitar errores que comprometan contratos, datos, seguridad y funcionamiento; apo
 - `PENDING`: falta revisor, información o evidencia.
 - `FAIL`: defecto bloqueante. No avanzar.
 - `PASS`: aprobada la etapa correspondiente, después de revisión real.
-- `PASS_WITH_RESERVATIONS`: solo reservas explícitas y no bloqueantes; su admisibilidad para avanzar exige política/owner.
+- `PASS_WITH_RESERVATIONS`: reservas explícitas y no bloqueantes. **No equivale a PASS ni autoriza transiciones.** Una excepción solo es posible con una política de waivers explícita y aprobada **y** una autorización humana documentada; mientras no exista esa política, no se admiten excepciones. Un waiver nunca se registra como PASS.
 
 ## Independencia
 - Quien creó el plan no emite Gate 1.

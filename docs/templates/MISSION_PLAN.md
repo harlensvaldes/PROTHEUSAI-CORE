@@ -1,7 +1,8 @@
 # [MISSION-ID] · Gate 1 — Plan
 
 **Estado:** DRAFT / PENDING INDEPENDENT REVIEW
-**Autor:** [AGENTE/PERSONA]
+**Architect:** [IDENTIDAD DECLARADA del autor del plan]
+**Orchestrator:** [IDENTIDAD DECLARADA de quien coordina]
 **Fecha:** [AAAA-MM-DD]
 **Riesgo:** [LOW/MEDIUM/HIGH/CRITICAL]
 **Baseline:** [commit, status, dirty tree]

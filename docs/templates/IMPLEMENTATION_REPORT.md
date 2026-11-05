@@ -1,7 +1,7 @@
 # [MISSION-ID] · Registro de implementación
 
 **Gate 1 aprobado:** [ruta + dictamen + fecha]
-**Autor del diff:** [ID]
+**Developer (autor efectivo):** [ID(s) registrados en roles.developer]
 **Base commit:** [sha]
 **Trabajo previo local:** [inventario]
 

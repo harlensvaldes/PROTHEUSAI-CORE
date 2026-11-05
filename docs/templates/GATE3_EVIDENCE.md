@@ -1,8 +1,11 @@
 # [MISSION-ID] · Gate 3 — Evidencia y aceptación
 
 **Dictamen:** PENDING
-**Responsable QA:** [IDENTIDAD]
-**Código/artefacto probado:** [hash/imagen]
+**Revisor:** [IDENTIDAD REAL]
+**Verificación de identidad:** [evidencia del revisor: método + ref; quién la comprobó]
+**Independencia verificada:** [sí/no + evidencia]
+**Artefacto revisado:** [código/imagen + git:<sha> o sha256:<64 hex>]
+**Autor efectivo:** [ID(s) del Developer del artefacto probado, separados por comas]
 **Fecha/entorno:** [DECIDIR]
 
 ## Ejecutado REALMENTE
@@ -18,8 +21,8 @@
 | Riesgo | Gravedad | Aceptado por | Evidencia |
 |---|---|---|---|
 
-## Dictamen y decisión de aceptación
-[PENDING / FAIL / PASS / PASS_WITH_RESERVATIONS]
+## Justificación del dictamen
+[Motivos del dictamen de cabecera. PASS_WITH_RESERVATIONS no equivale a PASS ni habilita transiciones; la aceptación corresponde al Owner.]
 
 ## Release
 No implícito. Ver política de releases.
