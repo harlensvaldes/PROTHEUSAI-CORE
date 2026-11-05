@@ -1,0 +1,13 @@
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -16,0 +17,3 @@
++
++Antes de plantear una cuestión al Owner, el Orchestrator consulta las decisiones previas aplicables, los contratos y requisitos vigentes y la autoridad técnica delegada, con sus fuentes y vigencia. Resuelve dentro de esa autoridad o asigna la cuestión al especialista competente cuando corresponda. Consulta al Owner ante una decisión nueva, ambigüedad material, contradicción, riesgo relevante o duda razonable; no reduce consultas a costa de la supervisión del Owner ni interpreta su silencio como permiso. Al consultar, expone la cuestión, por qué requiere decisión, la recomendación y sus consecuencias. El Owner conserva las decisiones de alcance, riesgos aceptados, excepciones y aceptación. Ninguna delegación sustituye las autorizaciones o Gates exigidos.
++
+@@ -26,0 +30 @@
++- Antes de delegar, el Orchestrator proporciona el objetivo y alcance, las instrucciones, decisiones, documentos, referencias y versiones necesarias, los criterios de aceptación y el formato de respuesta. Cuando un agente necesite contexto adicional, lo solicita al Orchestrator, que lo recupera de fuentes autorizadas y facilita su contenido con procedencia y versión o hash cuando estén disponibles, identificando límites y datos no verificados. Cuando un rol requiera lectura del código o de fuentes, el Orchestrator garantiza su acceso mediante un medio verificable o declara el bloqueo. El intercambio de contexto no acredita identidad, independencia ni aislamiento técnico. Si falta contexto obligatorio que no puede recuperarse ni entregarse por un medio verificable, declara el bloqueo.
+--- a/README.md
++++ b/README.md
+@@ -10,0 +11,2 @@
++   Para usar estas instrucciones con cualquier herramienta de agentes, proporciona `AGENTS.md` al Orchestrator y verifica que sus instrucciones estén disponibles en ese entorno; no supongas que todas las herramientas lo cargan automáticamente.
++

@@ -1,0 +1,48 @@
+{
+  "schema_version": 3,
+  "id": "AUT-001",
+  "title": "Autonomia de decision y consultas al Owner",
+  "risk": "HIGH",
+  "created_at": "2026-11-05",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      },
+      {
+        "id": "/root/aut001_architect",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": []
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate2": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate3": {
+      "decision": "PENDING",
+      "review": null
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

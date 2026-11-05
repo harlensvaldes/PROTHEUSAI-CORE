@@ -1,0 +1,5 @@
+# AUT-001 · Revisión técnica del plan 02
+
+Fecha 2026-11-05. `/root/aut001_quality_plan` emitió **FAIL técnico** del plan SHA-256 declarado `efff69490e48dbea0d3b366dcda9e93bd7e12942fac8305fde031d6657c2ffaa` en el paquete TERRA SHA-256 verificado `94324b8ba444f056fc9cd82f6b53b1ec8cc8927ee4bd4142f56b66b5a995409b`: una prohibición general de comunicación directa extendía sin evidencia la regla del experimento previo; debía preservarse acceso verificable de Quality a fuentes y código, o declararse bloqueo. La entrega proactiva y la atribución de autores estaban recogidas en esa versión. Charter e I1/G1 no resueltos. No es Gate formal ni prueba de runtime.
+
+TERRA corrigió el plan posteriormente: retiró la prohibición general y precisó acceso verificable a código y fuentes. Añadió además una indicación portable en README que remite al contrato sin afirmar carga automática en herramientas concretas. Esta versión posterior requiere revisión propia; no se transfiere el dictamen. E2E NO EJECUTADO.

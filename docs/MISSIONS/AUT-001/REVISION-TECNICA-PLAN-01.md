@@ -1,0 +1,5 @@
+# AUT-001 · Revisión técnica del plan 01
+
+Fecha 2026-11-05. `/root/aut001_quality_plan` revisó el paquete TERRA SHA-256 `31bb181e434f28bbb58328919e79926991d2307a35257d262a6b4469efb32386`, cuyo hash comprobó; plan SHA-256 declarado `4f73e89bca023236cdbaf121942d1bcca87f17590e4dc308a39a352504b30b25`. Dictamen **FAIL técnico**: falta entrega proactiva de contexto antes de delegar; una formulación restringía la autoridad a la delegada «expresamente»; pidió aclarar el tratamiento de riesgo y la atribución de autoría. En el paquete, la aplicabilidad de Charter DRAFT e I1/G1 continuaban sin resolver. No verificó directamente los hashes individuales o el árbol; no es Gate formal.
+
+TERRA constató que el mensaje literal del Owner sí dice «autoridad técnica delegada» y «riesgo relevante», y pidió a Quality reconsiderar esos calificativos; no transfiere automáticamente el resultado. El plan posterior añade entrega proactiva, elimina «expresamente» y el manifiesto candidato declara a TERRA y `/root/aut001_architect` como autores. Esta corrección requiere revisión de su nueva versión. E2E NO EJECUTADO.
