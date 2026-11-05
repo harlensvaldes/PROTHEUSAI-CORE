@@ -16,6 +16,8 @@ Review contracts, negative cases, dependencies, identity changes, migration, rol
 
 For the optional v4 owner waiver, Gate 1 remains PENDING with no gate review; `gate1_waiver.technical_review` identifies a separate technical PASS with the usual structured block. Only the I0 prohibition and I1/G1 identity minima are excepted in this specific HIGH local-fictional path. A reviewer distinct from all declared author roles, authorship declaration, report and artifact integrity, and `execution` evidence remain mandatory. Recorded prior FAIL reports retain their exact byte hashes. This records the history presented; completeness, owner identity, actual agent separation and authorization remain human checks. Expiry or any recorded revocation prevents new action but does not rewrite prior history. `validate` reports structural consistency without certifying historical authorization; `can-implement` and `can-close` return nonzero and request manual Owner verification rather than granting authority.
 
+For accepted v4 records, structural validation uses a synthetic baseline waiver rule, not proof of the policy or pinned-artifact rule actually in force at acceptance. Current matrix differences generate warnings; transition checks reapply current requirements. The Owner must inspect historical policy and evidence independently; the CLI cannot reconstruct them.
+
 ## Gate 2
 
 For MEDIUM and above the orchestrator records git status --porcelain --untracked-files=all and sha256_lf for each changed or new file in append-only, cycle-numbered GATE2-INPUT-<nn>.sha256. Before commissioning review, transmit that input hash in the instruction, or a git reference if the artifact is already committed. The reviewer cites the same reference.

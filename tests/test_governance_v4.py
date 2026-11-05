@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from test_governance_v3 import GovernanceV3Tests
-from quality_cli import main, mission_errors, read_json, structure_errors
+from quality_cli import main, mission_errors, project_report, read_json, structure_errors
 from quality_v4 import waiver_current
 from quality_v3 import parse_block
 from new_mission import create_mission
@@ -185,6 +185,101 @@ class GovernanceWaiverTests(GovernanceV3Tests):
         path.write_text(raw, encoding='utf-8')
         with self.assertRaises(ValueError):
             read_json(path)
+
+    def test_accepted_v4_history_warns_when_matrix_is_strengthened(self):
+        for waived in (False, True):
+            with self.subTest(waived=waived):
+                folder, mission = self.case()
+                if not waived:
+                    mission['gate1_waiver'] = None
+                    self.record(folder, mission, 'gate1')
+                self.record(folder, mission, 'gate2')
+                self.record(folder, mission, 'gate3')
+                mission['owner_acceptance'] = {'status': 'APPROVED', 'approved_by': 'owner', 'date': '2026-11-05'}
+                (folder / 'mission.json').write_text(json.dumps(mission), encoding='utf-8')
+                policy_path = self.root / 'quality/controls.json'
+                policy = json.loads(policy_path.read_text(encoding='utf-8'))
+                policy['independence_minimums']['HIGH']['gate1']['isolation'] = 'I2_PERMISOS_SEPARADOS'
+                policy_path.write_text(json.dumps(policy), encoding='utf-8')
+                self.assertEqual([], mission_errors(folder, mission))
+                errors, warnings = project_report(self.root)
+                self.assertEqual([], errors)
+                self.assertTrue(any('no cumple la matriz vigente' in w for w in warnings))
+                with contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(1, main(['can-close', '--mission', folder.name, '--root', str(self.root)]))
+                policy['independence_minimums']['HIGH']['gate1']['isolation'] = 'I1_CONTEXTO_SEPARADO'
+                policy_path.write_text(json.dumps(policy), encoding='utf-8')
+
+    def test_technical_review_mutations_are_rejected(self):
+        cases = [('reviewer', 'arch'), ('authorship_independent', False),
+                 ('mission', 'OTHER-001'), ('gate', 'gate2'), ('risk', 'LOW'),
+                 ('decision', 'FAIL'), ('decision', 'PASS_WITH_RESERVATIONS'),
+                 ('effective_authors', []), ('isolation', 'unknown'), ('evidence', [])]
+        for key, value in cases:
+            with self.subTest(key=key, value=value):
+                folder, mission = self.case()
+                block = parse_block((folder / 'gate1-review.md').read_bytes())
+                block[key] = value
+                self.write_block(folder, mission, 'gate1', block)
+                mission['gate1_waiver']['technical_review'] = mission['gates']['gate1']['review']
+                mission['gates']['gate1'] = {'decision': 'PENDING', 'review': None}
+                self.assertTrue(mission_errors(folder, mission))
+
+    def test_invalid_references_and_revocations_fail_closed(self):
+        mutations = [
+            lambda w: w['technical_review'].update(file='../escape'),
+            lambda w: w['artifact'].update(path='../escape'),
+            lambda w: w.update(prior_failures=[{'path': '../escape', 'sha256_bytes': '0' * 64}]),
+            lambda w: w.update(revocations=[{'at': 'wrong', 'reason': 'revoked', 'owner_ref': 'x'}]),
+            lambda w: w.update(revocations=[{'at': '2026-01-01T00:00:00Z', 'reason': '', 'owner_ref': 'x'}]),
+            lambda w: w.update(exceptions=['I1_CONTEXTO_SEPARADO', 'G1_EVIDENCIA_REGISTRADA', 'extra']),
+        ]
+        for mutate in mutations:
+            with self.subTest(mutate=mutate):
+                folder, mission = self.case()
+                mutate(mission['gate1_waiver'])
+                self.assertTrue(mission_errors(folder, mission))
+
+    def test_utc_window_boundaries(self):
+        folder, mission = self.case()
+        self.assertFalse(waiver_current(mission, 'implement', datetime(2019, 12, 31, 23, 59, 59, tzinfo=timezone.utc)))
+        self.assertTrue(waiver_current(mission, 'implement', datetime(2020, 1, 1, tzinfo=timezone.utc)))
+        self.assertFalse(waiver_current(mission, 'implement', datetime(2099, 1, 1, tzinfo=timezone.utc)))
+
+    def test_owner_acceptance_cannot_be_attributed_to_orchestrator(self):
+        folder, mission = self.case()
+        self.record(folder, mission, 'gate2')
+        self.record(folder, mission, 'gate3')
+        mission['owner_acceptance'] = {'status': 'APPROVED', 'approved_by': 'orch', 'date': '2026-11-05'}
+        self.assertTrue(mission_errors(folder, mission))
+
+    def test_each_chain_action_is_required(self):
+        folder, mission = self.case()
+        self.record(folder, mission, 'gate2')
+        self.record(folder, mission, 'gate3')
+        mission['owner_acceptance'] = {'status': 'APPROVED', 'approved_by': 'owner', 'date': '2026-11-05'}
+        self.assertEqual([], mission_errors(folder, mission))
+        for action in ('gate2', 'gate3', 'close'):
+            with self.subTest(action=action):
+                altered = copy.deepcopy(mission)
+                altered['gate1_waiver']['actions'].remove(action)
+                self.assertTrue(mission_errors(folder, altered))
+
+    def test_gate2_reservations_do_not_satisfy_gate3(self):
+        folder, mission = self.case()
+        self.record(folder, mission, 'gate2', decision='PASS_WITH_RESERVATIONS')
+        self.record(folder, mission, 'gate3')
+        self.assertTrue(mission_errors(folder, mission))
+
+    def test_symlink_to_evidence_is_rejected_when_supported(self):
+        folder, mission = self.case()
+        target = folder / 'execution-record.txt'
+        link = folder / 'evidence-link.txt'
+        try:
+            link.symlink_to(target)
+        except OSError as exc:
+            self.skipTest(f'symlink unavailable: {exc}')
+        self.assertIsNone(__import__('quality_v3').canonical_file(folder, link.name))
 
 
 if __name__ == '__main__':

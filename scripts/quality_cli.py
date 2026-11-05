@@ -180,13 +180,13 @@ def mission_errors(folder: Path, m: dict):
         if (not isinstance(pilot,dict) or set(pilot)!={'id','local_fictional'}
                 or not canon(pilot.get('id')) or type(pilot.get('local_fictional')) is not bool):
             return errs+['invalid pilot project']
-        invalid=waiver_errors(folder,m,policy,canon)
+        invalid=waiver_errors(folder,m,policy,canon,m['owner_acceptance']['status']=='APPROVED')
         if invalid:
             return errs+invalid
         if m['gate1_waiver']:
             actions=frozenset(m['gate1_waiver']['actions'])
     if m['schema_version']==4:
-        found,_=v3_errors(folder,m,policy,canon,True,actions)
+        found,_=v3_errors(folder,m,policy,canon,m['owner_acceptance']['status']!='APPROVED',actions)
     else:
         found,_=v3_errors(folder,m,policy,canon,m['owner_acceptance']['status']!='APPROVED')
     return errs+found
@@ -219,6 +219,11 @@ def project_report(root: Path):
                 warnings.append(f'{child.name} v{m["schema_version"]} historico; no habilita autorizaciones')
             if not found and m['schema_version']==4 and m.get('gate1_waiver'):
                 warnings.append(f'{child.name}: OWNER_AUTHORIZATION_AND_HISTORICAL_VALIDITY_NOT_VERIFIED')
+            if not found and m['schema_version']==4 and m['owner_acceptance']['status']=='APPROVED':
+                actions=frozenset(m['gate1_waiver']['actions']) if m.get('gate1_waiver') else frozenset()
+                _,low=v3_errors(child,m,policy,canon,False,actions)
+                if low or (m.get('gate1_waiver') and waiver_errors(child,m,policy,canon)):
+                    warnings.append(f'{child.name}: no cumple la matriz vigente')
             if not found and m['schema_version']==3 and m['owner_acceptance']['status']=='APPROVED':
                 _, low=v3_errors(child,m,policy,canon,False)
                 if low:
@@ -291,6 +296,17 @@ def main(argv=None):
             perrs=policy_errors(policy)
             if perrs: errs+=perrs
             else: errs+=v3_errors(folder,m,policy,canon,True)[1]
+        except (ValueError,KeyError,TypeError) as exc:
+            errs.append(str(exc))
+    if not legacy and not structure_errors(m) and m['schema_version']==4 and args.command in ('can-implement','can-close'):
+        try:
+            policy=read_json(root/'quality/controls.json')
+            perrs=policy_errors(policy)
+            if perrs: errs+=perrs
+            elif not errs:
+                errs+=waiver_errors(folder,m,policy,canon)
+                actions=frozenset(m['gate1_waiver']['actions']) if m.get('gate1_waiver') else frozenset()
+                errs+=v3_errors(folder,m,policy,canon,True,actions)[1]
         except (ValueError,KeyError,TypeError) as exc:
             errs.append(str(exc))
     if args.command=='status':

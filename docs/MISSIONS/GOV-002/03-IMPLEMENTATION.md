@@ -16,7 +16,7 @@ La CLI informa `MANUAL_OWNER_VERIFICATION_REQUIRED` con salida no cero para el c
 ## Pruebas locales ejecutadas
 | Comando | Entorno/fecha | Exit code | Resultado |
 |---|---|---|---|
-| `python -m unittest discover -s tests -q` | Python local, 2026-11-05, checkout aislado | 0 | 172 ejecuciones, una omitida; incluye fixtures heredadas repetidas |
+| `python -m unittest discover -s tests -q` | Python local, 2026-11-05, checkout aislado | 0 | 180 ejecuciones, dos omitidas; incluye fixtures heredadas repetidas. El test nuevo de symlink quedó SKIPPED por WinError 1314 |
 
 ## Riesgos y deuda técnica
 Identidad y autorización del Owner no autenticadas por CLI; riesgo de omisión o alteración de revocaciones e historia; TOCTOU; consumidores externos NO VERIFICADOS. La copia temporal no prueba custodia duradera. E2E NO EJECUTADO.

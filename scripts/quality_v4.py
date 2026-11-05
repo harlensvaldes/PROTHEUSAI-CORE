@@ -23,7 +23,7 @@ def parse_utc(value):
     return datetime.strptime(value, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
 
 
-def waiver_errors(folder, mission, policy, canon):
+def waiver_errors(folder, mission, policy, canon, historical=False):
     errors = []
     w = mission.get('gate1_waiver')
     if w is None:
@@ -37,7 +37,7 @@ def waiver_errors(folder, mission, policy, canon):
             or w.get('project_id') != pilot.get('id')):
         errors.append('waiver: scope invalid')
     rule = policy['independence_minimums']['HIGH']['gate1']
-    if (rule['isolation'] != 'I1_CONTEXTO_SEPARADO'
+    if not historical and (rule['isolation'] != 'I1_CONTEXTO_SEPARADO'
             or rule['guarantee'] != 'G1_EVIDENCIA_REGISTRADA'
             or set(rule['evidence']) != {'identity'}):
         errors.append('waiver: policy exceeds explicitly excepted minima')
@@ -46,6 +46,10 @@ def waiver_errors(folder, mission, policy, canon):
     if (not all(canon(w.get(k)) for k in ('id', 'owner_id', 'authorization_ref'))
             or canon(w.get('owner_id')) in role_ids):
         errors.append('waiver: owner or reference invalid')
+    acceptance = mission.get('owner_acceptance', {})
+    if (acceptance.get('status') == 'APPROVED'
+            and canon(acceptance.get('approved_by')) != canon(w.get('owner_id'))):
+        errors.append('waiver: acceptance must be attributed to declared owner')
     for field, expected, exact in (('actions', ACTIONS, False), ('exceptions', EXCEPTIONS, True)):
         value = w.get(field)
         if (not isinstance(value, list) or not value or any(not isinstance(x, str) for x in value)
@@ -106,7 +110,12 @@ def waiver_errors(folder, mission, policy, canon):
         errors.append('waiver: artifact invalid')
     fake = copy.deepcopy(mission)
     fake['gates']['gate1'] = {'decision': 'PASS', 'review': w.get('technical_review')}
-    found, minima = gate_errors(folder, fake, 'gate1', policy, canon, exception_gate1=True)
+    review_policy = copy.deepcopy(policy)
+    if historical:
+        review_policy['independence_minimums']['HIGH']['gate1'] = {
+            'isolation': 'I1_CONTEXTO_SEPARADO', 'guarantee': 'G1_EVIDENCIA_REGISTRADA',
+            'evidence': ['identity'], 'pinned_artifact': False}
+    found, minima = gate_errors(folder, fake, 'gate1', review_policy, canon, exception_gate1=True)
     errors.extend('technical review: ' + x for x in found + minima)
     review = w.get('technical_review')
     if isinstance(review, dict):
