@@ -1,0 +1,5 @@
+GOV-001 reviewer runtime identity evidence, 2026-11-05
+Source: direct collaboration.list_agents tool response during this review. Relevant entries, transcribed:
+{"agent_name":"/root","agent_status":"running"}
+{"agent_name":"/root/gov001_formal_review","agent_status":"running"}
+Other agents were also listed; this excerpt omits their status summaries. Runtime identified this reviewing agent in its own tool result; it is not an authenticated launch record, personal identity, attribution certification, evidence of permissions, or external verification. The parent communicated fork_turns=none; the reviewer cannot independently inspect the spawn call. Shared runtime, system user, workspace, possible credentials and write access; I2/I3 are not claimed.

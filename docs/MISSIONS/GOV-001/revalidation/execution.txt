@@ -1,0 +1,50 @@
+GOV-001 independent candidate execution evidence
+Date: 2026-11-05; OS: Windows; Python: 3.12.0; HEAD: deee91c2bee87adce5d904b5529a4517a24a255c
+Outputs below were captured directly from subprocess stdout/stderr; exit codes are process return codes. Test output includes expected BLOCKED messages emitted by negative fixtures.
+
+$ python -B -m unittest discover -s tests -q
+exit: 0
+----------------------------------------------------------------------
+Ran 125 tests in 4.584s
+
+OK (skipped=1)
+BLOCKED: Gates 1/2/3 y owner no aprobados.
+ - gate1: isolation below minimum
+BLOCKED: Gate 1 sin PASS independiente documentado.
+BLOCKED: Gates 1/2/3 y owner no aprobados.
+ - owner approval missing identity/date
+BLOCKED: Gates 1/2/3 y owner no aprobados.
+ - owner approval missing identity/date
+BLOCKED: Gates 1/2/3 y owner no aprobados.
+ - owner approval missing identity/date
+
+$ python -B scripts/quality_cli.py validate
+exit: 0
+OK � estructura consistente. NO es certificaci�n de Quality ni comprobaci�n de identidades.
+
+$ python -B scripts/quality_cli.py can-implement --mission GOV-001
+exit: 1
+BLOCKED: Gate 1 sin PASS independiente documentado.
+
+$ python -B scripts/quality_cli.py can-close --mission GOV-001
+exit: 1
+BLOCKED: Gates 1/2/3 y owner no aprobados.
+
+$ python -B docs/MISSIONS/GOV-001/GOV-R01-reconstruct.py --repo . --commit 6e5e929
+exit: 0
+Git: git version 2.55.0.windows.3
+OK   AGENTS.md
+OK   FILE_INDEX.md
+OK   README.md
+OK   docs/MISSIONS/EXAMPLE-001/mission.json
+OK   docs/MISSIONS/README.md
+OK   docs/QUALITY_EVIDENCE_PROTOCOL.md
+OK   docs/QUALITY_POLICY.md
+OK   docs/ROLE_MATRIX.md
+OK   docs/templates/GATE1_REVIEW.md
+OK   docs/MISSIONS/GOV-001/04-GATE2-REVIEW.md
+OK   docs/MISSIONS/GOV-001/05-GATE3-EVIDENCE.md
+OK   docs/MISSIONS/GOV-001/06-DECISION.md
+Blob HEAD: MATCH
+entries 38 sha256 f0f7392a971467ad7816da81ae7bef57323249e36f0ac10c0838dbc1768c4a9b MATCH
+
