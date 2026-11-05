@@ -25,6 +25,7 @@ Los archivos siguientes forman la plantilla. `EXAMPLE-001` es demostrativo y NO 
 - `docs/MISSIONS/EXAMPLE-001/05-GATE3-EVIDENCE.md`
 - `docs/MISSIONS/EXAMPLE-001/06-DECISION.md`
 - `docs/MISSIONS/EXAMPLE-001/mission.json`
+- `docs/MISSIONS/GOV-001/` — registro de la misión de gobernanza GOV-001 de PROTHEUSAI CORE (no es plantilla).
 - `docs/MISSIONS/README.md`
 - `docs/PROJECT_BOOTSTRAP_CHECKLIST.md`
 - `docs/PROJECT_CHARTER.md`

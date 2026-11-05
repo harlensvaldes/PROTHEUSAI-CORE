@@ -1,0 +1,108 @@
+# GOV-001 Gate 2/3 input, cycle 3. Base 29d741e641c77f8569ee74d2262bb70bc8b38be7. SHA-256 of working-tree bytes (CRLF, core.autocrlf=true). This file excludes itself.
+# git status --porcelain --untracked-files=all
+#  M AGENTS.md
+#  M FILE_INDEX.md
+#  M README.md
+#  M docs/MISSIONS/EXAMPLE-001/mission.json
+#  M docs/MISSIONS/README.md
+#  M docs/QUALITY_EVIDENCE_PROTOCOL.md
+#  M docs/QUALITY_POLICY.md
+#  M docs/ROLE_MATRIX.md
+#  M docs/templates/GATE1_REVIEW.md
+#  M docs/templates/GATE2_REVIEW.md
+#  M docs/templates/GATE3_EVIDENCE.md
+#  M docs/templates/IMPLEMENTATION_REPORT.md
+#  M docs/templates/MISSION_PLAN.md
+#  M quality/controls.json
+#  M scripts/new_mission.py
+#  M scripts/quality_cli.py
+#  M tests/test_governance.py
+# ?? docs/MISSIONS/GOV-001/01-PLAN.md
+# ?? docs/MISSIONS/GOV-001/02-GATE1-REVIEW.md
+# ?? docs/MISSIONS/GOV-001/03-IMPLEMENTATION.md
+# ?? docs/MISSIONS/GOV-001/04-GATE2-REVIEW.md
+# ?? docs/MISSIONS/GOV-001/05-GATE3-EVIDENCE.md
+# ?? docs/MISSIONS/GOV-001/06-DECISION.md
+# ?? docs/MISSIONS/GOV-001/GATE1-REVIEW-05.md
+# ?? docs/MISSIONS/GOV-001/GATE1-REVIEW-06.md
+# ?? docs/MISSIONS/GOV-001/GATE1-REVIEW-07.md
+# ?? docs/MISSIONS/GOV-001/GATE1-REVIEW-08.md
+# ?? docs/MISSIONS/GOV-001/GATE2-INPUT-02.sha256
+# ?? docs/MISSIONS/GOV-001/GATE2-REVIEW-01.md
+# ?? docs/MISSIONS/GOV-001/GATE2-REVIEW-02.md
+# ?? docs/MISSIONS/GOV-001/GATE3-EVIDENCE-01.md
+# ?? docs/MISSIONS/GOV-001/GATE3-EVIDENCE-02.md
+# ?? docs/MISSIONS/GOV-001/OWNER-DECISION-01.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v1.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v2.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v3.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v4.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v5.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v6.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v7.md
+# ?? docs/MISSIONS/GOV-001/PROPOSAL-v8.md
+# ?? docs/MISSIONS/GOV-001/QUALITY-CYCLES-01-04-NOTE.md
+# ?? docs/MISSIONS/GOV-001/mission.json
+# sha256  path
+acabd847055c7abae27e0468584f356334839b8b4a4d7b3e423a7bff99957408  AGENTS.md
+d321fa905feb9619737876a106f42fffc72998b557068fe10b0864b441a515bb  FILE_INDEX.md
+2244a5f4c1fd6b5b5f52b3005d17d8919edbd1b0d98ef32dbdf32c323a04b39e  README.md
+5f0ca9401630b802791ffa1f801fe28f62987a759910cad73a8134c159576bf9  docs/MISSIONS/EXAMPLE-001/mission.json
+f75de97581804900f1d986df0bfc369e341de1c8cdd86e7ec0c676ecd7f8030e  docs/MISSIONS/README.md
+5da87a7722d0e15e36f6063da54f0dd3755856a17bb20b2ca0610e93c52e3a98  docs/QUALITY_EVIDENCE_PROTOCOL.md
+13c570c49e88b734e2a29d95a60454817e3439f7fb5403b02b2d7a465d99e922  docs/QUALITY_POLICY.md
+3541a8298b7c8ae6bc6649afde7cc99e0291527d2973f9cb80023847a8f37a70  docs/ROLE_MATRIX.md
+134ce83abac28e07ebe7ac3709c8ae726c8c71592a8ebcfc6ae7ed64943cde5d  docs/templates/GATE1_REVIEW.md
+a12a576c833847598f085ca4b26e2b4bf4a89c1e57a3dab06a32cdb1769d1c89  docs/templates/GATE2_REVIEW.md
+cffa99b2822a32a8d37db26af1f787f511ec5ac469c2e5007fbc4d3407fd6c9a  docs/templates/GATE3_EVIDENCE.md
+37a383308860a1b3faa2f0e793a48c2c5c9765ed3b4656fae7efd1325e7a005d  docs/templates/IMPLEMENTATION_REPORT.md
+5230508600c3ed0784d5af5b2fb2a9e91ea5d40cedb5e7b1ab3a5dec03468c33  docs/templates/MISSION_PLAN.md
+a92145362f1190132edf13d927e394ad3d78c457c5eb60cefdabf6a296e8471d  quality/controls.json
+0cfd9df9566eda110f4671aea949ba706c73244f129889a880552fdb4a6d32bc  scripts/new_mission.py
+886032145d588baafc8888ac99710607f485e56324fcbcf9d864187c52533f11  scripts/quality_cli.py
+5460c2f53cd07a8bd94d92c062b754d5dd6a54a57694c37840a22f9749c194df  tests/test_governance.py
+86843424f1827ed5aec8fcd50eb5bfbebf60422e65c883e243170025b4c2d33f  docs/MISSIONS/GOV-001/01-PLAN.md
+028b382c35c3e9ecd5dacab7e8d44b2d15a1750a2c70c43f0c0670dd6ae5461e  docs/MISSIONS/GOV-001/02-GATE1-REVIEW.md
+963f1565665f7c70356ee1e54272507fba345b410a195c87749c1f08c0549620  docs/MISSIONS/GOV-001/03-IMPLEMENTATION.md
+03977e1a1926e00822d3e1d4b0cc90a23aa8c1b2e86544dec16180ee54eb1e61  docs/MISSIONS/GOV-001/04-GATE2-REVIEW.md
+cc76c6773db8fccb35d07995c9a4246a8c68332fb811e6bc960fe872c47c96dc  docs/MISSIONS/GOV-001/05-GATE3-EVIDENCE.md
+9084d71aef48b7861b4205ce98d8dbf2a5949b90c5e4437b3a0b6a7bf7ac0374  docs/MISSIONS/GOV-001/06-DECISION.md
+8d67e282f95ca7c190cc47bb3f71d7239fb638134b0030b2d3a6755fab2b6af9  docs/MISSIONS/GOV-001/GATE1-REVIEW-05.md
+5ce29a18696a827c1f6c8dd346a61606c08dab195fed6a81a1e9b1eba0c0d6b0  docs/MISSIONS/GOV-001/GATE1-REVIEW-06.md
+dc3154712849b353450f4b3adbbfb4b23fe267d4306acd0763d2f7fbc339c12d  docs/MISSIONS/GOV-001/GATE1-REVIEW-07.md
+febed55424409353631ec6b4c70f30462b8fb18e1a678cdb1538a9bfd68d401f  docs/MISSIONS/GOV-001/GATE1-REVIEW-08.md
+171cd00541602426e6220fa1a5be8b5aeb089e9b3de4707431967fa35f2e5e28  docs/MISSIONS/GOV-001/GATE2-INPUT-02.sha256
+68a4b5d59e17319ff4c54045ba9cc758eb62c66931971f631912df2c61232df8  docs/MISSIONS/GOV-001/GATE2-REVIEW-01.md
+9980d46d03185a853b430af4a1a7e80c48b3473f28c597c619ec00c4dea46d3c  docs/MISSIONS/GOV-001/GATE2-REVIEW-02.md
+323efbfd6ca55fff130aa08108d9a365f8dfac31eb9149e0d3a4960e61abb055  docs/MISSIONS/GOV-001/GATE3-EVIDENCE-01.md
+10a4b43b3f4ffacebf2e6b5e51b4a550d8e47f7a3cbf31a3673ed9426415d3d9  docs/MISSIONS/GOV-001/GATE3-EVIDENCE-02.md
+7f9103cf5fd96a3dc5b2008cd3e6826f6ccef14b2ae08457a50a1e920d5f76ae  docs/MISSIONS/GOV-001/OWNER-DECISION-01.md
+293e4a64e2b90f53d59989459c0ba2b8a8be4386500b7202a2efba5787bfff68  docs/MISSIONS/GOV-001/PROPOSAL-v1.md
+28f54a378ebe5fc14bd24e7d6750503257957b78e12e63df6dbe9d07b2ab7d7b  docs/MISSIONS/GOV-001/PROPOSAL-v2.md
+f4ef7796c184f6cbd0f643de9bc50ff5c7b0e509176c32ce75c12f33eb21a52a  docs/MISSIONS/GOV-001/PROPOSAL-v3.md
+09d2451fbe865f8e5179c87feb0f89851ff191d84f24cebc3a234d8ba7b9cf10  docs/MISSIONS/GOV-001/PROPOSAL-v4.md
+991a3b2afe2a3420fd90e0a18853197ca60a1e821406999aba4993efc27a6b6e  docs/MISSIONS/GOV-001/PROPOSAL-v5.md
+91c4591459d0c7629b0644d0cc478dbf18ef660f3c29bb5dc410a4adc3e089df  docs/MISSIONS/GOV-001/PROPOSAL-v6.md
+22b81c6de62382bb6b7f3a5b9df508a0244f6e8266e61cc8d54606c0783e7f92  docs/MISSIONS/GOV-001/PROPOSAL-v7.md
+252c71ca09d26947fce1f352e708db2c927c6a8c2a6560ebd4007db93effed7f  docs/MISSIONS/GOV-001/PROPOSAL-v8.md
+223c1f68832fe22bef5e60a14b54e4be48156e640e566069acbcd54846c87448  docs/MISSIONS/GOV-001/QUALITY-CYCLES-01-04-NOTE.md
+2c84fa7ed86018c963c00f02fdf60449d7501fcd3e03300dcff490569a036feb  docs/MISSIONS/GOV-001/mission.json
+# git diff --stat 29d741e (tracked files)
+#  AGENTS.md                               |   1 +
+#  FILE_INDEX.md                           |   1 +
+#  README.md                               |   2 +-
+#  docs/MISSIONS/EXAMPLE-001/mission.json  |  27 +-
+#  docs/MISSIONS/README.md                 |  14 +-
+#  docs/QUALITY_EVIDENCE_PROTOCOL.md       |   8 +
+#  docs/QUALITY_POLICY.md                  |   4 +-
+#  docs/ROLE_MATRIX.md                     |  24 +-
+#  docs/templates/GATE1_REVIEW.md          |   8 +-
+#  docs/templates/GATE2_REVIEW.md          |  12 +-
+#  docs/templates/GATE3_EVIDENCE.md        |  11 +-
+#  docs/templates/IMPLEMENTATION_REPORT.md |   2 +-
+#  docs/templates/MISSION_PLAN.md          |   3 +-
+#  quality/controls.json                   |   3 +-
+#  scripts/new_mission.py                  |  40 ++-
+#  scripts/quality_cli.py                  | 329 +++++++++++++++++++----
+#  tests/test_governance.py                | 455 +++++++++++++++++++++++++++++---
+#  17 files changed, 810 insertions(+), 134 deletions(-)

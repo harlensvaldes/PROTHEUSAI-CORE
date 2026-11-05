@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "id": "GOV-001",
+  "title": "Integridad de identidad y autoría (PROTHEUSAI v1.1)",
+  "risk": "HIGH",
+  "created_at": "2026-11-05",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "copilot-sdk-main",
+        "evidence": {
+          "method": "copilot-sdk-session",
+          "ref": "sesión e5be03ee-40b1-4d52-a967-aab163ad6f3c, agente principal (VS Code)"
+        },
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "copilot-sdk-main",
+        "evidence": {
+          "method": "copilot-sdk-session",
+          "ref": "sesión e5be03ee-40b1-4d52-a967-aab163ad6f3c, agente principal (VS Code)"
+        },
+        "verification": null
+      }
+    ],
+    "developer": [
+      {
+        "id": "copilot-sdk-main",
+        "evidence": {
+          "method": "copilot-sdk-session",
+          "ref": "sesión e5be03ee-40b1-4d52-a967-aab163ad6f3c, agente principal (VS Code)"
+        },
+        "verification": null
+      }
+    ]
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PENDING",
+      "reviewer": null,
+      "reviewed_artifact": null,
+      "evidence_file": null,
+      "date": null
+    },
+    "gate2": {
+      "decision": "PENDING",
+      "reviewer": null,
+      "reviewed_artifact": null,
+      "evidence_file": null,
+      "date": null
+    },
+    "gate3": {
+      "decision": "PENDING",
+      "reviewer": null,
+      "reviewed_artifact": null,
+      "evidence_file": null,
+      "date": null
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}
