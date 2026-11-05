@@ -1,0 +1,24 @@
+# Entornos, secretos y caches
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage/
+.coverage
+node_modules/
+dist/
+build/
+*.log
+*.tmp
+*.sqlite
+*.db
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

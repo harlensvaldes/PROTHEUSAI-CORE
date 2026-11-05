@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "gate_order": [
+    "gate1",
+    "gate2",
+    "gate3"
+  ],
+  "decisions": [
+    "PENDING",
+    "PASS",
+    "PASS_WITH_RESERVATIONS",
+    "FAIL"
+  ],
+  "gate1_requires_exact_PASS_to_implement": true,
+  "independent_review_required": true,
+  "risk_levels": [
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "tool_is_not_a_reviewer": "Los scripts solo verifican coherencia documental, no emiten dictamen."
+}

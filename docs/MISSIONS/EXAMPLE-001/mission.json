@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "EXAMPLE-001",
+  "title": "Ejemplo de misión documental, no implementada",
+  "risk": "LOW",
+  "author": "example-author",
+  "implementation_author": "example-author",
+  "created_at": "2026-11-04",
+  "gates": {
+    "gate1": {
+      "decision": "PENDING",
+      "reviewer_id": null,
+      "reviewed_artifact": null,
+      "evidence_file": null,
+      "date": null
+    },
+    "gate2": {
+      "decision": "PENDING",
+      "reviewer_id": null,
+      "reviewed_artifact": null,
+      "evidence_file": null,
+      "date": null
+    },
+    "gate3": {
+      "decision": "PENDING",
+      "reviewer_id": null,
+      "reviewed_artifact": null,
+      "evidence_file": null,
+      "date": null
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

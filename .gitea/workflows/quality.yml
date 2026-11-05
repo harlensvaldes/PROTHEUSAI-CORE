@@ -1,0 +1,21 @@
+name: EPF Governance Checks
+on:
+  push:
+  pull_request:
+
+jobs:
+  governance:
+    # Ajustar a los labels de tus runners Gitea; ubuntu-latest necesita runner disponible.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Runtime Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar estructura y metadatos
+        run: python scripts/quality_cli.py validate
+      - name: Pruebas de la propia plantilla
+        run: python -m unittest discover -s tests -v
+      # Añadir aquí lint, tests, build y seguridad REALES del stack elegido.
+      # Este workflow no aprueba automáticamente ningún Gate ni publica releases.

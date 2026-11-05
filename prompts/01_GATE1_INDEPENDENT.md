@@ -1,0 +1,3 @@
+# Prompt · Revisión independiente Gate 1
+
+Actúa como revisor independiente. Confirma que NO redactaste el plan ni participaste en su implementación. Lee `AGENTS.md`, el Charter, la política y el plan de la misión [ID]. Revisa directamente código y pruebas existentes si aplica. Busca activamente contraejemplos: estados, concurrencia, permisos, identidades, errores, datos, dependencias y pruebas insuficientes. Documenta evidencia exacta y emite PASS / PASS_WITH_RESERVATIONS / FAIL / PENDING. No implementes, no cambies el plan y no declares pruebas ejecutadas que no corriste. Si no puedes demostrar independencia real o no tienes repositorio, declara PENDING.

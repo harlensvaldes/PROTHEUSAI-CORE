@@ -1,0 +1,56 @@
+# Índice de la plantilla EPF v1.0
+
+Los archivos siguientes forman la plantilla. `EXAMPLE-001` es demostrativo y NO tiene ningún Gate aprobado.
+
+- `.editorconfig`
+- `.env.example`
+- `.gitea/workflows/quality.yml`
+- `.github/workflows/quality.yml`
+- `.gitignore`
+- `AGENTS.md`
+- `CONTRIBUTING.md`
+- `README.md`
+- `START_HERE.md`
+- `agents/architect.md`
+- `agents/developer.md`
+- `agents/quality.md`
+- `agents/release_manager.md`
+- `docs/ADR/0001-quality-gates.md`
+- `docs/ARCHITECTURE.md`
+- `docs/GITEA_SETUP.md`
+- `docs/MISSIONS/EXAMPLE-001/01-PLAN.md`
+- `docs/MISSIONS/EXAMPLE-001/02-GATE1-REVIEW.md`
+- `docs/MISSIONS/EXAMPLE-001/03-IMPLEMENTATION.md`
+- `docs/MISSIONS/EXAMPLE-001/04-GATE2-REVIEW.md`
+- `docs/MISSIONS/EXAMPLE-001/05-GATE3-EVIDENCE.md`
+- `docs/MISSIONS/EXAMPLE-001/06-DECISION.md`
+- `docs/MISSIONS/EXAMPLE-001/mission.json`
+- `docs/MISSIONS/README.md`
+- `docs/PROJECT_BOOTSTRAP_CHECKLIST.md`
+- `docs/PROJECT_CHARTER.md`
+- `docs/QUALITY_EVIDENCE_PROTOCOL.md`
+- `docs/QUALITY_POLICY.md`
+- `docs/RELEASE_POLICY.md`
+- `docs/ROLE_MATRIX.md`
+- `docs/SECURITY_AND_DATA.md`
+- `docs/TEST_STRATEGY.md`
+- `docs/templates/ADR.md`
+- `docs/templates/DECISION.md`
+- `docs/templates/GATE1_REVIEW.md`
+- `docs/templates/GATE2_REVIEW.md`
+- `docs/templates/GATE3_EVIDENCE.md`
+- `docs/templates/IMPLEMENTATION_REPORT.md`
+- `docs/templates/INCIDENT.md`
+- `docs/templates/MISSION_PLAN.md`
+- `prompts/00_START_PROJECT.md`
+- `prompts/01_GATE1_INDEPENDENT.md`
+- `prompts/02_IMPLEMENT.md`
+- `prompts/03_GATE2_DIFF_REVIEW.md`
+- `prompts/04_GATE3_ACCEPTANCE.md`
+- `quality/RISK_MATRIX.md`
+- `quality/controls.json`
+- `scripts/new_mission.py`
+- `scripts/quality_cli.py`
+- `src/README.md`
+- `tests/README.md`
+- `tests/test_governance.py`
