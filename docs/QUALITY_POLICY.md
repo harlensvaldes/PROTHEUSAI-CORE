@@ -41,6 +41,12 @@ Ver `quality/RISK_MATRIX.md`. LOW usa evidencias ligeras y revisión proporciona
 ## Separación del release
 Gate 3 PASS **no despliega** ni asegura aptitud legal o validación profesional de un dominio crítico. Seguir `docs/RELEASE_POLICY.md`.
 
+## Excepción acotada para piloto ficticio
+
+Para Gate 1 HIGH de un piloto local con datos ficticios, el Owner puede autorizar una excepción explícita, limitada y revocable exclusivamente a los mínimos adicionales I1/G1, tras una revisión técnica completa favorable por un revisor distinto de todos los autores declarados. La excepción no es PASS, no acredita identidad ni aislamiento, no rebaja HIGH y no suprime ningún FAIL histórico. No se aplica a datos reales, producción, CRITICAL, Gates 2/3 ni despliegue. TERRA no puede concederse una excepción: el Owner debe autorizarla y comprobar personalmente su vigencia y alcance antes de cada acción. La autorización del Gate no sustituye la autorización separada de implementación.
+
+En el esquema v4, el Gate 1 permanece PENDING y un informe separado conserva su PASS exclusivamente técnico. La CLI valida coherencia declarada y emite `MANUAL_OWNER_VERIFICATION_REQUIRED` con salida no cero cuando el registro está vigente; no autentica al Owner, no certifica I1/G1 ni concede permisos. Si faltan datos, el registro no es válido, la excepción expiró o se registró una revocación, la acción queda BLOCKED. El Owner conserva y coteja la autorización, las revocaciones, evidencias e historial fuera de la mera declaración del agente. Los archivos y hashes editables no garantizan autenticidad ni completitud; si no se pueden verificar, no avanzar. Los lectores externos antiguos y acciones fuera de la CLI no están controlados por esta política automatizada.
+
 ## Independence minimums and reopening
 
 The current risk-by-Gate matrix is quality/controls.json independence_minimums. Authorship, declared isolation and evidence traceability are distinct; the CLI cannot certify identity or isolation. For a mission not yet accepted, changing the matrix or mission risk after Gate 1 reopens Gate 1 and requires the Owner. Accepted missions are not reopened; validate warns when they do not meet the current matrix, and transition commands always apply the current matrix. The CLI cannot reconstruct historical matrices.

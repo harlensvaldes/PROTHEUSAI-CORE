@@ -5,7 +5,8 @@ import json
 import re
 import unicodedata
 import hashlib
-from quality_v3 import policy_errors, v3_errors, digest
+from quality_v3 import policy_errors, v3_errors, digest, _unique
+from quality_v4 import ROOT_KEYS, waiver_errors, waiver_current
 from pathlib import Path
 
 GATES=('gate1','gate2','gate3')
@@ -25,7 +26,10 @@ NOT_CHECKED='no comprobada por la CLI'
 
 def read_json(path: Path):
     try:
-        data=json.loads(path.read_text(encoding='utf-8'))
+        text=path.read_text(encoding='utf-8')
+        data=json.loads(text)
+        if isinstance(data,dict) and data.get('schema_version')==4:
+            data=json.loads(text,object_pairs_hook=_unique)
     except (ValueError,OSError,UnicodeError) as exc:
         raise ValueError(f'{path}: {exc}') from exc
     if not isinstance(data,dict):
@@ -78,9 +82,13 @@ def identity_level(ident):
 
 def structure_errors(m: dict):
     version=m.get('schema_version')
-    if type(version) is not int or version not in (1,2,3):
+    if type(version) is not int or version not in (1,2,3,4):
         return ['schema_version inválido (admitidos: 1, 2)']
     errs=[f'{k}: debe ser texto' for k in ('id','title','risk','created_at') if not _text(m.get(k))]
+    if version==4 and set(m)!=ROOT_KEYS:
+        errs.append('invalid v4 root keys')
+    if version in (1,2,3) and ({'pilot_project','gate1_waiver'} & set(m)):
+        errs.append('v4 waiver fields not allowed in legacy schema')
     gates=m.get('gates')
     if not isinstance(gates,dict) or set(gates)!=set(GATES):
         errs.append('gates: objeto con gate1, gate2 y gate3 exactamente')
@@ -94,7 +102,7 @@ def structure_errors(m: dict):
                 errs.append(f'{name}: decisión inválida')
             errs+=[f'{name}.{k}: texto o null' for k in ('reviewed_artifact','evidence_file','date')
                    if g.get(k) is not None and not _text(g.get(k))]
-            if version==3:
+            if version in (3,4):
                 if set(g)!={'decision','review'}:
                     errs.append(f'{name}: invalid v3 keys')
                 continue
@@ -166,7 +174,21 @@ def mission_errors(folder: Path, m: dict):
     policy_errs=policy_errors(policy)
     if policy_errs:
         return errs+policy_errs
-    found,_=v3_errors(folder,m,policy,canon,m['owner_acceptance']['status']!='APPROVED')
+    actions=frozenset()
+    if m['schema_version']==4:
+        pilot=m.get('pilot_project')
+        if (not isinstance(pilot,dict) or set(pilot)!={'id','local_fictional'}
+                or not canon(pilot.get('id')) or type(pilot.get('local_fictional')) is not bool):
+            return errs+['invalid pilot project']
+        invalid=waiver_errors(folder,m,policy,canon)
+        if invalid:
+            return errs+invalid
+        if m['gate1_waiver']:
+            actions=frozenset(m['gate1_waiver']['actions'])
+    if m['schema_version']==4:
+        found,_=v3_errors(folder,m,policy,canon,True,actions)
+    else:
+        found,_=v3_errors(folder,m,policy,canon,m['owner_acceptance']['status']!='APPROVED')
     return errs+found
 
 
@@ -195,6 +217,8 @@ def project_report(root: Path):
             errors+=[f'{child.name}: {e}' for e in found]
             if not found and m['schema_version'] in (1,2):
                 warnings.append(f'{child.name} v{m["schema_version"]} historico; no habilita autorizaciones')
+            if not found and m['schema_version']==4 and m.get('gate1_waiver'):
+                warnings.append(f'{child.name}: OWNER_AUTHORIZATION_AND_HISTORICAL_VALIDITY_NOT_VERIFIED')
             if not found and m['schema_version']==3 and m['owner_acceptance']['status']=='APPROVED':
                 _, low=v3_errors(child,m,policy,canon,False)
                 if low:
@@ -215,7 +239,9 @@ def print_status(m: dict, errs: list):
         print(f"v{m['schema_version']} historico; no habilita autorizaciones")
     for name in GATES:
         gate=m['gates'][name]
-        print(name.upper(),gate['decision'], 'review:',gate.get('review') if m['schema_version']==3 else 'historical')
+        print(name.upper(),gate['decision'], 'review:',gate.get('review') if m['schema_version'] in (3,4) else 'historical')
+    if m['schema_version']==4 and m.get('gate1_waiver'):
+        print('OWNER_WAIVER declarado; autorización e identidad no verificadas por la CLI.')
     print('OWNER',m['owner_acceptance']['status'])
     print('Identidad y aislamiento: declarados, no comprobada por la CLI.')
 
@@ -273,6 +299,14 @@ def main(argv=None):
         if legacy:
             print('BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.')
             return 1
+        if m.get('schema_version')==4 and m.get('gate1_waiver'):
+            if not errs and waiver_current(m,'implement'):
+                print('MANUAL_OWNER_VERIFICATION_REQUIRED: Gate 1 PENDING; waiver',m['gate1_waiver']['id'],
+                      'implement expires',m['gate1_waiver']['expires_at'])
+            else:
+                print('BLOCKED: waiver inválido, revocado, caducado o sin acción implement.')
+                for error in errs: print(' -',error)
+            return 1
         if not errs and m['gates']['gate1']['decision']=='PASS':
             print('Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.')
             return 0
@@ -282,6 +316,16 @@ def main(argv=None):
     elif args.command=='can-close':
         if legacy:
             print('BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.')
+            return 1
+        if m.get('schema_version')==4 and m.get('gate1_waiver'):
+            if (not errs and waiver_current(m,'close')
+                    and all(m['gates'][g]['decision']=='PASS' for g in ('gate2','gate3'))
+                    and m['owner_acceptance']['status']=='APPROVED'):
+                print('MANUAL_OWNER_VERIFICATION_REQUIRED: cierre con waiver',m['gate1_waiver']['id'],
+                      'expires',m['gate1_waiver']['expires_at'])
+            else:
+                print('BLOCKED: cierre con waiver no habilitado.')
+                for error in errs: print(' -',error)
             return 1
         if (not errs and all(m['gates'][g]['decision']=='PASS' for g in GATES)
                 and m['owner_acceptance']['status']=='APPROVED'):

@@ -1,0 +1,11 @@
+# GOV-002 · Revisión técnica focalizada del diff
+
+Fecha 2026-11-05. `/root/gov002_quality_diff`, agente distinto del autor declarado, revisó código y tests transmitidos por TERRA, sin acceso directo a archivos ni verificación de hashes o ejecución propia. No acredita I1/G1, identidad, autorización o Gate formal.
+
+Quality detectó que el carril excepcional omitía mínimos de una matriz HIGH reforzada. TERRA añadió bloqueo si aislamiento, garantía o evidencia HIGH/Gate 1 difieren de los mínimos I1/G1 e `identity` exceptuados; la prueba de aislamiento falló antes y pasó después, y se añadieron casos para G2 y evidencia adicional. Quality consideró tratado el hallazgo en los fragmentos comunicados, conservando la validación de `pinned_artifact`; no ejecutó las pruebas.
+
+Quality observó que archivos editables no prueban completitud de FAIL históricos o ausencia de revocaciones eliminadas: el cotejo con una fuente confiable permanece responsabilidad humana. También señaló la ambigüedad del bloque técnico `decision=PASS`; el protocolo distingue ese dictamen de Gate 1 PENDING y prohíbe presentarlo como PASS formal.
+
+En una revisión adicional de los fragmentos de parser de v4 Quality no identificó un bypass adicional demostrado; no revisó literalmente la totalidad de `structure_errors`, el diff completo, ni verificó resultados de suite. Por tanto esta es una revisión focalizada, no un PASS de Gate 2 ni una verificación integral del sistema. E2E NO EJECUTADO.
+
+TERRA transmitió después el diff CLI y Quality señaló falta de rechazo explícito de campos v4 al declarar versiones 1/2. La prueba nueva falló para ambas versiones y pasó tras la corrección que rechaza esos campos en 1/2/3. Quality consideró tratada la condición comunicada y no identificó otro bloqueo demostrado en los fragmentos CLI/v3, manteniendo las limitaciones anteriores. La suite final ejecutada por TERRA arrojó 172 ejecuciones, una omitida y salida 0; el revisor no la ejecutó. Hashes de bytes finales declarados por TERRA: `quality_v3.py` `f8085395f45ddafcf9748f4a9602dce8333edb9a51fb4cda5eb71171467fb67a`; `quality_v4.py` `7aec5aeee7b577cbdc3460f35e25972f447202edd255800d113e879e016db4f1`; `quality_cli.py` `5904718fd24d00c37470c3c7f2631adcd3a36b9a679edb0f566503eab30b477e`; test v4 `99193f232127e5493e05131df5b84b1d9fa77c84f73cad31b05a0b7518d1b1fd`.

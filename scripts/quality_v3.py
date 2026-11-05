@@ -134,8 +134,10 @@ def calculated_guarantee(required, present, reviewer_verified, authors_verified)
     return GUARANTEE[1]
 
 
-def gate_errors(folder, mission, gate, policy, canon):
+def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False):
     errors, minima = [], []
+    if exception_gate1 and (gate != 'gate1' or mission.get('risk') != 'HIGH'):
+        return ['invalid exception scope'], []
     g = mission['gates'][gate]
     decision = g['decision']
     review = g.get('review')
@@ -235,13 +237,15 @@ def gate_errors(folder, mission, gate, policy, canon):
         return errors, minima
     if reviewer in all_authors or block['authorship_independent'] is not True:
         errors.append('self approval or authorship declaration invalid')
-    if isolation == ISOLATION[0]:
-        errors.append('I0 cannot enable decision')
+    if not exception_gate1:
+        if isolation == ISOLATION[0]:
+            errors.append('I0 cannot enable decision')
     rule = policy['independence_minimums'][mission['risk']][gate]
-    if isolation in ISOLATION and ISOLATION.index(isolation) < ISOLATION.index(rule['isolation']):
-        minima.append('isolation below minimum')
-    if not set(rule['evidence']) <= present:
-        minima.append('required evidence missing')
+    if not exception_gate1:
+        if isolation in ISOLATION and ISOLATION.index(isolation) < ISOLATION.index(rule['isolation']):
+            minima.append('isolation below minimum')
+        if not set(rule['evidence']) <= present:
+            minima.append('required evidence missing')
     if rule['pinned_artifact']:
         pinned = isinstance(artifact, dict) and isinstance(artifact.get('ref'), str) and (
             artifact['ref'].startswith('git:') or
@@ -254,8 +258,11 @@ def gate_errors(folder, mission, gate, policy, canon):
     authors_verified = all(valid_verification(i.get('verification'), canon(i['id']), forbidden, canon)
                            for i in pertinent)
     level = calculated_guarantee(rule['evidence'], present, reviewer_verified, authors_verified)
-    if GUARANTEE.index(level) < GUARANTEE.index(rule['guarantee']):
-        minima.append('guarantee below minimum')
+    if not exception_gate1:
+        if GUARANTEE.index(level) < GUARANTEE.index(rule['guarantee']):
+            minima.append('guarantee below minimum')
+    if exception_gate1 and 'execution' not in present:
+        errors.append('execution evidence required')
     if rule['guarantee'] == GUARANTEE[2]:
         if not valid_verification(verification, reviewer, forbidden, canon, True):
             minima.append('reviewer verification required')
@@ -265,7 +272,7 @@ def gate_errors(folder, mission, gate, policy, canon):
     return errors, minima
 
 
-def v3_errors(folder, mission, policy, canon, enforce_minima=True):
+def v3_errors(folder, mission, policy, canon, enforce_minima=True, waiver_actions=frozenset()):
     errors, minima = [], []
     prior = True
     for gate in GATES:
@@ -273,14 +280,23 @@ def v3_errors(folder, mission, policy, canon, enforce_minima=True):
         e, low = gate_errors(folder, mission, gate, policy, canon)
         errors.extend(gate + ': ' + x for x in e)
         minima.extend(gate + ': ' + x for x in low)
+        waived_prior = (mission['gates']['gate1']['decision'] == 'PENDING'
+                        and ((gate == 'gate2' and 'gate2' in waiver_actions)
+                             or (gate == 'gate3' and 'gate3' in waiver_actions
+                                 and mission['gates']['gate2']['decision'] == 'PASS')))
         if decision in ('PASS', 'PASS_WITH_RESERVATIONS') and not prior:
-            errors.append(gate + ': previous gate lacks PASS')
+            if not waived_prior:
+                errors.append(gate + ': previous gate lacks PASS')
         if decision != 'PASS':
             prior = False
     owner = mission['owner_acceptance']
     if owner['status'] == 'APPROVED':
+        waived_close = (mission['gates']['gate1']['decision'] == 'PENDING'
+                        and 'close' in waiver_actions
+                        and all(mission['gates'][g]['decision'] == 'PASS' for g in ('gate2', 'gate3')))
         if any(mission['gates'][g]['decision'] != 'PASS' for g in GATES):
-            errors.append('owner APPROVED requires three PASS')
+            if not waived_close:
+                errors.append('owner APPROVED requires three PASS')
         if not canon(owner.get('approved_by')) or not canon(owner.get('date')):
             errors.append('owner approval missing identity/date')
         elif canon(owner['approved_by']) in {canon(i['id']) for role in ('architect','developer') for i in mission['roles'][role]}:

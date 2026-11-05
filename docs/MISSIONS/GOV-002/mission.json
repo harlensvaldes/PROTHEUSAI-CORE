@@ -1,0 +1,49 @@
+{
+  "schema_version": 3,
+  "id": "GOV-002",
+  "title": "Excepcion proporcional de revision en pilotos",
+  "risk": "HIGH",
+  "created_at": "2026-11-05",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ]
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate2": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate3": {
+      "decision": "PENDING",
+      "review": null
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}
