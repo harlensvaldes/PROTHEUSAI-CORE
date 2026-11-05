@@ -27,3 +27,5 @@ Para cada prueba: comando, commit/artefacto exacto, entorno, versión runtime, f
 - Un Gate PASS o PASS_WITH_RESERVATIONS exige verificación registrada del revisor y de los autores pertinentes. El revisor no puede figurar en ningún rol de autoría, y su verificación no puede registrarla el autor revisado.
 - Toda revisión registrada (PASS, PASS_WITH_RESERVATIONS o FAIL) identifica en su informe, con una única línea por etiqueta: `**Dictamen:**`, `**Revisor:**`, `**Artefacto revisado:**` (nombre + `sha256:` o `git:`) y `**Autor efectivo:**`. Los valores coinciden con `mission.json`. PASS y PASS_WITH_RESERVATIONS exigen además `**Independencia verificada:** sí — <evidencia>`.
 - Manifiestos v1: históricos. Se validan con sus reglas, sus dictámenes no se modifican y nunca habilitan `can-implement` ni `can-close`. Para obtener nuevas autorizaciones hay que migrarlos o revalidarlos (`docs/MISSIONS/README.md`).
+
+Las entradas y evidencias de Gate son append-only. Un registro perdido se documenta como incidente y solo puede sustituirse por una reconstrucción declarada, verificada contra un hash registrado antes de la pérdida. La CLI no impone esta regla.
