@@ -1,0 +1,9 @@
+# BOOTSTRAP-001 — comprobación posterior al commit
+
+Commit de implementación probado: `d4e00d1900ab0a831473fc5a10ff80f32cb4a3bf`. Los cinco archivos de `GATE2-INPUT-04.sha256` coinciden con los blobs del commit mediante SHA-256 LF. El archivo de entrada conserva SHA-256 de bytes `1dd03a090024ff07f0f812faa7194e97139bce9139c3c359355214cce097627f`.
+
+En Windows se ejecutó desde ese commit el generador sobre un directorio temporal ficticio, bajo permisos del propietario: salida 0. El proyecto tenía raíz y `.git` propios, ningún remoto, 41 archivos de lista positiva, procedencia que coincide con el commit, README individual y prompt de Discovery. `scripts/new_mission.py --id TEST-990 --title Ficticia --risk LOW --orchestrator fixture` y `scripts/quality_cli.py validate`, ejecutados dentro del proyecto generado, devolvieron salida 0. El directorio temporal se eliminó por el gestor de pruebas tras la comprobación; no era producto ni evidencia única.
+
+Un primer intento desde el sandbox restringido devolvió salida 1 antes de crear proyecto: Git rechazó el repositorio por discrepancia de propietario (`dubious ownership`) con la configuración global desactivada. No se cambió `safe.directory` ni se desactivó ese control; la ejecución con permisos del propietario sí funcionó. La prueba de symlink del generador sigue omitida por falta de privilegios Windows. E2E NO EJECUTADO. Este resultado no es aceptación del Owner ni certifica compatibilidad con todos los runners.
+
+Quality (`/root/bootstrap_quality`, I0 declarado, sin certificación de identidad o aislamiento) cotejó independientemente los cinco blobs del commit y el hash de la entrada: coincidieron. Leyó el resultado anterior de ejecución, sin repetirlo independientemente; el dictamen previo **PASS_WITH_RESERVATIONS** se mantiene. Los demás archivos del expediente incluidos en el commit no estaban cubiertos por esos cinco hashes. La aceptación del Owner permanece pendiente.
