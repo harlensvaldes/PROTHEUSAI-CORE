@@ -8,3 +8,7 @@ Dictamen técnico: **PASS con límites de cobertura** sobre diff SHA-256 `37bdd4
 - `python -B scripts/quality_cli.py status --mission BOOTSTRAP-001`: salida 0, Gates y Owner PENDING. El FAIL técnico histórico permanece separado y no se convierte en PASS.
 
 La CLI no examina la suficiencia técnica ni la narrativa de una limitación de mensaje histórico; las pruebas no certifican identidad, autorización ni todos los runners. La integridad de archivos BOOTSTRAP sin hash previo no se demuestra por comparación. E2E NO EJECUTADO; aceptación final del Owner pendiente.
+
+## Aceptación del Owner — GOV-SIMPLIFY-001
+
+**APPROVED**, decisión expresa del Owner comunicada en esta conversación, para la implementación del commit `38787657eed60ff63f715db124dfe250e6bb22ea`. La aceptación se fundamenta en los dictámenes técnicos, las 255 pruebas ejecutadas (252 no omitidas, 3 omitidas) y las limitaciones precedentes. Las tres pruebas con enlaces simbólicos permanecen **NO VERIFICADAS** y E2E NO EJECUTADO. La aceptación no altera los resultados históricos de otras misiones ni certifica identidad o aislamiento.
