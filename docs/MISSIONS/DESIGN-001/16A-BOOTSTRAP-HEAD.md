@@ -1,0 +1,3 @@
+# DESIGN-001 · Bootstrap tras preservar el expediente
+
+Después de incorporar las evidencias al commit `13e0f8424be8edce6aef8f9305060a5bcff096ff`, se clonó ese commit a un directorio temporal (`git clone --quiet --no-hardlinks -c core.autocrlf=false`) y se ejecutó `python -B scripts/bootstrap001.py --name Fixture --id fixture-design --destination <directorio-temporal>`: ambos comandos salieron 0. El expediente DESIGN-001 estaba presente en la fuente; en el proyecto generado `docs/MISSIONS` contenía solo `README.md`, estaba presente `agents/creative_director.md` y provenance citaba el commit probado. El resultado legible por máquina se conserva en `16-BOOTSTRAP-HEAD.json`. Prueba del Developer, no nuevo dictamen de Quality; **E2E NO EJECUTADO**.

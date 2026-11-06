@@ -1,0 +1,11 @@
+{
+  "source_commit": "13e0f8424be8edce6aef8f9305060a5bcff096ff",
+  "clone_exit": 0,
+  "source_design_history_exists": true,
+  "bootstrap_exit": 0,
+  "target_missions": [
+    "README.md"
+  ],
+  "creative_contract_present": true,
+  "provenance_commit_match": true
+}
