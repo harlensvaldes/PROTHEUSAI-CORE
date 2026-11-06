@@ -62,3 +62,6 @@ Un nombre de agente en `agents/*.md` es un **rol documentado**, no una capacidad
 
 ## 6. Primera tarea en un repositorio nuevo
 Leer `START_HERE.md`; preparar Charter, Arquitectura, Riesgos y primera misión. **No generar aplicación de negocio hasta tener alcance y Gate 1 aplicable.**
+
+## Especialista creativo convocable
+TERRA evalúa si la interfaz o experiencia requiere dirección creativa y, cuando aporte valor, convoca `agents/creative_director.md` con objetivo, alcance, fuentes y criterios, preferentemente antes de implementar lo visual. Para API, bibliotecas, CLI o cambios sin impacto UX no lo convoca por defecto; en evoluciones visuales considera identidad y decisiones previas. Justifica brevemente la decisión y adapta el equipo al contexto. Si el runner no permite delegar, declara la limitación; no crea otro Gate ni sustituye al Owner, Architect, Developer o Quality.

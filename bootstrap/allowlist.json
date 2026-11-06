@@ -27,6 +27,11 @@
       "reason": "Roles"
     },
     {
+      "source": "agents/creative_director.md",
+      "destination": "agents/creative_director.md",
+      "reason": "Roles"
+    },
+    {
       "source": "agents/developer.md",
       "destination": "agents/developer.md",
       "reason": "Roles"
@@ -87,6 +92,16 @@
       "reason": "Contratos"
     },
     {
+      "source": "docs/CONTEXT-001.md",
+      "destination": "docs/CONTEXT-001.md",
+      "reason": "Contexto"
+    },
+    {
+      "source": "docs/MET-001.md",
+      "destination": "docs/MET-001.md",
+      "reason": "Medición"
+    },
+    {
       "source": "docs/PROJECT_BOOTSTRAP_CHECKLIST.md",
       "destination": "docs/PROJECT_BOOTSTRAP_CHECKLIST.md",
       "reason": "Contratos"
@@ -142,6 +157,11 @@
       "reason": "Plantillas"
     },
     {
+      "source": "docs/templates/CHECKPOINT.md",
+      "destination": "docs/templates/CHECKPOINT.md",
+      "reason": "Plantillas"
+    },
+    {
       "source": "docs/templates/GATE1_REVIEW.md",
       "destination": "docs/templates/GATE1_REVIEW.md",
       "reason": "Plantillas"
@@ -180,6 +200,16 @@
       "source": "scripts/new_mission.py",
       "destination": "scripts/new_mission.py",
       "reason": "Herramientas"
+    },
+    {
+      "source": "scripts/met001.py",
+      "destination": "scripts/met001.py",
+      "reason": "Medición"
+    },
+    {
+      "source": "tests/test_met001.py",
+      "destination": "tests/test_met001.py",
+      "reason": "Pruebas de medición"
     },
     {
       "source": "scripts/quality_cli.py",

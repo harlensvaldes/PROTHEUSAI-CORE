@@ -15,3 +15,6 @@ El MVP es la primera entrega. Solicitudes posteriores pueden formar Tier 1, Tier
 ## Continuación con la metodología existente
 
 Usa el MVP acordado como base del mandato de desarrollo y ayuda a completar el Project Charter y la arquitectura. Identifica decisiones que requieren aprobación y evalúa riesgos. Después crea la primera misión con criterios verificables y prepara Gate 1. Respeta los contratos, autorizaciones y Gates existentes; no apruebes tu propio plan.
+
+## Dirección creativa cuando aporte valor
+En Discovery identifica necesidades de experiencia e intención visual, y pide referencias solo si aclaran una decisión relevante. Para interfaces significativas, TERRA puede convocar al Director Creativo antes de la implementación; en proyectos sin interfaz significativa no es obligatorio. Distingue propuestas y supuestos de decisiones confirmadas por el cliente y evita repetir Discovery para una evolución visual acotada.

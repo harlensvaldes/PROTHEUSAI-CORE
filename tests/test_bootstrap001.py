@@ -1,5 +1,7 @@
+import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -50,6 +52,24 @@ class BootstrapTests(unittest.TestCase):
         self.assertIn('Fictional Product', (dest / 'README.md').read_text(encoding='utf-8'))
         self.assertTrue((dest / 'prompts/00_START_PROJECT.md').is_file())
         self.assertFalse((dest / 'docs/MISSIONS/DELIVERY-001').exists())
+        self.assertFalse((dest / 'docs/MISSIONS/DESIGN-001').exists())
+        role = 'agents/creative_director.md'
+        self.assertEqual((self.source / role).read_bytes(), (dest / role).read_bytes())
+        provenance = json.loads((dest / 'bootstrap-provenance.json').read_text(encoding='utf-8'))
+        self.assertIn({'source': role, 'destination': role,
+                       'sha256': hashlib.sha256((dest / role).read_bytes()).hexdigest()},
+                      provenance['files'])
+        for path in ('docs/CONTEXT-001.md', 'docs/templates/CHECKPOINT.md',
+                     'scripts/met001.py', 'docs/MET-001.md', 'tests/test_met001.py'):
+            self.assertEqual((self.source / path).read_bytes(), (dest / path).read_bytes(), path)
+        result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
+                                 '-s', 'tests', '-p', 'test_met001.py'], cwd=dest,
+                                capture_output=True, text=True)
+        output = result.stdout + result.stderr
+        self.assertEqual(0, result.returncode, output)
+        match = re.search(r'Ran (\d+) tests? in ', output)
+        self.assertIsNotNone(match, output)
+        self.assertGreater(int(match.group(1)), 0, output)
         result = subprocess.run([sys.executable, '-B', 'scripts/new_mission.py', '--id', 'TEST-900',
                                  '--title', 'Fictional', '--risk', 'LOW', '--orchestrator', 'orch'],
                                 cwd=dest, capture_output=True, text=True)
