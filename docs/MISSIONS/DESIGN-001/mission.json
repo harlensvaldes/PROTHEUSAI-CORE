@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "DESIGN-001",
+  "title": "Director Creativo convocable",
+  "risk": "NO REGISTRADO",
+  "created_at": "2026-11-06",
+  "author": "codex /root (declarado)",
+  "implementation_author": "codex /root y codex /root/bootstrap (declarados)",
+  "gates": {
+    "gate1": {"decision": "PASS", "reviewer_id": "codex /root/quality", "evidence_file": "02A-GATE1-COMPLEMENTO.md", "date": "2026-11-06"},
+    "gate2": {"decision": "PASS", "reviewer_id": "codex /root/quality", "evidence_file": "09-GATE2.md", "date": "2026-11-06"},
+    "gate3": {"decision": "PASS_WITH_RESERVATIONS", "reviewer_id": "codex /root/quality", "evidence_file": "12-GATE3.md", "date": "2026-11-06"}
+  },
+  "owner_acceptance": {"status": "APPROVED", "approved_by": null, "date": "2026-11-06"},
+  "reconstruction": {
+    "type": "indice_retrospectivo",
+    "record_created_at": "2026-11-06",
+    "notice": "Manifiesto reconstruido en esta fecha; no se afirma que existiera originalmente un registro v1. created_at es la fecha de reconstrucción. El esquema v1 solo comprueba estructura y no habilita transiciones. Los dictámenes reproducidos son técnicos y no acreditan cierre formal, identidad ni aislamiento.",
+    "risk_note": "No se ha encontrado clasificación formal de riesgo; NO REGISTRADO no es un nivel de riesgo.",
+    "gate1_note": "02A-GATE1-COMPLEMENTO.md aprueba el plan y 02C-GATE1-CORRECCION.md aprueba la corrección; el FAIL histórico de 02B-GATE1-ADENDA.md se conserva.",
+    "sources": ["02-GATE1.md", "02A-GATE1-COMPLEMENTO.md", "02B-GATE1-ADENDA.md", "02C-GATE1-CORRECCION.md", "09-GATE2.md", "12-GATE3.md", "17-DECISION-OWNER.md"],
+    "owner_note": "17-DECISION-OWNER.md registra aprobación con reservas; identidad nominal no certificada y approved_by desconocido."
+  }
+}

@@ -1,0 +1,8 @@
+# sha256_lf, git status --porcelain -z; anchor excluded
+ M 048ccaefa787878f1a8d7489fa6797a4c5db1d3d1b21ee59e2195fd1f64b2727  docs/MISSIONS/README.md
+?? 16e4ac2846afa6d60c37eae71ce247d8a3cdde4f5b4e1bed1e43d7bb25e6b6e4  docs/MISSIONS/CONTEXT-001/mission.json
+?? 1a4508fca7537eab1dd2bc2d98b68954f569f1b35cd640502968831660070d14  docs/MISSIONS/CONTEXT-OPT-001/BASELINE-A.zip
+?? f8d275b8cdba2269f6ac04f8a8c58b95d686ca673fff928e3a7be7d4e586d2d8  docs/MISSIONS/CONTEXT-OPT-001/CHECKPOINT.md
+?? 3df877609d7113bf1a38c0f31c923e9c6fcce499a6106e7f393d5663e738a74c  docs/MISSIONS/CONTEXT-OPT-001/mission.json
+?? 3f9bcded65cfbd90d2c8f710f2dd62f6d45c709ba8de2728fca64f242f4586b1  docs/MISSIONS/DESIGN-001/mission.json
+?? 0a0341cec584e4b0eea313e6cbba0daf1edddcda5a903a8a5f414eed65a3d785  tests/test_reconstructed_missions.py

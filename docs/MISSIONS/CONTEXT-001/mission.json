@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "CONTEXT-001",
+  "title": "Continuidad y recuperación selectiva",
+  "risk": "NO REGISTRADO",
+  "created_at": "2026-11-06",
+  "author": "codex /root (declarado)",
+  "implementation_author": "codex /root (declarado)",
+  "gates": {
+    "gate1": {"decision": "PASS", "reviewer_id": "/root/quality", "evidence_file": "04-QUALITY.md", "date": "2026-11-06"},
+    "gate2": {"decision": "PASS", "reviewer_id": "/root/quality", "evidence_file": "04-QUALITY.md", "date": "2026-11-06"},
+    "gate3": {"decision": "PASS_WITH_RESERVATIONS", "reviewer_id": "/root/quality", "evidence_file": "04-QUALITY.md", "date": "2026-11-06"}
+  },
+  "owner_acceptance": {"status": "PENDING", "approved_by": null, "date": null},
+  "reconstruction": {
+    "type": "indice_retrospectivo",
+    "record_created_at": "2026-11-06",
+    "notice": "Manifiesto reconstruido en esta fecha; no se afirma que existiera originalmente un registro v1. created_at es la fecha de reconstrucción. El esquema v1 solo comprueba estructura y no habilita transiciones. Los dictámenes reproducidos son técnicos y no acreditan cierre formal, identidad ni aislamiento.",
+    "risk_note": "No se ha encontrado clasificación formal de riesgo; NO REGISTRADO no es un nivel de riesgo.",
+    "sources": ["01-PLAN.md", "04-QUALITY.md", "08-RESULTADO-AB.md"],
+    "owner_note": "08-RESULTADO-AB.md mantiene la aceptación pendiente; no se infiere aprobación."
+  }
+}
