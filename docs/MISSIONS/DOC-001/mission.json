@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "id": "DOC-001",
+  "title": "Documentacion tecnica verificable",
+  "risk": "MEDIUM",
+  "created_at": "2026-11-06",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ]
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PASS",
+      "review": {
+        "file": "REVISION-GATE1-02.md",
+        "sha256_lf": "e3108ff09335ea2a7478726f1b6b37176d130077cf2d4d5d662e875d99560240",
+        "reviewer_verification": null
+      }
+    },
+    "gate2": {
+      "decision": "PASS",
+      "review": {
+        "file": "04-GATE2-REVIEW.md",
+        "sha256_lf": "252a90affcfcbd6d72ef637016b41efc3d121a5498b56903d67cf169234e6ce4",
+        "reviewer_verification": null
+      }
+    },
+    "gate3": {
+      "decision": "PASS",
+      "review": {
+        "file": "REVISION-GATE3-03.md",
+        "sha256_lf": "8841f70fc9c58cb2425d17f2a29b93404653aeabdd513d6141dde44f4553c875",
+        "reviewer_verification": null
+      }
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

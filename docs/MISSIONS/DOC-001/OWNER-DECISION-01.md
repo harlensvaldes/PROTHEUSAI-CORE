@@ -1,0 +1,7 @@
+﻿# DOC-001 · Decisión del Owner
+
+Fecha: 2026-11-06. Fuente: mensaje directo del Owner en esta conversación; identidad nominal no verificada. DOC-001 es una mejora interna de la metodología CORE, no desarrollo de producto para cliente. El Owner considera suficientes el plan y el mandato para su alcance y no exige completar el Charter general de CORE para esta mejora. No se declara completado el Charter ni se concede PASS automático de Gate 1. Autoriza implementación y procedimientos legítimos del alcance aprobado, pruebas, correcciones y commit; solicita registrar la ambigüedad recurrente de AGENTS.md y proponer aclaración mínima sin reforma ni modificación fuera de alcance.
+
+## Hallazgo metodológico recurrente y propuesta
+
+`AGENTS.md:3` exige completar el Charter antes de misiones productivas, sin definir ese término para mejoras internas de CORE. La misma duda surgió en DISCOVERY-001 y DOC-001, y requirió una decisión del Owner para cada alcance. Propuesta para decisión futura, no incorporada a AGENTS.md: «Para mejoras internas de la metodología CORE, el Owner puede decidir que el plan y el mandato definen el alcance de la misión sin completar el Charter general; esta decisión no completa el Charter ni sustituye los Gates y autorizaciones aplicables». La aplicación y el texto general quedan pendientes de decisión; esta propuesta no cambia política ni transfiere automáticamente decisiones previas.

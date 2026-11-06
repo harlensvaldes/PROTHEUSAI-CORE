@@ -25,7 +25,7 @@ Usa `scripts/new_mission.py`. Redacta el plan y criterios medibles. Identifica l
 Revisión independiente del plan, con evidencias y dictamen. Fallo bloqueante = no se implementa.
 
 ## 7. Programa en incrementos
-Mantén el diff mínimo; preserva trabajo previo no commiteado, datos y migraciones.
+Mantén el diff mínimo; preserva trabajo previo no commiteado, datos y migraciones. Mantén el README propio del producto según `docs/README_CONTRACT.md`; `docs/templates/README_PRODUCT.md` ofrece una guía adaptable.
 
 ## 8. Pasa Gates 2 y 3
 Gate 2 examina el diff; Gate 3 exige pruebas realmente ejecutadas. E2E no ejecutado = indicarlo explícitamente. Un test verde no demuestra por sí solo que el software cumple todo el dominio.
