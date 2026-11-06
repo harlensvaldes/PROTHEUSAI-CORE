@@ -1,0 +1,7 @@
+# DESIGN-001 · Cotejo acotado del runtime
+
+Fecha: 2026-11-06. Revisor declarado `codex /root/quality`. Lectura directa de cuatro eventos del registro raíz `rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl`; numeración desde 1. Este complemento no cambia el dictamen `PASS_WITH_RESERVATIONS` de `12-GATE3.md` ni los FAIL históricos.
+
+**Resultado:** el registro examinado contiene `collaboration.spawn_agent` con `task_name` `creative` en la línea 982 y `collaboration.followup_task` dirigido a `creative` en la línea 1032. Las respuestas de las líneas 1030 y 1064 declaran autor `/root/creative`, destinatario `/root` y describen respectivamente las propuestas de interfaz y evolución. Sus referencias y SHA-256 coinciden con los bytes actuales de `03-ESCENARIO-UI.md` (`b97ab3b1ef596a60609f37e753d76b814286e0ec253ce66b27c0977406d522ec`) y `05-ESCENARIO-EVOLUCION.md` (`9ffe8e5fecb2a16c446037609aa2670f2c32cfbddce870059e585a43eed7d1bf`); los resúmenes son coherentes con esos archivos.
+
+**Límite material:** los campos de mensaje de ambas llamadas aparecen codificados o cifrados y no son legibles en el registro consultado. Por tanto, esta lectura no verifica qué instrucciones, contrato, hash o decisiones anteriores se transmitieron. Los metadatos y respuestas observados apoyan que hubo una convocatoria y seguimiento registrados, pero no autentican identidad, integridad histórica, aislamiento ni completitud del registro. No se infieren contenidos ilegibles. No se ejecutaron pruebas nuevas ni A/B. **E2E NO EJECUTADO**.

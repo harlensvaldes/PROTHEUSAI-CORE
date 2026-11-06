@@ -1,0 +1,18 @@
+{
+  "core_commit": "e75ffff565ceb3b2712dad3c53d13f5fb4e9744f",
+  "clone_exit": 0,
+  "bootstrap_exit": 0,
+  "role_bytes_match_commit": true,
+  "provenance_commit_match": true,
+  "provenance_role_match": true,
+  "dependencies_present": true,
+  "mission_entries": [
+    "README.md"
+  ],
+  "no_mission_histories": true,
+  "met_test_exit": 0,
+  "met_tests_run": 5,
+  "met_help_exit": 0,
+  "revert_exit": 0,
+  "reverted_matches_base": true
+}

@@ -1,0 +1,11 @@
+# DESIGN-001 · Entrega técnica
+
+Fecha: 2026-11-06. **Estado:** implementación terminada, Gate 3 `PASS_WITH_RESERVATIONS`; aceptación del Owner pendiente. Commit de implementación `e75ffff565ceb3b2712dad3c53d13f5fb4e9744f`.
+
+`agents/creative_director.md` define el rol opcional, sus entradas, criterios UX/UI, resultados compactos y fronteras. `AGENTS.md` orienta a TERRA para convocarlo cuando una interfaz significativa o evolución visual lo requiera, sin imponerlo para API, bibliotecas, CLI o cambios sin impacto UX. `prompts/00_START_PROJECT.md` integra Discovery; `agents/architect.md`, `agents/developer.md` y `agents/quality.md` describen el intercambio sin sustituir sus responsabilidades ni añadir Gates. Las skills de sesión pertinentes son `imagegen`, `computer-use`, `visualize` y `sites`, solo cuando el encargo y su disponibilidad lo justifiquen; `frontend-design` no figura en el catálogo observado.
+
+`bootstrap/allowlist.json` incorpora el rol y las dependencias operativas de continuidad y métricas, incluida la prueba citada por su guía. `tests/test_bootstrap001.py` comprueba copias, provenance, exclusión de expedientes y ejecución de MET en el proyecto generado. El resultado desde commit real y la reversión aislada se describen en `11-RESULTADO-REAL.md`: cinco pruebas MET, bootstrap y reversión con salida 0. En la suite Bootstrap pasaron 12 pruebas; una de enlaces simbólicos quedó omitida por privilegios de Windows (`TEST-BOOTSTRAP-02.log`).
+
+Los tres ejercicios ficticios, incluida convocatoria real de especialista y lectura Developer, constan en `07-ESCENARIOS.md` y sus referencias. Quality confirmó metadatos y respuestas en runtime, pero no pudo leer los mensajes transmitidos de las llamadas; no se certifican identidad, aislamiento ni completitud (`12A-QUALITY-RUNTIME.md`). No se ha construido un producto para estas pruebas. **E2E NO EJECUTADO**.
+
+El dictamen independiente y sus reservas están en `12-GATE3.md`. El FAIL de la primera adenda de bootstrap se conserva en `02B-GATE1-ADENDA.md`, seguido de la corrección aprobada en `02C-GATE1-CORRECCION.md`; no se convierte el FAIL en PASS. No se registra aceptación del Owner. La medición parcial con MET-001, sus cifras, omisiones y comparación no causal están en `13-METRICAS.md`; no se demuestra ahorro.

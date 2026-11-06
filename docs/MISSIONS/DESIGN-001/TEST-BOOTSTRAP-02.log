@@ -1,0 +1,18 @@
+test_committed_traversal_in_allowlist_is_rejected (test_bootstrap001.BootstrapTests.test_committed_traversal_in_allowlist_is_rejected) ... ok
+test_concurrent_creations_never_overwrite (test_bootstrap001.BootstrapTests.test_concurrent_creations_never_overwrite) ... ok
+test_existing_destination_and_invalid_id_are_rejected (test_bootstrap001.BootstrapTests.test_existing_destination_and_invalid_id_are_rejected) ... ok
+test_existing_symlink_destination_is_rejected (test_bootstrap001.BootstrapTests.test_existing_symlink_destination_is_rejected) ... skipped "symlink privilege unavailable: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmp576rfno5\\\\link-target' -> 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmp576rfno5\\\\link'"
+test_generated_readme_collision_is_not_overwritten (test_bootstrap001.BootstrapTests.test_generated_readme_collision_is_not_overwritten) ... ok
+test_hostile_git_environment_and_template_do_not_redirect (test_bootstrap001.BootstrapTests.test_hostile_git_environment_and_template_do_not_redirect) ... ok
+test_missing_git_retains_partial_destination (test_bootstrap001.BootstrapTests.test_missing_git_retains_partial_destination) ... ok
+test_modified_source_and_nested_repository_are_rejected (test_bootstrap001.BootstrapTests.test_modified_source_and_nested_repository_are_rejected) ... ok
+test_new_project_is_independent_and_can_start_mission (test_bootstrap001.BootstrapTests.test_new_project_is_independent_and_can_start_mission) ... ok
+test_post_creation_failure_retains_partial_directory (test_bootstrap001.BootstrapTests.test_post_creation_failure_retains_partial_directory) ... ok
+test_reproducible_tree_and_project_specific_exclusions (test_bootstrap001.BootstrapTests.test_reproducible_tree_and_project_specific_exclusions) ... ok
+test_skip_worktree_cannot_hide_modified_source (test_bootstrap001.BootstrapTests.test_skip_worktree_cannot_hide_modified_source) ... ok
+test_source_reads_are_pinned_if_head_changes (test_bootstrap001.BootstrapTests.test_source_reads_are_pinned_if_head_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 44.291s
+
+OK (skipped=1)

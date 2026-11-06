@@ -1,0 +1,9 @@
+# DESIGN-001 · Escenarios de integración
+
+Fecha: 2026-11-06. Orchestrator `codex /root`; escenarios ficticios, sin construir productos. La separación se basa en delegaciones reales del runner; no certifica identidad ni aislamiento.
+
+1. **Interfaz significativa:** TERRA consideró relevante la dirección creativa y convocó con `collaboration.spawn_agent` a `/root/creative`, con el contrato `agents/creative_director.md`, su SHA-256 y un alcance ficticio de reservas móviles. El especialista produjo `03-ESCENARIO-UI.md`; Developer separado examinó aplicabilidad, criterios y decisiones pendientes en `06-LECTURA-DEVELOPER.md`. Se observaron propuesta UX/UI y lectura implementable, no producto implementado ni aprobación del Owner. Quality independiente conserva sus funciones y revisa el incremento.
+2. **CLI:** para el caso ficticio sin interfaz significativa TERRA no encargó trabajo creativo para ese escenario. Delegó a Developer una lectura del contrato y del flujo, registrada en `04-ESCENARIO-CLI.md`: el trabajo puede continuar sin convocatoria creativa y debe reevaluarse si aparece impacto UX. El agente creativo de otro escenario podía existir simultáneamente; no se afirma ausencia global de agentes. No se construyó ni ejecutó la CLI.
+3. **Evolución:** TERRA retomó `/root/creative` mediante `collaboration.followup_task`, con decisiones previas explícitas de color, componentes y navegación, y pidió una modificación delimitada. `05-ESCENARIO-EVOLUCION.md` conserva identidad, identifica incertidumbres y no exige repetir Discovery ni reconstruir el producto. No se inspeccionó una aplicación real.
+
+Las salidas incluyen propuestas y supuestos, no decisiones inventadas del Owner ni dictámenes Quality. Los límites de permisos, identidad y procedencia permanecen; no se extrapola la prueba a otros runners. **E2E NO EJECUTADO**.

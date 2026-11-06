@@ -1,0 +1,2055 @@
+{
+  "actual_cost": null,
+  "anomalies": {
+    "file_read_errors": 2
+  },
+  "by_model": {
+    "codex-auto-review": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 355200,
+      "input_tokens": 422793,
+      "output_tokens": 1335,
+      "reasoning_output_tokens": 668,
+      "responses": 10,
+      "total_tokens": 424128
+    },
+    "gpt-6.1-terra": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 13219328,
+      "input_tokens": 13643767,
+      "output_tokens": 57623,
+      "reasoning_output_tokens": 9014,
+      "responses": 220,
+      "total_tokens": 13701390
+    }
+  },
+  "by_phase": {
+    "DESIGN-001": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 1514240,
+      "input_tokens": 1677102,
+      "output_tokens": 3287,
+      "reasoning_output_tokens": 571,
+      "responses": 27,
+      "total_tokens": 1680389
+    },
+    "unknown": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 12060288,
+      "input_tokens": 12389458,
+      "output_tokens": 55671,
+      "reasoning_output_tokens": 9111,
+      "responses": 203,
+      "total_tokens": 12445129
+    }
+  },
+  "by_thread": {
+    "01a1b268-8005-7972-9954-92b25bac03cf": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 9199616,
+      "input_tokens": 9451388,
+      "output_tokens": 32307,
+      "reasoning_output_tokens": 7421,
+      "responses": 128,
+      "total_tokens": 9483695
+    },
+    "01a1b268-814c-7163-9a66-857deacb79d6": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 355200,
+      "input_tokens": 422793,
+      "output_tokens": 1335,
+      "reasoning_output_tokens": 668,
+      "responses": 10,
+      "total_tokens": 424128
+    },
+    "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 2242944,
+      "input_tokens": 2301643,
+      "output_tokens": 14184,
+      "reasoning_output_tokens": 869,
+      "responses": 39,
+      "total_tokens": 2315827
+    },
+    "01a1b277-9d6e-71c3-88eb-dfe82ca3f533": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 437888,
+      "input_tokens": 452152,
+      "output_tokens": 3736,
+      "reasoning_output_tokens": 295,
+      "responses": 13,
+      "total_tokens": 455888
+    },
+    "01a1b283-452c-7731-bd66-39f09753a70a": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 68992,
+      "input_tokens": 88526,
+      "output_tokens": 873,
+      "reasoning_output_tokens": 37,
+      "responses": 3,
+      "total_tokens": 89399
+    },
+    "01a1b285-fa04-7253-88b8-eccbc669d931": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 552064,
+      "input_tokens": 567525,
+      "output_tokens": 3951,
+      "reasoning_output_tokens": 192,
+      "responses": 15,
+      "total_tokens": 571476
+    },
+    "01a1b28c-c292-7820-81ab-f14f6567f496": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 117888,
+      "input_tokens": 138572,
+      "output_tokens": 1251,
+      "reasoning_output_tokens": 71,
+      "responses": 4,
+      "total_tokens": 139823
+    },
+    "01a1b297-eb5c-7753-a712-c376a8b828ff": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 372992,
+      "input_tokens": 410133,
+      "output_tokens": 937,
+      "reasoning_output_tokens": 96,
+      "responses": 11,
+      "total_tokens": 411070
+    },
+    "01a1b298-0fcd-7831-bd23-ad8251a352fa": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 226944,
+      "input_tokens": 233828,
+      "output_tokens": 384,
+      "reasoning_output_tokens": 33,
+      "responses": 7,
+      "total_tokens": 234212
+    }
+  },
+  "cutoff_exclusive_utc": "2026-11-06T20:42:53.516000+00:00",
+  "files_scanned": 127,
+  "hypothetical_cost": null,
+  "ignored_cumulative_events": 144,
+  "limitations": [
+    "Only observed response records; completeness of source logs is not established.",
+    "Cumulative token_count events are excluded because they may include inherited counters.",
+    "Reasoning tokens are included in output; cached tokens are included in input.",
+    "Model is declared by turn_context, not verified billing identity.",
+    "Phase attribution uses supplied time windows; agent role is not inferred."
+  ],
+  "measurement_status": "partial",
+  "phase_windows": [
+    {
+      "basis": "configured time boundaries; elapsed, not active work time",
+      "duration_seconds": 131.856,
+      "end_utc": "2026-11-06T20:42:53.516000+00:00",
+      "name": "DESIGN-001",
+      "start_utc": "2026-11-06T20:40:41.660000+00:00"
+    }
+  ],
+  "provenance": [
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 20,
+      "response_id": "resp_0f5c029404b87095016aee2f38626887d285972722c7588ae6",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:49:34.361Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 25,
+      "response_id": "resp_0f5c029404b87095016aee2f489d7c87d29236b32e3243bef0",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:49:47.992Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 30,
+      "response_id": "resp_0f5c029404b87095016aee2f73cd7c87d28fde57129ad65293",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:50:29.364Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 37,
+      "response_id": "resp_0f5c029404b87095016aee2f9318fc87d2addca97021beba22",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:51:05.546Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 42,
+      "response_id": "resp_0f5c029404b87095016aee2fa5647c87d281bf3ecad8ccfa77",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:51:23.826Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 48,
+      "response_id": "resp_0f5c029404b87095016aee2fb8437087d2a448844b7737b09f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:51:46.199Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 55,
+      "response_id": "resp_0f5c029404b87095016aee2fcb504887d2bbb4fb091b90a3fe",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:52:00.000Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 60,
+      "response_id": "resp_0f5c029404b87095016aee2fdb071887d2810967038087d21c",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:52:15.573Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 65,
+      "response_id": "resp_0f5c029404b87095016aee2feaea6c87d2bc9420e989aa8b36",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:52:32.756Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 78,
+      "response_id": "resp_0f5c029404b87095016aee3006ab4087d29f8ead8d44344f7d",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:53:17.832Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 86,
+      "response_id": "resp_0f5c029404b87095016aee302ac75087d2a88796fee42cd702",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:53:34.723Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 89,
+      "response_id": "resp_0f5c029404b87095016aee303aa92c87d2be75727335fa20f8",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:53:48.794Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 95,
+      "response_id": "resp_0f5c029404b87095016aee3045e22c87d2b26df52824711f8d",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:54:02.641Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 100,
+      "response_id": "resp_0f5c029404b87095016aee305619f887d2969445f5fa95e71c",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:54:22.974Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 105,
+      "response_id": "resp_0f5c029404b87095016aee306a277087d280684f44468fc966",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:54:41.864Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 110,
+      "response_id": "resp_0f5c029404b87095016aee307d64ac87d2a8645370c4cdf3e9",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:54:55.927Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 115,
+      "response_id": "resp_0f5c029404b87095016aee308aa02c87d2a33a5ef4a2d81d17",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:55:10.637Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 120,
+      "response_id": "resp_0f5c029404b87095016aee309954bc87d2b309524028e9790a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:55:27.662Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 127,
+      "response_id": "resp_0f5c029404b87095016aee30a85e9087d29f62e16b4d08fc9a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:55:42.533Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 133,
+      "response_id": "resp_0f5c029404b87095016aee30ba90f887d28b88e583b361c94f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:56:02.691Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 138,
+      "response_id": "resp_0f5c029404b87095016aee30cb779087d2a74b89ab316bb6c3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:56:12.644Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 143,
+      "response_id": "resp_0f5c029404b87095016aee30d564d087d2bffb57978b2f6445",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:56:24.662Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 146,
+      "response_id": "resp_0f5c029404b87095016aee30eb407c87d29ea2b6b589f8e67e",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:56:43.511Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 155,
+      "response_id": "resp_0f5c029404b87095016aee30f4485c87d29885906366c0f9d1",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:56:57.027Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 162,
+      "response_id": "resp_0f5c029404b87095016aee31090bfc87d2b16f78f99199ab5f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:57:19.114Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 167,
+      "response_id": "resp_0f5c029404b87095016aee311b271087d28e6bb83ca5a46faf",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:57:37.402Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 171,
+      "response_id": "resp_0f5c029404b87095016aee3131b4f487d291fa336089ebcf21",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:57:58.355Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 178,
+      "response_id": "resp_0f5c029404b87095016aee3142486c87d2a2e6377085eeec4f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:58:12.410Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 182,
+      "response_id": "resp_0f5c029404b87095016aee3153815c87d28e6a77ceb9e28b9f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:58:29.287Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 187,
+      "response_id": "resp_0f5c029404b87095016aee3164169c87d295657b84feaf5cc1",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:58:48.764Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 192,
+      "response_id": "resp_0f5c029404b87095016aee3173b63887d2b972b271669be15b",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:59:06.225Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 197,
+      "response_id": "resp_0f5c029404b87095016aee3184a0c487d28b6261c1ce4148c7",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:59:20.283Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 202,
+      "response_id": "resp_0f5c029404b87095016aee319639c087d293a1b4ad526b60a3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:59:34.610Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 207,
+      "response_id": "resp_0f5c029404b87095016aee31a21d7487d2b2785602de2fe082",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T19:59:50.564Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 212,
+      "response_id": "resp_0f5c029404b87095016aee31b0e07487d2a0ccf6d6c46d8ef7",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:00:01.451Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 217,
+      "response_id": "resp_0f5c029404b87095016aee31bc35f087d2a3c49d61c15c7d0e",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:00:15.456Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 224,
+      "response_id": "resp_0f5c029404b87095016aee31dc3ae087d2935fcfe9866af5fb",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:00:45.809Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 229,
+      "response_id": "resp_0f5c029404b87095016aee31fa616c87d2934b07acf04aa17a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:01:14.787Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 237,
+      "response_id": "resp_0f5c029404b87095016aee320387b087d292a13fc07b9b3efd",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:01:31.212Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 245,
+      "response_id": "resp_0f5c029404b87095016aee3215951887d2b738e9b5e32dcc98",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:01:45.161Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 250,
+      "response_id": "resp_0f5c029404b87095016aee322200f887d2a29ebe6eb3192e42",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:01:57.596Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 255,
+      "response_id": "resp_0f5c029404b87095016aee324235f087d2bde2ae981ee73903",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:02:27.368Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 261,
+      "response_id": "resp_0f5c029404b87095016aee325ff1b487d2ac2cbeb0c6471e3a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:02:57.373Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 267,
+      "response_id": "resp_0f5c029404b87095016aee327e25f887d291eff83a8fa958c3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:03:27.431Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 271,
+      "response_id": "resp_0f5c029404b87095016aee3288278487d29c16b91a54be1004",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:03:36.383Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 281,
+      "response_id": "resp_0f5c029404b87095016aee329aaba887d2ae79b2043cc10ab0",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:03:57.289Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 289,
+      "response_id": "resp_0f5c029404b87095016aee32aaf49c87d284ceb604657d641a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:04:16.496Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 294,
+      "response_id": "resp_0f5c029404b87095016aee32bafe2c87d2a78aa37722864495",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:04:35.139Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 299,
+      "response_id": "resp_0f5c029404b87095016aee32cdf0bc87d2ab3fd273b8290cde",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:04:52.298Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 303,
+      "response_id": "resp_0f5c029404b87095016aee32deee3887d2a562eb6df2ad4cf2",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:05:11.712Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 308,
+      "response_id": "resp_0f5c029404b87095016aee32f2de8087d2a68a6c1a59e4a34e",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:05:27.864Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 315,
+      "response_id": "resp_0f5c029404b87095016aee3300a15087d280ca7eae9d91b448",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:05:45.959Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 322,
+      "response_id": "resp_0f5c029404b87095016aee33137f6487d2a3df184f4ec5eb11",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:06:00.165Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 332,
+      "response_id": "resp_0f5c029404b87095016aee334145bc87d29812f8eab96eb009",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:06:47.188Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 336,
+      "response_id": "resp_0f5c029404b87095016aee334fe4a487d2876dabe3c1b2404c",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:06:57.811Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 347,
+      "response_id": "resp_0f5c029404b87095016aee3366597487d290606b9f09b57dc9",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:07:23.629Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 352,
+      "response_id": "resp_0f5c029404b87095016aee337967a887d2887b05f3cf0d8c1c",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:07:47.614Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 369,
+      "response_id": "resp_0f5c029404b87095016aee33aa3aa487d29f554805f4c4d0bb",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:08:33.690Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 374,
+      "response_id": "resp_0f5c029404b87095016aee33ba614487d2a91c7dd7a146d687",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:08:46.296Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 378,
+      "response_id": "resp_0f5c029404b87095016aee33dad73487d287330cec30edfbf3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:09:16.321Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 383,
+      "response_id": "resp_0f5c029404b87095016aee33e7105487d289693d9ec4800399",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:09:28.889Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 387,
+      "response_id": "resp_0f5c029404b87095016aee33f18ce087d296d54e1e19423eaa",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:09:39.639Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 392,
+      "response_id": "resp_0f5c029404b87095016aee3410513087d2ab99cd14d4fb472a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:10:26.045Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 407,
+      "response_id": "resp_0f5c029404b87095016aee3444e5f487d2b17cfe200cc9b2b1",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:11:05.801Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 412,
+      "response_id": "resp_0f5c029404b87095016aee3453852887d2b15a6f78df275007",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:11:23.828Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 417,
+      "response_id": "resp_0f5c029404b87095016aee3466f69887d2af209046a6c0e7a3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:11:38.048Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 422,
+      "response_id": "resp_0f5c029404b87095016aee3486999087d2b6ba5dad6c314cfd",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:12:10.000Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 436,
+      "response_id": "resp_0f5c029404b87095016aee34abfa3887d2b1665d0ec3004c7b",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:12:49.401Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 443,
+      "response_id": "resp_0f5c029404b87095016aee34ba1ef887d28771570309ebcac5",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:13:00.661Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 448,
+      "response_id": "resp_0f5c029404b87095016aee34d9233c87d2b518e8f271236f57",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:13:32.226Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 461,
+      "response_id": "resp_0f5c029404b87095016aee350fc7d887d2b175e5fa5ab994a1",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:14:29.124Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 467,
+      "response_id": "resp_0f5c029404b87095016aee351f8cdc87d2b5160c2ec822c3bd",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:14:53.768Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 483,
+      "response_id": "resp_0f5c029404b87095016aee35fff06887d29d18216ac0f844b1",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:18:29.812Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 490,
+      "response_id": "resp_0f5c029404b87095016aee360f63f087d2bce1bd4e5ce71b51",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:18:43.689Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 495,
+      "response_id": "resp_0f5c029404b87095016aee361ed6d087d28efb5073b58578b2",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:19:00.838Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 501,
+      "response_id": "resp_0f5c029404b87095016aee362fe80c87d2a450ea1fd773f917",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:19:28.957Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 508,
+      "response_id": "resp_0f5c029404b87095016aee364e4e0c87d283cf5d78ef98f7ed",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:19:45.985Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 513,
+      "response_id": "resp_0f5c029404b87095016aee365d5f1487d2a243ba9dfc611b2c",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:20:03.389Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 518,
+      "response_id": "resp_0f5c029404b87095016aee366e0e0c87d2b75ce4a83e574600",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:20:18.068Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 523,
+      "response_id": "resp_0f5c029404b87095016aee367c245c87d2838c888ace05cd08",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:20:33.654Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 528,
+      "response_id": "resp_0f5c029404b87095016aee368bf74887d2b6aa59574b47682f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:20:49.512Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 533,
+      "response_id": "resp_0f5c029404b87095016aee369b7ff487d2858ed6ed55574258",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:21:06.069Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 540,
+      "response_id": "resp_0f5c029404b87095016aee36ac7a9887d2af13a01cf58d2365",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:21:27.066Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 548,
+      "response_id": "resp_0f5c029404b87095016aee36c0798887d29b4a18771916b1ba",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:21:55.006Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 553,
+      "response_id": "resp_0f5c029404b87095016aee36ddde7487d2ba3a2d3b78caee80",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:22:08.558Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 558,
+      "response_id": "resp_0f5c029404b87095016aee36eb6a0487d28ba352900d153862",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:22:26.286Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 563,
+      "response_id": "resp_0f5c029404b87095016aee36fd631c87d2a53b6f65c5ad02ae",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:22:38.629Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 576,
+      "response_id": "resp_0f5c029404b87095016aee37329ae087d293c7f2d0fd74fd13",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:23:33.986Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 582,
+      "response_id": "resp_0f5c029404b87095016aee37418b6087d2b26bb796ae55af87",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:23:49.063Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 587,
+      "response_id": "resp_0f5c029404b87095016aee374dc1e487d284a6b25b239881cd",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:24:11.136Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 593,
+      "response_id": "resp_0f5c029404b87095016aee3764e95887d2bf3738917297cd18",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:24:25.767Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 606,
+      "response_id": "resp_0f5c029404b87095016aee3797020487d2a9d4372a37965bb3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:25:20.347Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 613,
+      "response_id": "resp_0f5c029404b87095016aee37ab1ea087d29e28b1604a17e4d2",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:25:42.607Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 618,
+      "response_id": "resp_0f5c029404b87095016aee37c1439887d2b27b31854f95df0e",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:26:01.803Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 623,
+      "response_id": "resp_0f5c029404b87095016aee37d9caac87d2a76f734bf2af57c3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:26:21.631Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 629,
+      "response_id": "resp_0f5c029404b87095016aee37e9cac487d292585fba9b800353",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:26:38.723Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 633,
+      "response_id": "resp_0f5c029404b87095016aee37f7635c87d29eaf87c65f9c0f1b",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:26:48.148Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 638,
+      "response_id": "resp_0f5c029404b87095016aee3814bd8487d284c832ee7bbe87a9",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:27:18.419Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 646,
+      "response_id": "resp_0f5c029404b87095016aee38327b1487d281e85ece2e95224b",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:27:49.528Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 653,
+      "response_id": "resp_0f5c029404b87095016aee38420e2c87d2b2f87c1b0042d1f3",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:28:08.690Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 659,
+      "response_id": "resp_0f5c029404b87095016aee38568cc087d282416be36430849d",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:28:33.005Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 670,
+      "response_id": "resp_0f5c029404b87095016aee386a158887d2824db8e196addcdb",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:28:51.136Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 677,
+      "response_id": "resp_0f5c029404b87095016aee387dc21c87d283d3c1b1af865d0a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:29:06.643Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 682,
+      "response_id": "resp_0f5c029404b87095016aee388f103487d29bdc21afbc477695",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:29:28.914Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 687,
+      "response_id": "resp_0f5c029404b87095016aee38a8140087d2b365b45b86b4e76b",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:29:45.929Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 699,
+      "response_id": "resp_0f5c029404b87095016aee38d068fc87d2b57a59bea2f95070",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:30:31.034Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 704,
+      "response_id": "resp_0f5c029404b87095016aee38e28b3087d29d15bb61f0e0b86f",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:30:55.740Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 709,
+      "response_id": "resp_0f5c029404b87095016aee38fa9d7887d296da3b9ca0c5c11a",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:31:21.138Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 715,
+      "response_id": "resp_0f5c029404b87095016aee3913861087d297da55da211020d1",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:31:38.964Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 719,
+      "response_id": "resp_0f5c029404b87095016aee3925a62c87d2b559a614d932a6e4",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:31:56.760Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 724,
+      "response_id": "resp_0f5c029404b87095016aee393b1ef887d2a4203ed488120664",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:32:15.419Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 730,
+      "response_id": "resp_0f5c029404b87095016aee394a90bc87d2a5cae7731eca2f04",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:32:38.420Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 746,
+      "response_id": "resp_0f5c029404b87095016aee39fa47cc87d2bdf964e2c4a654d8",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:35:27.526Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 751,
+      "response_id": "resp_0f5c029404b87095016aee3a0c111487d2a072ca2d4cb6a95d",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:35:42.561Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 756,
+      "response_id": "resp_0f5c029404b87095016aee3a197a5487d28cf628669e609850",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:36:05.674Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 762,
+      "response_id": "resp_0f5c029404b87095016aee3a2fb7d887d2a0333a0e0a9be508",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:36:21.826Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 766,
+      "response_id": "resp_0f5c029404b87095016aee3a40b24487d2b9531cb600cbbb09",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:36:35.594Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 771,
+      "response_id": "resp_0f5c029404b87095016aee3a51275c87d28dbb03ab1eec2f97",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:36:52.764Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 776,
+      "response_id": "resp_0f5c029404b87095016aee3a608dc487d2a12f5aa7ddd6c779",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:37:06.231Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 790,
+      "response_id": "resp_0f5c029404b87095016aee3b4308c887d290b929423f3baa44",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:40:50.689Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 797,
+      "response_id": "resp_0f5c029404b87095016aee3b4dc39c87d29c34ee455e9c8cbb",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:41:03.067Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 803,
+      "response_id": "resp_0f5c029404b87095016aee3b58be2087d294040dca144244e4",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:41:12.473Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 810,
+      "response_id": "resp_0f5c029404b87095016aee3b62037c87d2b17c15486a005117",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:41:22.384Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 815,
+      "response_id": "resp_0f5c029404b87095016aee3b8a871487d281aff35be5fe4250",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:42:02.418Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 822,
+      "response_id": "resp_0f5c029404b87095016aee3b96977087d283bfa563d8375896",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:42:14.293Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 827,
+      "response_id": "resp_0f5c029404b87095016aee3ba5951887d2a3edf4ec8d52fd3c",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:42:27.961Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 833,
+      "response_id": "resp_0f5c029404b87095016aee3baf702887d2b459929e4ab34384",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:42:38.195Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl",
+      "line": 838,
+      "response_id": "resp_0f5c029404b87095016aee3bb9a1d887d282ad273572dd5102",
+      "thread_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+      "timestamp": "2026-11-06T20:42:50.739Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 16,
+      "response_id": "resp_0d20900028c5a34f016aee3102347c87d293f2d02f00e2988a",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T19:57:02.599Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 29,
+      "response_id": "resp_0d20900028c5a34f016aee312a623c87d2b8874fddb365ed88",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T19:57:42.754Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 40,
+      "response_id": "resp_0d20900028c5a34f016aee314d995087d2b57f96eddddff5ff",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T19:58:16.639Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 52,
+      "response_id": "resp_0d20900028c5a34f016aee315e297487d281aa798a68649189",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T19:58:34.790Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 68,
+      "response_id": "resp_0d20900028c5a34f016aee32a66b6087d2a78453e34aa4a881",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T20:04:01.089Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 83,
+      "response_id": "resp_0d20900028c5a34f016aee3375453887d28c71dad81ececdeb",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T20:07:27.711Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 98,
+      "response_id": "resp_0d20900028c5a34f016aee37d2fde087d2bcf74fb9cf1d7df8",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T20:26:06.634Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 111,
+      "response_id": "resp_0d20900028c5a34f016aee383e474887d2ba149d564c44ab79",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T20:27:52.640Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 122,
+      "response_id": "resp_0d20900028c5a34f016aee3935b4f887d29cf1085debc4199d",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T20:32:00.348Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-49-16-01a1b268-814c-7163-9a66-857deacb79d6.jsonl",
+      "line": 133,
+      "response_id": "resp_0d20900028c5a34f016aee3a4c80c087d28c7503421569fc8d",
+      "thread_id": "01a1b268-814c-7163-9a66-857deacb79d6",
+      "timestamp": "2026-11-06T20:36:39.292Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 35,
+      "response_id": "resp_03556eb5954a483f016aee2fcc7ca087d2a410e64dc965106c",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:52:02.309Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 40,
+      "response_id": "resp_03556eb5954a483f016aee2fdd283487d29ca07a98f13cb5d9",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:52:19.824Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 46,
+      "response_id": "resp_03556eb5954a483f016aee2fef681887d2a5574e207fe2e856",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:52:37.205Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 51,
+      "response_id": "resp_03556eb5954a483f016aee2ffe06e487d28faced824a0ab0d2",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:52:51.036Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 57,
+      "response_id": "resp_03556eb5954a483f016aee300e550487d2bd6848c55ffd0798",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:53:11.535Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 68,
+      "response_id": "resp_03556eb5954a483f016aee30a8718487d2bd070aa594c8d7ec",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:55:42.036Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 73,
+      "response_id": "resp_03556eb5954a483f016aee30b9fc7887d2bc07e378f588d149",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:56:03.085Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 78,
+      "response_id": "resp_03556eb5954a483f016aee30ceed2887d2b465fd8b8a274d78",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:56:19.658Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 84,
+      "response_id": "resp_03556eb5954a483f016aee30de50bc87d285b43d2b523b0c2e",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:56:41.367Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 89,
+      "response_id": "resp_03556eb5954a483f016aee30f27c4087d2a4b57ef7bd2071b9",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T19:56:56.566Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 100,
+      "response_id": "resp_03556eb5954a483f016aee31af4e3887d2b94dcfffd7534de7",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:00:09.498Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 105,
+      "response_id": "resp_03556eb5954a483f016aee31c51b4887d2b6935f0ea31c741e",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:00:26.416Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 110,
+      "response_id": "resp_03556eb5954a483f016aee31d5ba7c87d2a27a5916b06340ca",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:00:57.560Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 116,
+      "response_id": "resp_03556eb5954a483f016aee31f66c2087d297aef49a88180864",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:01:14.115Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 122,
+      "response_id": "resp_03556eb5954a483f016aee3203547487d2ac63256d75f945db",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:01:27.231Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 133,
+      "response_id": "resp_03556eb5954a483f016aee3221dc9c87d28960bd40487959a3",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:01:58.549Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 138,
+      "response_id": "resp_03556eb5954a483f016aee3231a62887d29cecd9002d2f6258",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:02:17.822Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 143,
+      "response_id": "resp_03556eb5954a483f016aee3245707487d2922dce4173f47549",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:02:38.230Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 148,
+      "response_id": "resp_03556eb5954a483f016aee325a207887d296451bede887b0e8",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:02:54.296Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 153,
+      "response_id": "resp_03556eb5954a483f016aee3267e6b887d297487627cc57d4e0",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:03:20.521Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 159,
+      "response_id": "resp_03556eb5954a483f016aee32824fac87d2a1374941d72ba1ab",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:03:34.374Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 166,
+      "response_id": "resp_03556eb5954a483f016aee328f0dc487d2bf357bb8baef3ff1",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:03:44.998Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 171,
+      "response_id": "resp_03556eb5954a483f016aee3299e1a887d28b4c78998903bfab",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:03:57.214Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 182,
+      "response_id": "resp_03556eb5954a483f016aee3300985087d2ad49ec3885bf1c0a",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:05:43.029Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 187,
+      "response_id": "resp_03556eb5954a483f016aee3312c9ec87d28509120a419a4704",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:06:02.784Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 192,
+      "response_id": "resp_03556eb5954a483f016aee3325aef087d298b9796991407e8a",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:06:33.376Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 198,
+      "response_id": "resp_03556eb5954a483f016aee3343202887d2a84b8fe82ee074b0",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:06:47.385Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 203,
+      "response_id": "resp_03556eb5954a483f016aee33501fd087d2bf762a6acfa13bbb",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:07:03.377Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 214,
+      "response_id": "resp_03556eb5954a483f016aee33baa90487d2a73b2205a1b1a1ca",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:08:49.556Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 219,
+      "response_id": "resp_03556eb5954a483f016aee33cdbf8c87d2a97a04a48f696fa6",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:09:11.211Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 225,
+      "response_id": "resp_03556eb5954a483f016aee33e0b82087d29c260cfd6be5fdee",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:09:27.179Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 230,
+      "response_id": "resp_03556eb5954a483f016aee33f1db4087d2aa22afa931fe9f2e",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:09:41.886Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 235,
+      "response_id": "resp_03556eb5954a483f016aee3400d7e487d28a6f8b43723c429a",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:10:13.422Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 241,
+      "response_id": "resp_03556eb5954a483f016aee341f696c87d2a45c8ade8810a896",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:10:28.235Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 246,
+      "response_id": "resp_03556eb5954a483f016aee342ce67087d29dd6f27a98e4b480",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:10:42.335Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 257,
+      "response_id": "resp_03556eb5954a483f016aee34ba168487d2b97f98a444082c9b",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:13:09.062Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 262,
+      "response_id": "resp_03556eb5954a483f016aee34d2311487d2a34ae77342511b08",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:13:40.581Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 268,
+      "response_id": "resp_03556eb5954a483f016aee34ee84e887d2b3041001a93ab5d5",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:13:53.988Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-51-46-01a1b26a-cc8d-78d0-90bf-62b2c3ca7238.jsonl",
+      "line": 273,
+      "response_id": "resp_03556eb5954a483f016aee34fac41887d29519bb1cc1063b33",
+      "thread_id": "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238",
+      "timestamp": "2026-11-06T20:14:07.195Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 108,
+      "response_id": "resp_0a1bc9ee6f273885016aee3314bc7487d2b5486142623c2a8a",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:06:00.135Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 113,
+      "response_id": "resp_0a1bc9ee6f273885016aee33228ac887d2bcfbf5eeaea820dc",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:06:14.064Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 119,
+      "response_id": "resp_0a1bc9ee6f273885016aee33315e7087d2b1de1f3dee572307",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:06:28.093Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 123,
+      "response_id": "resp_0a1bc9ee6f273885016aee333ce5e087d2b3a7400b0ae960b2",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:06:41.356Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 132,
+      "response_id": "resp_0a1bc9ee6f273885016aee335749e087d2bcd20098aebb31fd",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:07:08.043Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 137,
+      "response_id": "resp_0a1bc9ee6f273885016aee33674f5887d2ab1728bc201b5632",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:07:37.655Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 142,
+      "response_id": "resp_0a1bc9ee6f273885016aee3384b21c87d2b71ba710544000f5",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:07:52.015Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 148,
+      "response_id": "resp_0a1bc9ee6f273885016aee3390cac487d2acadd1a55826ee5e",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:08:05.212Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 159,
+      "response_id": "resp_0a1bc9ee6f273885016aee34528cbc87d2a3694c3830c388b4",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:11:19.128Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 164,
+      "response_id": "resp_0a1bc9ee6f273885016aee3461f67c87d28d5cc7aceb0bcb58",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:11:35.830Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 169,
+      "response_id": "resp_0a1bc9ee6f273885016aee34733f5487d291bdfca80e0be122",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:12:03.678Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 173,
+      "response_id": "resp_0a1bc9ee6f273885016aee348e5d4887d2994c7335a19c28c9",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:12:19.365Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-05-46-01a1b277-9d6e-71c3-88eb-dfe82ca3f533.jsonl",
+      "line": 179,
+      "response_id": "resp_0a1bc9ee6f273885016aee349c0f1487d2a805afb1d79afe1e",
+      "thread_id": "01a1b277-9d6e-71c3-88eb-dfe82ca3f533",
+      "timestamp": "2026-11-06T20:12:32.250Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-18-29-01a1b283-452c-7731-bd66-39f09753a70a.jsonl",
+      "line": 166,
+      "response_id": "resp_0485738a4c52c395016aee36101e0087d2b5caf23cf8dc6df1",
+      "thread_id": "01a1b283-452c-7731-bd66-39f09753a70a",
+      "timestamp": "2026-11-06T20:18:44.121Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-18-29-01a1b283-452c-7731-bd66-39f09753a70a.jsonl",
+      "line": 171,
+      "response_id": "resp_0485738a4c52c395016aee361ed68c87d29854de07d360da96",
+      "thread_id": "01a1b283-452c-7731-bd66-39f09753a70a",
+      "timestamp": "2026-11-06T20:18:58.717Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-18-29-01a1b283-452c-7731-bd66-39f09753a70a.jsonl",
+      "line": 177,
+      "response_id": "resp_0485738a4c52c395016aee362d047487d2bf06e664fd605211",
+      "thread_id": "01a1b283-452c-7731-bd66-39f09753a70a",
+      "timestamp": "2026-11-06T20:19:20.185Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 180,
+      "response_id": "resp_0cb2d212f606cb83016aee36c21acc87d2917285fefe756136",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:21:43.154Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 185,
+      "response_id": "resp_0cb2d212f606cb83016aee36d19fbc87d280808aedcb9621aa",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:22:02.112Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 190,
+      "response_id": "resp_0cb2d212f606cb83016aee36e48f6c87d2804b1e7f3c69ddec",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:22:17.913Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 195,
+      "response_id": "resp_0cb2d212f606cb83016aee36f55ab487d28c95eab0c7761002",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:22:49.052Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 200,
+      "response_id": "resp_0cb2d212f606cb83016aee3713ec0487d2bf91bcc96ff2f238",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:23:05.272Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 205,
+      "response_id": "resp_0cb2d212f606cb83016aee372239c087d2988e178848bd887c",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:23:18.097Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 216,
+      "response_id": "resp_0cb2d212f606cb83016aee374da9cc87d2bbbd4e23b276abb8",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:24:02.001Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 220,
+      "response_id": "resp_0cb2d212f606cb83016aee375dd05c87d28d8ce0016f75e200",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:24:24.002Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 225,
+      "response_id": "resp_0cb2d212f606cb83016aee3773b8cc87d28ce758d4685f95ad",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:24:37.269Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 230,
+      "response_id": "resp_0cb2d212f606cb83016aee377e0f7887d2b1e0abd90eeb6e58",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:24:48.806Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 241,
+      "response_id": "resp_0cb2d212f606cb83016aee37f75e8c87d2b70068206f9b2ad0",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:26:49.678Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 246,
+      "response_id": "resp_0cb2d212f606cb83016aee380423c487d2a7dcc3a9e3ca9948",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:27:07.791Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 251,
+      "response_id": "resp_0cb2d212f606cb83016aee38194b8887d294209252d72aa463",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:27:24.261Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 256,
+      "response_id": "resp_0cb2d212f606cb83016aee3826846487d2a83223e2262e23b8",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:27:37.878Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-21-27-01a1b285-fa04-7253-88b8-eccbc669d931.jsonl",
+      "line": 261,
+      "response_id": "resp_0cb2d212f606cb83016aee383281c087d2bc56eeac660a2b28",
+      "thread_id": "01a1b285-fa04-7253-88b8-eccbc669d931",
+      "timestamp": "2026-11-06T20:27:49.095Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-28-52-01a1b28c-c292-7820-81ab-f14f6567f496.jsonl",
+      "line": 220,
+      "response_id": "resp_04711dc2e5de00d7016aee387e729487d28a1b7c2a59c77dea",
+      "thread_id": "01a1b28c-c292-7820-81ab-f14f6567f496",
+      "timestamp": "2026-11-06T20:29:08.470Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-28-52-01a1b28c-c292-7820-81ab-f14f6567f496.jsonl",
+      "line": 225,
+      "response_id": "resp_04711dc2e5de00d7016aee3890ce8487d280ac38d4a8a2b927",
+      "thread_id": "01a1b28c-c292-7820-81ab-f14f6567f496",
+      "timestamp": "2026-11-06T20:29:28.838Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-28-52-01a1b28c-c292-7820-81ab-f14f6567f496.jsonl",
+      "line": 230,
+      "response_id": "resp_04711dc2e5de00d7016aee38a4c03c87d280a7edb3e2682a54",
+      "thread_id": "01a1b28c-c292-7820-81ab-f14f6567f496",
+      "timestamp": "2026-11-06T20:29:45.432Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-28-52-01a1b28c-c292-7820-81ab-f14f6567f496.jsonl",
+      "line": 236,
+      "response_id": "resp_04711dc2e5de00d7016aee38b5322087d2a8119563720aeb18",
+      "thread_id": "01a1b28c-c292-7820-81ab-f14f6567f496",
+      "timestamp": "2026-11-06T20:30:08.258Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 271,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b5987b487d2877ebf48996b74f6",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:41:14.981Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 276,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b66257c87d2908447866bd041ba",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:41:23.785Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 280,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b704b7887d2b01d16db4f466833",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:41:34.295Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 284,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b78d96487d28dbdc67a079130d8",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:41:41.003Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 289,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b7f625c87d28bd63b5544a85459",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:41:53.066Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 295,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b8ce36487d28bcbcc21bb1e1e7d",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:42:02.339Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 300,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b930df087d2a56f04f0ed9d3166",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:42:09.418Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 305,
+      "response_id": "resp_0f7b48ad71f4af59016aee3b9d618887d2b7d134c5d51f23eb",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:42:17.080Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 309,
+      "response_id": "resp_0f7b48ad71f4af59016aee3ba3d2a087d28fffeb417bbc7fb5",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:42:23.374Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 314,
+      "response_id": "resp_0f7b48ad71f4af59016aee3bab086887d28d48a980c2337f69",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:42:30.318Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-03-01a1b297-eb5c-7753-a712-c376a8b828ff.jsonl",
+      "line": 319,
+      "response_id": "resp_0f7b48ad71f4af59016aee3baf052087d28fefb3500a3a8630",
+      "thread_id": "01a1b297-eb5c-7753-a712-c376a8b828ff",
+      "timestamp": "2026-11-06T20:42:33.635Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 272,
+      "response_id": "resp_052cb50230627bd0016aee3b62f1d087d284919529d0aab654",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:41:21.446Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 277,
+      "response_id": "resp_052cb50230627bd0016aee3b6d6a9487d28f136177446bd7d0",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:41:31.492Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 281,
+      "response_id": "resp_052cb50230627bd0016aee3b74599887d2931df3db9095f7b2",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:41:36.732Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 286,
+      "response_id": "resp_052cb50230627bd0016aee3b9853c487d2850b1c96601b7513",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:42:11.424Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 292,
+      "response_id": "resp_052cb50230627bd0016aee3bb0db9c87d29226bfd2e5fcdbb1",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:42:34.968Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 296,
+      "response_id": "resp_052cb50230627bd0016aee3bb5763487d28053536dfca3d9dd",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:42:40.617Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T21-41-12-01a1b298-0fcd-7831-bd23-ad8251a352fa.jsonl",
+      "line": 300,
+      "response_id": "resp_052cb50230627bd0016aee3bbba80487d29743590d7fe47c11",
+      "thread_id": "01a1b298-0fcd-7831-bd23-ad8251a352fa",
+      "timestamp": "2026-11-06T20:42:46.852Z"
+    }
+  ],
+  "review_cycles": {
+    "reason": "No standardized review-cycle events are available.",
+    "status": "unknown",
+    "value": null
+  },
+  "root_session_id": "01a1b268-8005-7972-9954-92b25bac03cf",
+  "schema": "met-001/v1",
+  "thread_identities": {
+    "01a1b268-8005-7972-9954-92b25bac03cf": {
+      "agent_path": null,
+      "evidence": "unknown",
+      "parent_thread_id": null
+    },
+    "01a1b268-814c-7163-9a66-857deacb79d6": {
+      "agent_path": null,
+      "evidence": "unknown",
+      "parent_thread_id": null
+    },
+    "01a1b26a-cc8d-78d0-90bf-62b2c3ca7238": {
+      "agent_path": "/root/quality_plan",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    },
+    "01a1b277-9d6e-71c3-88eb-dfe82ca3f533": {
+      "agent_path": "/root/quality_sample",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    },
+    "01a1b283-452c-7731-bd66-39f09753a70a": {
+      "agent_path": "/root/entrega_compacta",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    },
+    "01a1b285-fa04-7253-88b8-eccbc669d931": {
+      "agent_path": "/root/quality_cierre",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    },
+    "01a1b28c-c292-7820-81ab-f14f6567f496": {
+      "agent_path": "/root/quality_observacion",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    },
+    "01a1b297-eb5c-7753-a712-c376a8b828ff": {
+      "agent_path": "/root/arquitectura",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    },
+    "01a1b298-0fcd-7831-bd23-ad8251a352fa": {
+      "agent_path": "/root/bootstrap",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b268-8005-7972-9954-92b25bac03cf"
+    }
+  },
+  "totals": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 13574528,
+    "input_tokens": 14066560,
+    "output_tokens": 58958,
+    "reasoning_output_tokens": 9682,
+    "responses": 230,
+    "total_tokens": 14125518
+  }
+}
