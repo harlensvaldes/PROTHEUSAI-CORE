@@ -1,0 +1,10 @@
+# CONTEXT-001 · Experimento A/B predefinido
+
+Fecha de preparación: 2026-11-06. Raíz MET-001 prevista `01a1b237-0edf-7182-b1cd-c120f4816af0`; corte inferior de observación previo al lanzamiento: 2026-11-06T19:13:01Z. Corte superior exclusivo: se registrará tras finalizar ambos agentes. Los identificadores de hilos los asigna el runner al crear agentes y se recuperarán de MET-001 o metadatos; no se inventan antes de existir.
+
+Objeto común: misión CONTEXT-001 en este mismo árbol de trabajo, HEAD `722053b381ad1dbe88c082ddf4109883e3d9ff9d`, archivos sin commit. Ambos agentes se lanzan sin historial (`fork_turns=none`) y heredan el mismo modelo y esfuerzo del coordinador, sin override. Mismas preguntas, criterios, permisos, herramientas y acceso a fuentes; no modificar archivos. Cada agente registra consultas y archivos leídos. No deben consultar al otro.
+
+- A convencional: leer directamente encargo, plan, evidencia y dictamen de Quality completos; no usar checkpoint como fuente principal. Esta excepción al orden habitual de AGENTS.md es solo para el tratamiento A solicitado por el Owner.
+- B selectivo: leer checkpoint primero, luego originales bajo demanda, no aceptar sus datos como autoridad. Ambos leen instrucciones obligatorias y comprueban Git. El checkpoint es una instantánea fechada, por lo que cualquier obsolescencia debe detectarse.
+
+Preguntas idénticas: objetivo/alcance, decisiones del Owner, estado y pendientes reales, versión Git y referencias, limitaciones, próxima acción autorizada. Puntuar frente a originales: decisiones inventadas, estado de Gates, reservas, autorización, referencias y sustitución de evidencias. Quality independiente comprueba las respuestas y fuentes; no se crean Gates. Medición: por hilo, MET-001 con corte exclusivo común y registros observados; entrada, caché, diferencia, salida, total, respuestas; tiempo solo con marcas verificables. Contar consultas declaradas, limitadas por observabilidad. Sin inferir coste ni extrapolar una muestra a otras tareas. El contexto adicional de herramienta, instrucciones del runner y variaciones de caché/orden pueden afectar la comparación.

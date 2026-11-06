@@ -1,0 +1,274 @@
+{
+  "actual_cost": null,
+  "anomalies": {
+    "file_read_errors": 2
+  },
+  "by_model": {
+    "codex-auto-review": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 6144,
+      "input_tokens": 14800,
+      "output_tokens": 100,
+      "reasoning_output_tokens": 82,
+      "responses": 1,
+      "total_tokens": 14900
+    },
+    "gpt-6.1-terra": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 567808,
+      "input_tokens": 693881,
+      "output_tokens": 3009,
+      "reasoning_output_tokens": 152,
+      "responses": 19,
+      "total_tokens": 696890
+    }
+  },
+  "by_phase": {
+    "unknown": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 573952,
+      "input_tokens": 708681,
+      "output_tokens": 3109,
+      "reasoning_output_tokens": 234,
+      "responses": 20,
+      "total_tokens": 711790
+    }
+  },
+  "by_thread": {
+    "01a1b237-0edf-7182-b1cd-c120f4816af0": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 395648,
+      "input_tokens": 462736,
+      "output_tokens": 2329,
+      "reasoning_output_tokens": 117,
+      "responses": 12,
+      "total_tokens": 465065
+    },
+    "01a1b237-1173-7130-8c5c-040515725058": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 6144,
+      "input_tokens": 14800,
+      "output_tokens": 100,
+      "reasoning_output_tokens": 82,
+      "responses": 1,
+      "total_tokens": 14900
+    },
+    "01a1b237-4df4-7030-a145-7e6565eb8db0": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 172160,
+      "input_tokens": 231145,
+      "output_tokens": 680,
+      "reasoning_output_tokens": 35,
+      "responses": 7,
+      "total_tokens": 231825
+    }
+  },
+  "cutoff_exclusive_utc": "2026-11-06T18:58:11.971000+00:00",
+  "files_scanned": 113,
+  "hypothetical_cost": null,
+  "ignored_cumulative_events": 11,
+  "limitations": [
+    "Only observed response records; completeness of source logs is not established.",
+    "Cumulative token_count events are excluded because they may include inherited counters.",
+    "Reasoning tokens are included in output; cached tokens are included in input.",
+    "Model is declared by turn_context, not verified billing identity.",
+    "Phase attribution uses supplied time windows; agent role is not inferred."
+  ],
+  "measurement_status": "partial",
+  "phase_windows": [],
+  "provenance": [
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 19,
+      "response_id": "resp_0abc6175f0174c02016aee228ef3d487d2868a5917363f2340",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:55:23.244Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 24,
+      "response_id": "resp_0abc6175f0174c02016aee2296f5cc87d2a6613a369610888f",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:55:31.332Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 30,
+      "response_id": "resp_0abc6175f0174c02016aee229c71c487d292a9f9492353b6ec",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:55:37.038Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 37,
+      "response_id": "resp_0abc6175f0174c02016aee22a49dbc87d2a5e0ded53d638a90",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:55:48.309Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 43,
+      "response_id": "resp_0abc6175f0174c02016aee22cc23e087d2a3576b9827c059f8",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:56:22.140Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 50,
+      "response_id": "resp_0abc6175f0174c02016aee22e4270887d2ac11b92b73db153a",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:56:49.836Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 56,
+      "response_id": "resp_0abc6175f0174c02016aee22fb650487d29891dfb67ae9f70f",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:57:10.964Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 61,
+      "response_id": "resp_0abc6175f0174c02016aee230185bc87d28f046244235da178",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:57:20.046Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 68,
+      "response_id": "resp_0abc6175f0174c02016aee2310319c87d295fac48c99cdb278",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:57:33.463Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 76,
+      "response_id": "resp_0abc6175f0174c02016aee23184ce487d2a643ba6b3745e7d9",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:57:51.832Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 82,
+      "response_id": "resp_0abc6175f0174c02016aee2332199c87d29551537c4afcb9a6",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:58:05.496Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 87,
+      "response_id": "resp_0abc6175f0174c02016aee233696ec87d2b9dfa336699b0e67",
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "timestamp": "2026-11-06T18:58:10.841Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-16-01a1b237-1173-7130-8c5c-040515725058.jsonl",
+      "line": 14,
+      "response_id": "resp_0f39bd20d91b85ae016aee230b422887d29969a2c8ec84c916",
+      "thread_id": "01a1b237-1173-7130-8c5c-040515725058",
+      "timestamp": "2026-11-06T18:57:25.371Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 29,
+      "response_id": "resp_07dd249bc014a534016aee229e7ea487d29c5c19b227ffb837",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:55:40.546Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 33,
+      "response_id": "resp_07dd249bc014a534016aee22a721d887d29f17d3c7b0e8956e",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:55:45.735Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 38,
+      "response_id": "resp_07dd249bc014a534016aee22ac55a087d2a8471ac713641f83",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:55:52.051Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 43,
+      "response_id": "resp_07dd249bc014a534016aee22b0e12c87d2abcf4878e0e642dd",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:55:54.651Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 47,
+      "response_id": "resp_07dd249bc014a534016aee22ef864087d2a80a787ab0c33df3",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:56:58.136Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 51,
+      "response_id": "resp_07dd249bc014a534016aee232ed18c87d2b88b9dab1454347d",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:58:00.478Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 57,
+      "response_id": "resp_07dd249bc014a534016aee2336202087d29c3d70599807f4f6",
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "timestamp": "2026-11-06T18:58:09.427Z"
+    }
+  ],
+  "review_cycles": {
+    "reason": "No standardized review-cycle events are available.",
+    "status": "unknown",
+    "value": null
+  },
+  "root_session_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+  "schema": "met-001/v1",
+  "thread_identities": {
+    "01a1b237-0edf-7182-b1cd-c120f4816af0": {
+      "agent_path": null,
+      "evidence": "unknown",
+      "parent_thread_id": null
+    },
+    "01a1b237-1173-7130-8c5c-040515725058": {
+      "agent_path": null,
+      "evidence": "unknown",
+      "parent_thread_id": null
+    },
+    "01a1b237-4df4-7030-a145-7e6565eb8db0": {
+      "agent_path": "/root/quality",
+      "evidence": "session_meta.payload.source.subagent.thread_spawn",
+      "parent_thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0"
+    }
+  },
+  "totals": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 573952,
+    "input_tokens": 708681,
+    "output_tokens": 3109,
+    "reasoning_output_tokens": 234,
+    "responses": 20,
+    "total_tokens": 711790
+  }
+}
