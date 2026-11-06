@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "id": "DISCOVERY-001",
+  "title": "Discovery inicial de producto",
+  "risk": "MEDIUM",
+  "created_at": "2026-11-06",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": [
+      {
+        "id": "TERRA",
+        "evidence": null,
+        "verification": null
+      }
+    ]
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PASS",
+      "review": {
+        "file": "02-GATE1-REVIEW.md",
+        "sha256_lf": "50bfba9f1f596d616649ed88e11595443d1a8631ba643624d0ca0dc87e28f723",
+        "reviewer_verification": null
+      }
+    },
+    "gate2": {
+      "decision": "PASS",
+      "review": {
+        "file": "04-GATE2-REVIEW.md",
+        "sha256_lf": "278c1a1951ae58ac89e1e43b66b0abdd6f23356d6524bc2918d7725c12dcaae4",
+        "reviewer_verification": null
+      }
+    },
+    "gate3": {
+      "decision": "PASS",
+      "review": {
+        "file": "05-GATE3-EVIDENCE.md",
+        "sha256_lf": "7f819d4380ebd0579067cadb70123ede893b4009c2c0235d0b1640cac2f478b9",
+        "reviewer_verification": null
+      }
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

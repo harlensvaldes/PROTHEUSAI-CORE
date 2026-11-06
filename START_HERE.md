@@ -1,7 +1,7 @@
 # Primera hora de un proyecto nuevo
 
 ## 1. Define el problema antes del stack
-Rellena `docs/PROJECT_CHARTER.md`: usuarios, procesos, alcance, límites, riesgos y responsables. Si no sabes cuál es el daño máximo de un bug, todavía no has terminado esta fase.
+Comienza el descubrimiento con `prompts/00_START_PROJECT.md`: aclara la finalidad y acuerda con el cliente un MVP antes de comprometer su implementación. Después utiliza ese acuerdo para rellenar `docs/PROJECT_CHARTER.md`: usuarios, procesos, alcance, límites, riesgos y responsables. Si no sabes cuál es el daño máximo de un bug, todavía no has terminado esta fase.
 
 ## 2. Fija las fronteras
 Completa `docs/ARCHITECTURE.md`: dominios, fuentes de verdad, persistencia, contratos, identidad, transacciones, permisos y operaciones asíncronas. Las decisiones irreversibles requieren un ADR.

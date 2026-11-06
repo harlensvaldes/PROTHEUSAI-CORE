@@ -10,7 +10,7 @@ No impone FastAPI, React, PostgreSQL ni otro stack. La estructura inicial contie
 2. Lee `START_HERE.md` y `AGENTS.md`.
    Para usar estas instrucciones con cualquier herramienta de agentes, proporciona `AGENTS.md` al Orchestrator y verifica que sus instrucciones estén disponibles en ese entorno; no supongas que todas las herramientas lo cargan automáticamente.
 
-3. Completa `docs/PROJECT_CHARTER.md`, `docs/ARCHITECTURE.md` y `docs/QUALITY_POLICY.md` **antes de desarrollar**.
+3. Inicia el descubrimiento con `prompts/00_START_PROJECT.md` y acuerda el MVP con el cliente. Proporciona el prompt al ejecutor y verifica que esté disponible; no supongas que se carga automáticamente. Usa el acuerdo para completar `docs/PROJECT_CHARTER.md`, `docs/ARCHITECTURE.md` y `docs/QUALITY_POLICY.md` **antes de desarrollar**.
 4. Decide tu stack y sustituye los marcadores `[DECIDIR]`.
 5. Confirma **de verdad** cómo se invoca un revisor independiente en tus herramientas. Un archivo `agents/quality.md` **no crea automáticamente** un subagente.
 6. Ejecuta el chequeo de la plantilla:
