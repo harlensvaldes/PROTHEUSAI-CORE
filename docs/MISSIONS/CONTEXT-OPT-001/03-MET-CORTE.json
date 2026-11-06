@@ -1,0 +1,229 @@
+{
+  "actual_cost": null,
+  "anomalies": {
+    "file_read_errors": 2
+  },
+  "by_model": {
+    "gpt-6.1-terra": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 653952,
+      "input_tokens": 718644,
+      "output_tokens": 7063,
+      "reasoning_output_tokens": 1491,
+      "responses": 19,
+      "total_tokens": 725707
+    }
+  },
+  "by_phase": {
+    "unknown": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 653952,
+      "input_tokens": 718644,
+      "output_tokens": 7063,
+      "reasoning_output_tokens": 1491,
+      "responses": 19,
+      "total_tokens": 725707
+    }
+  },
+  "by_thread": {
+    "01a1b251-161f-7323-a19d-c8f414c11e26": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 653952,
+      "input_tokens": 718644,
+      "output_tokens": 7063,
+      "reasoning_output_tokens": 1491,
+      "responses": 19,
+      "total_tokens": 725707
+    }
+  },
+  "cutoff_exclusive_utc": "2026-11-06T19:28:14.866000+00:00",
+  "files_scanned": 118,
+  "hypothetical_cost": null,
+  "ignored_cumulative_events": 18,
+  "limitations": [
+    "Only observed response records; completeness of source logs is not established.",
+    "Cumulative token_count events are excluded because they may include inherited counters.",
+    "Reasoning tokens are included in output; cached tokens are included in input.",
+    "Model is declared by turn_context, not verified billing identity.",
+    "Phase attribution uses supplied time windows; agent role is not inferred."
+  ],
+  "measurement_status": "partial",
+  "phase_windows": [],
+  "provenance": [
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 20,
+      "response_id": "resp_0fb1ef6081fe520a016aee29395b5487d2afc5ccd7433b7470",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:23:49.433Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 25,
+      "response_id": "resp_0fb1ef6081fe520a016aee293f764487d2a01f280f120f824a",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:23:53.964Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 32,
+      "response_id": "resp_0fb1ef6081fe520a016aee2942966c87d2a54ef0c5e0d58ed6",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:23:59.877Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 37,
+      "response_id": "resp_0fb1ef6081fe520a016aee2967a18c87d2a577d6bcfe5caa4d",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:24:33.030Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 44,
+      "response_id": "resp_0fb1ef6081fe520a016aee297f3b2487d2b420e5cb3983aa42",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:24:57.807Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 49,
+      "response_id": "resp_0fb1ef6081fe520a016aee29975c5c87d2a6d5556c19408f18",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:25:21.337Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 53,
+      "response_id": "resp_0fb1ef6081fe520a016aee299a198087d286473e7b9c50a3cb",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:25:25.762Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 58,
+      "response_id": "resp_0fb1ef6081fe520a016aee29a03b5487d284a043e88036475d",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:25:33.266Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 67,
+      "response_id": "resp_0fb1ef6081fe520a016aee29ae741487d2919e7d8cb27d5b6b",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:25:46.344Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 72,
+      "response_id": "resp_0fb1ef6081fe520a016aee29b304e487d29ad536669776ca24",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:25:53.376Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 77,
+      "response_id": "resp_0fb1ef6081fe520a016aee29be62ac87d2bde0fa0c9e326214",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:26:03.961Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 82,
+      "response_id": "resp_0fb1ef6081fe520a016aee29c6c54c87d2bade020f215ddfba",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:26:12.871Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 89,
+      "response_id": "resp_0fb1ef6081fe520a016aee29d36c2087d28b5e7405b8acb84c",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:26:27.680Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 95,
+      "response_id": "resp_0fb1ef6081fe520a016aee29e0367087d28d29dcfa512a39bb",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:26:35.430Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 100,
+      "response_id": "resp_0fb1ef6081fe520a016aee29e4246c87d29ac5b8f6b8cd0bde",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:26:49.656Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 103,
+      "response_id": "resp_0fb1ef6081fe520a016aee29f4704487d28a408e4553b91198",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:26:53.216Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 111,
+      "response_id": "resp_0fb1ef6081fe520a016aee29f5e90c87d28363ba5d8be2475b",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:27:07.939Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 116,
+      "response_id": "resp_0fb1ef6081fe520a016aee2a06e7dc87d2a7ce211d4b868938",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:27:53.379Z"
+    },
+    {
+      "field": "payload.usage",
+      "file": "2026/11/06/rollout-2026-11-06T20-23-41-01a1b251-161f-7323-a19d-c8f414c11e26.jsonl",
+      "line": 124,
+      "response_id": "resp_0fb1ef6081fe520a016aee2a3932f887d29be49d14a387163e",
+      "thread_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+      "timestamp": "2026-11-06T19:28:12.813Z"
+    }
+  ],
+  "review_cycles": {
+    "reason": "No standardized review-cycle events are available.",
+    "status": "unknown",
+    "value": null
+  },
+  "root_session_id": "01a1b251-161f-7323-a19d-c8f414c11e26",
+  "schema": "met-001/v1",
+  "thread_identities": {
+    "01a1b251-161f-7323-a19d-c8f414c11e26": {
+      "agent_path": null,
+      "evidence": "unknown",
+      "parent_thread_id": null
+    }
+  },
+  "totals": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 653952,
+    "input_tokens": 718644,
+    "output_tokens": 7063,
+    "reasoning_output_tokens": 1491,
+    "responses": 19,
+    "total_tokens": 725707
+  }
+}

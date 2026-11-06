@@ -1,0 +1,11 @@
+# CORE · Comprobaciones de consolidación
+
+Fecha: 2026-11-06. Registro operativo del Orchestrator para la consolidación autorizada por el Owner; no es un nuevo Gate ni cambia decisiones históricas.
+
+- `python -B -m unittest discover -s tests -p test_bootstrap001.py`: salida 0, 13 pruebas, una omitida por privilegio de enlaces simbólicos en Windows. El log completo de la ejecución queda en el directorio temporal local; la prueba anterior versionada consta en `TEST-BOOTSTRAP-02.log`.
+- `python -B -m unittest discover -s tests -p test_met001.py`: salida 0, cinco pruebas. La lista positiva incluye el Director Creativo, Discovery, Architect, Developer, Quality, contexto, plantilla de checkpoint, MET, su test y el contrato/plantilla de README; se comprobaron 12 entradas y sus archivos de origen, sin faltantes. La generación desde commit real se documentó previamente en `16A-BOOTSTRAP-HEAD.md`.
+- `python -B scripts/quality_cli.py validate`: salida **1**, FAIL estructural porque `CONTEXT-001`, `CONTEXT-OPT-001` y `DESIGN-001` no tienen `mission.json`. No se crean manifiestos retrospectivos ni se convierten dictámenes; no se acredita validación global satisfactoria. `python -B scripts/quality_cli.py --mission DELIVERY-001 status`: salida 0, Gates históricos PASS y Owner PENDING. `can-close` para DELIVERY-001: salida 1, `REVIEW_INCOMPLETE`. Esta CLI no certifica identidad, aislamiento ni autorizaciones.
+- DELIVERY-001 conserva autorización de uso experimental interno dentro del alcance probado y estado administrativo BLOCKED sin aceptación formal, según `docs/MISSIONS/DELIVERY-001/OWNER-DECISION-03.md`. No se modifica el expediente.
+- `docs/README_CONTRACT.md:3` exige un README propio para cada proyecto; `docs/CONTEXT-001.md` describe checkpoints y recuperación; `AGENTS.md` conserva comunicación compacta y convocatoria creativa opcional.
+
+Los informes parciales y cortes MET de CONTEXT-OPT-001 se conservan tal como estaban, sin alterar contenido. Su checkpoint local es histórico y está obsoleto; el ZIP de baseline es redundante respecto al tag y manifiesto ya versionados. Ambos quedan fuera del commit, no se eliminan. Las búsquedas por patrones comunes de secretos no sustituyen una auditoría exhaustiva. No se inició APP-005 ni se modificó la configuración global.
