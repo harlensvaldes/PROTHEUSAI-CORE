@@ -1,0 +1,189 @@
+[
+  {
+    "source": "app/__init__.py",
+    "destination": "app/__init__.py",
+    "sha256": "d23b99f543bf35a2656fb91d9c2b728a55ba4a457ff99bdf7aaf9b2a33650642",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/__init__.py; coincidencia de bytes comprobada",
+    "justification": "Inicializacion del paquete de aplicacion",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/pexels.py",
+    "destination": "app/pexels.py",
+    "sha256": "205d13a186e48d517d59c264d70c53206a4703853bd258ff7191154c7adca681",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/pexels.py; coincidencia de bytes comprobada",
+    "justification": "Integracion y verificacion de imagenes Pexels",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/server.py",
+    "destination": "app/server.py",
+    "sha256": "5b949bb0ab6092fcf05a3f45bebdfa7709a016fc4065fff3f906722dd480365c",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/server.py; coincidencia de bytes comprobada",
+    "justification": "Servidor local del piloto",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/static/app.js",
+    "destination": "app/static/app.js",
+    "sha256": "7c6f632bb702bf950d9acc342f055279aad372d648fcdb194dcb2d7c6efa115b",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/static/app.js; coincidencia de bytes comprobada",
+    "justification": "Interfaz interactiva del piloto",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/static/index.html",
+    "destination": "app/static/index.html",
+    "sha256": "f200927108b575d6df454a57b807a52ec77f627bfca7f67bfd9f075c3cabafda",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/static/index.html; coincidencia de bytes comprobada",
+    "justification": "Pagina del piloto",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/static/shirt.png",
+    "destination": "app/static/shirt.png",
+    "sha256": "986513cd9c8bdce10b4fc60992650eb7874c418c7cae0e3d47f8888577f5b938",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/static/shirt.png; coincidencia de bytes comprobada",
+    "justification": "Recurso historico de imagen generada, conservado en el commit",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/static/style.css",
+    "destination": "app/static/style.css",
+    "sha256": "08cf2ec47de622150edb8b9f69a2173f88343a09f114d78f64e44502d8ba4a58",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/static/style.css; coincidencia de bytes comprobada",
+    "justification": "Estilos del piloto",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "app/store.py",
+    "destination": "app/store.py",
+    "sha256": "d9c72e853ba4062bae7c5d09b71771a528435beb468c441f34061089592fec0f",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, app/store.py; coincidencia de bytes comprobada",
+    "justification": "Persistencia y catalogo ficticio",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "config.example.txt",
+    "destination": "config.example.txt",
+    "sha256": "48a9e05ae0964fc2c4927f6b9e1b2976bef5e4138f9cc1eb4029039703a63f3b",
+    "provenance": "Archivo de configuracion de ejemplo preparado para DELIVERY-001; contenido revisado",
+    "justification": "Indicar configuracion sin clave para demostracion",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "IMAGE_SOURCES.md",
+    "destination": "IMAGE_SOURCES.md",
+    "sha256": "053ad9de6694be5c01aeb729aefb71a30dfe6e565990f7626b3d7dd356cd9cec",
+    "provenance": "APP-004 commit 0cf56f78c090783f24e93aaedbc2b523d37ba82b, docs/IMAGE_SOURCES.md; coincidencia de bytes comprobada",
+    "justification": "Creditos y limites de los recursos visuales",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "seed_demo.py",
+    "destination": "seed_demo.py",
+    "sha256": "a1a41f43a5818013c285efb1eabe53291a0d02adb1c71e08d9b20e898c8e2118",
+    "provenance": "DELIVERY-001 docs/MISSIONS/DELIVERY-001/seed_demo.py; coincidencia de bytes comprobada",
+    "justification": "Crear base de demostracion ficticia",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "var/images/4d7aba565d1e4363b8a05ebdd4a6b649.jpg",
+    "destination": "var/images/4d7aba565d1e4363b8a05ebdd4a6b649.jpg",
+    "sha256": "c459ca75c3a53a3377c9495ef5de9e71b339370b3092a4d779361be8ff571dd0",
+    "provenance": "APP-004 var/images, metadatos locales declaran Pexels foto 17251247; hash JPEG cotejado con JSON",
+    "justification": "Fotografia ilustrativa del catalogo ficticio",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "var/images/4d7aba565d1e4363b8a05ebdd4a6b649.json",
+    "destination": "var/images/4d7aba565d1e4363b8a05ebdd4a6b649.json",
+    "sha256": "5d63d68bbaae3e2f2152e591f8911c3b00527a6efa4c724606ca01f7ef3417d4",
+    "provenance": "APP-004 var/images, metadatos locales declaran Pexels foto 17251247; hash JPEG cotejado con JSON",
+    "justification": "Metadatos y atribucion de la fotografia ilustrativa",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "var/images/8ca6676b9d6549979093f0ba8da2e736.jpg",
+    "destination": "var/images/8ca6676b9d6549979093f0ba8da2e736.jpg",
+    "sha256": "b4e53627412e3974352a0b9b30da6dfdfea9be72706f815c2f40c0d89d0af605",
+    "provenance": "APP-004 var/images, metadatos locales declaran Pexels foto 11576957; hash JPEG cotejado con JSON",
+    "justification": "Fotografia ilustrativa del catalogo ficticio",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "var/images/8ca6676b9d6549979093f0ba8da2e736.json",
+    "destination": "var/images/8ca6676b9d6549979093f0ba8da2e736.json",
+    "sha256": "ebba231c2f226f10eca7aa28cd76b5a8dc2b1e9f6b8bd0cb3398a2101d33678c",
+    "provenance": "APP-004 var/images, metadatos locales declaran Pexels foto 11576957; hash JPEG cotejado con JSON",
+    "justification": "Metadatos y atribucion de la fotografia ilustrativa",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "var/images/e2ffc234dd894309b2a839e2615456a9.jpg",
+    "destination": "var/images/e2ffc234dd894309b2a839e2615456a9.jpg",
+    "sha256": "1c8f689be6c70ba3033e395ed3c9cdb2c312aec80f1c8848f305be3e98301fd2",
+    "provenance": "APP-004 var/images, metadatos locales declaran Pexels foto 37741918; hash JPEG cotejado con JSON",
+    "justification": "Fotografia ilustrativa del catalogo ficticio",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  },
+  {
+    "source": "var/images/e2ffc234dd894309b2a839e2615456a9.json",
+    "destination": "var/images/e2ffc234dd894309b2a839e2615456a9.json",
+    "sha256": "fca91c8d5d449b8b5bb704f898503d5642fb6025d4e19edcbf5dd119e425d2c6",
+    "provenance": "APP-004 var/images, metadatos locales declaran Pexels foto 37741918; hash JPEG cotejado con JSON",
+    "justification": "Metadatos y atribucion de la fotografia ilustrativa",
+    "reviewer": "/root/file_review (identidad declarada no certificada)",
+    "review": "approved",
+    "review_date": "2026-11-06",
+    "findings": []
+  }
+]

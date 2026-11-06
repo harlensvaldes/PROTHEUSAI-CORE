@@ -1,0 +1,16 @@
+﻿All mounts below isolated root:
+TARGET                           SOURCE FSTYPE OPTIONS
+/tmp/delivery001-isolated-9ZkgXC tmpfs  tmpfs  rw,relatime,size=524288k,uid=1000,gid=1000
+Running in chroot with clean environment:
+Created a fictional catalogue with three credited images.
+Delivery manifest integrity before installation: OK
+Original Windows mounts absent: True
+Workspace mount absent: True
+Python: 3.12.3
+API key absent: True
+SQLite integrity: ok
+Orders/reservations: 0 0
+Catalogue: 200 3
+Three credited JPEG resources: OK
+Fictional reservation and confirmation: OK
+Catalogue and fictional order persisted across restart: OK

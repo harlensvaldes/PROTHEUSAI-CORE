@@ -1,0 +1,3 @@
+# DELIVERY-001 · Corte observado 02
+
+MET-001, raíz `01a1b13a-3b02-7052-ad60-01e25c0a3fad`; corte exclusivo `2026-11-06T14:49:42Z`. Comando: `python scripts/met001.py --sessions "$env:USERPROFILE/.codex/sessions" --session-id $env:CODEX_SESSION_ID --cutoff 2026-11-06T14:49:42Z --output "$env:TEMP/delivery001-cutoff3"`. Salida 0; 221 respuestas observadas, 22.295.679 tokens de entrada (21.912.320 incluidos en caché), 61.623 de salida y 22.357.302 en total. El coste real no está disponible. Son solo registros observados: no se acredita exhaustividad ni facturación; razonamiento incluido en salida y caché en entrada.

@@ -1,0 +1,11 @@
+# DELIVERY-001 ? Revisi?n de archivos generados de APP-004 v3
+
+Fecha: 2026-11-06. Revisor declarado: `/root/file_review`; identidad no certificada. Revisi?n est?tica por archivo, no dictamen de Gate ni aceptaci?n de entrega. Los SHA-256 corresponden a los bytes de `dist/delivery001-app004-v3/delivery` examinados.
+
+| Archivo | SHA-256 | Origen y justificaci?n | Resultado y hallazgos |
+|---|---|---|---|
+| `INSTALL.md` | `3cafe580cbbb7ad5ccfa0f02738f40390263ace0366fed5ccfb2e1d85d0060f6` | Generado para proporcionar requisitos, semilla, arranque y verificaci?n del piloto; instrucciones declaradas en el descriptor v3. | Revisado; sin hallazgo bloqueante de contenido. El puerto concuerda con `app/server.py:216-217`. No se ejecutaron aqu? las instrucciones en esta versi?n exacta. |
+| `DELIVERY_REPORT.md` | `ef719e50f5ec29369b0fea6d83625be435ad766615e300645f3337dda1d10c68` | Generado para documentar versi?n, evidencias y l?mites declarados en el descriptor v3. | Revisado; sin informaci?n incorrecta confirmada. `EJECUCION-01.md` documenta la prueba aislada previa y el hash citado, no prueba este paquete; el propio informe lo aclara. Las cifras MET-001 no se recalcularon en esta revisi?n y permanecen declaradas, no verificadas aqu?. |
+| `MANIFEST.json` | `3899099595637eedf75a13486b1a3d421afa89592acb95d6aa5372eacf2065cc` | Generado como inventario de integridad y de controles declarados por archivo. Este registro externo aporta trazabilidad a sus propios bytes. | Revisado; 19 entradas ?nicas coinciden en tama?o y SHA-256 con los archivos presentes; no se observaron archivos adicionales ni ausentes. Se excluye expl?citamente a s? mismo. Los controles `passed` son resultados declarados por el generador; no se reejecutaron individualmente en esta revisi?n. |
+
+No se observaron secretos confirmados en estos tres archivos. La inspecci?n no garantiza ausencia universal de datos privados o secretos. Los hashes no autentican origen, identidad ni titularidad; el registro no certifica licencia. No se identificaron bloqueos de contenido en los tres archivos revisados; la ejecuci?n aislada de esta candidata y los Gates pertinentes requieren evidencia y dict?menes separados. **E2E NO EJECUTADO** en esta revisi?n.

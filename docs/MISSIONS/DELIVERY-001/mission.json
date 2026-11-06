@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "id": "DELIVERY-001",
+  "title": "Entrega independiente",
+  "risk": "HIGH",
+  "created_at": "2026-11-06",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "terra-root",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "terra-root",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": [
+      {
+        "id": "terra-root",
+        "evidence": null,
+        "verification": null
+      }
+    ]
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PASS",
+      "review": {
+        "file": "GATE1-REVIEW-03.md",
+        "sha256_lf": "f5428e5bf1865f24dd8f75cb2f65eb0510abebe6aadb3eae851e0ef5e82a11c6",
+        "reviewer_verification": null
+      }
+    },
+    "gate2": {
+      "decision": "PASS",
+      "review": {
+        "file": "GATE2-REVIEW-04.md",
+        "sha256_lf": "28cb309abb004b37dfab43fbd2a09809c00f44431a6866e854d61afa8cf09c06",
+        "reviewer_verification": null
+      }
+    },
+    "gate3": {
+      "decision": "PASS",
+      "review": {
+        "file": "GATE3-REVIEW-01.md",
+        "sha256_lf": "ff7aece2c132866a73a39b509fa8028fc09076f48e45ca11d62014441edad93a",
+        "reviewer_verification": null
+      }
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

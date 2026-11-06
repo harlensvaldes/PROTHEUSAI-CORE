@@ -1,0 +1,34 @@
+# DELIVERY-001 · Plan de implementación
+
+Estado: DRAFT, Gate 1 PENDING. Autor declarado `terra-root`. Baseline CORE `1b14c34ad4a87792a73d4fc9de20d209bfdb4565`; APP-004 `0cf56f78c090783f24e93aaedbc2b523d37ba82b`. Riesgo HIGH por exposición potencial de datos privados o secretos, e impacto de una entrega incompleta. Decisión del Owner y tensión normativa del Charter: `OWNER-DECISION-01.md`. Evidencias: `INVESTIGACION-01.md`. El dictamen preliminar PENDING no se transfiere a este plan.
+
+## Objetivo y fronteras
+
+Crear un mecanismo reutilizable que prepare un directorio independiente de una versión aprobada, con archivos seleccionados, instrucciones reproducibles, evidencia y manifiesto de integridad. La demostración usa APP-004, piloto local ficticio; no se modifica su código aprobado. No se implementan BOOTSTRAP-001 ni DESIGN-001, despliegue, infraestructura de distribución, limpieza destructiva o Gate nuevo. La herramienta no asume Python ni web para otros productos; solo se acredita el caso probado.
+
+## Contrato
+
+`python scripts/delivery001.py prepare --descriptor <json> --source <raíz> --output <destino>` y `python scripts/delivery001.py verify --directory <destino>`. El descriptor v1 contiene identidad de producto, versión aprobada, misión y referencia de aceptación, y lista explícita de pares de rutas relativas de archivo origen/destino; las instrucciones, configuración de ejemplo, créditos, evidencias y limitaciones son archivos seleccionados y revisados. Rechazar campos necesarios vacíos o desconocidos y no ejecutar comandos del descriptor. El descriptor es declaración, no autentica una aprobación. No copiar directorios sin lista explícita ni convertir un escáner en garantía de confidencialidad.
+
+`prepare` rechaza destino existente o dentro de la fuente, archivos no regulares, enlaces o reparse points en rutas, rutas absolutas o con `..`, colisiones, ausencias, archivos reservados de salida y rutas sensibles (control estricto que impide Git, secretos, cachés, logs y bases privadas; `.env.example` sin secretos solo por inclusión explícita). Comprobar confinamiento y rechazar cambios de archivos durante la copia cuando sea posible; declarar límites de carrera y del escaneo. Crear temporal hermano exclusivo, no sobrescribir y publicar solo después de comprobar copia; ante error no presentar salida como válida y no borrar trabajo ajeno. Revisión explícita de allowlist y contenido, incluidas fuentes binarias; escaneo adicional de secretos y rutas conocidas sin prometer detección universal.
+
+Generar `MANIFEST.json`, ordenado, con rutas relativas, tamaños y SHA-256 de cada archivo entregado, incluidas instrucciones e informe; se excluye a sí mismo y explica esa frontera. `verify` detecta ausencias, modificaciones, añadidos, duplicados y enlaces; no acredita autenticidad de manifiesto. El informe identifica producto, versión, misión, fuentes, fecha/corte, evidencias ejecutadas, MET-001 atribuible y límites; ninguna ruta absoluta del taller o clave API debe incorporarse. Para futuros proyectos, el responsable aporta instrucciones y dependencias acordes con su propio stack.
+
+## APP-004 y evidencia independiente
+
+La receta del caso selecciona por archivo código `app/` que coincida con commit aprobado, configuración de ejemplo y los tres pares JPEG/JSON identificados en `INVESTIGACION-01.md`; no copia SQLite de trabajo, respaldos, perfiles de navegador ni cachés. Un script separado y específico de la receta, entregado junto con ella, crea una nueva base ficticia utilizando la API existente de APP-004: `Store.initialize()` y `Store.complete_collection()` con las imágenes verificadas. Se comprobarán integridad, tres productos, reservas y pedidos vacíos; se documentará su carácter derivado y ficticio. Los recursos conservan procedencia y créditos; revisar las condiciones Pexels para esta entrega antes de incorporarlos. No presentar los hashes locales como prueba de titularidad o de licencia individual.
+
+Para demostrar independencia, ejecutar instalación y arranque en filesystem aislado sin montar ninguna raíz original; registrar cómo se creó el entorno, montajes y prueba negativa de acceso a ambas raíces desde el mismo contexto de ejecución. Registrar Python 3.12, dependencias, configuración sin clave, acceso HTTP a catálogo y tres imágenes, operación ficticia y persistencia tras reinicio. Verificar hashes antes de que el arranque mutile los datos iniciales o sobre una copia inmutable. El sondeo WSL hasta ahora no garantiza aislamiento. Prueba de arranque no equivale a E2E; E2E NO EJECUTADO salvo evidencia específica.
+
+## Archivos, pruebas y reversión
+
+| Ruta | Uso |
+|---|---|
+| `scripts/delivery001.py` | CLI genérica de preparación y verificación |
+| `tests/test_delivery001.py` | pruebas enfocadas y adversas |
+| `docs/DELIVERY-001.md` | contrato, instrucciones, limitaciones y uso futuro |
+| `docs/MISSIONS/DELIVERY-001/` | receta, evidencias, métricas, Gates y decisiones |
+
+Probar descriptor no Python; rutas inválidas, enlaces, colisiones, archivos ausentes, destino existente y exclusiones; error de copia; cambios y archivos extra o ausentes respecto al manifiesto; secretos conocidos y rutas del taller. Probar la semilla y la instalación del caso real; ejecutar regresión de gobernanza y `git diff --check`. Todas son NOT_RUN hasta ejecutarse. Registrar entorno, comando, resultado, código de salida y cobertura; no interpretar pruebas de escaneo como garantía de ausencia de secretos. Archivar evidencias mediante copias explícitas con hashes y sin modificar originales; inventariar posibles temporales sin borrarlos. Revertir solo con parche inverso revisado preservando trabajo y registros.
+
+Gate 1 exige revisión independiente de esta versión exacta y verificación de requisitos I1/G1 HIGH; Gate 2 revisa diff anclado y Gate 3 revisa evidencia real. El CLI de Quality valida coherencia y no identidad, aislamiento ni elegibilidad. Si un Gate no es PASS, detener la transición; ninguna aprobación histórica de APP-004 se reabre ni se transfiere a DELIVERY-001.
