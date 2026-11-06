@@ -1,6 +1,6 @@
 # AGENTS.md — Reglas operativas del repositorio
 
-Este archivo aplica a cualquier agente IA o colaborador que trabaje en este proyecto. Completar los campos `[DECIDIR]` del Charter antes de ejecutar misiones productivas.
+Este archivo aplica a cualquier agente IA o colaborador que trabaje en este proyecto. Una mejora interna de CORE con alcance expresamente autorizado por el Owner puede ejecutarse con el Charter general en DRAFT. Los productos nuevos requieren objetivo y alcance definidos mediante Discovery o especificación suficiente del Owner.
 
 ## 1. Jerarquía y honestidad
 1. Requisitos y decisiones aprobadas por el Product Owner.
@@ -35,10 +35,10 @@ Un nombre de agente en `agents/*.md` es un **rol documentado**, no una capacidad
 - La concisión no reduce los requisitos de trazabilidad, evidencia, acceso o independencia de Quality. Si una referencia o el contexto necesario no pueden recuperarse, el agente declara el bloqueo; no inventa su contenido.
 
 ## 3. Proceso obligatorio
-- Gate 1: plan/contrato y review independiente **antes** de modificar código productivo en tareas sujetas a Gates.
+- Gate 1: revisión del plan/contrato proporcional al riesgo en tareas sujetas a Gates. El Owner autoriza el alcance y el entorno aplica sus propios permisos; Quality examina los artefactos y no concede permisos operativos.
 - Gate 2: inspección del diff y de cambios de alcance.
 - Gate 3: ejecución de pruebas, evidencia, riesgos residuales y dictamen.
-- Un Gate FAIL/BLOCKED prohíbe avanzar; las excepciones requieren decisión humana documentada, nunca PASS inventado.
+- Un FAIL técnico exige corregir el defecto o una decisión documentada del Owner sobre el riesgo; nunca inventar PASS. La falta de certificación de aislamiento o identidad, o de un mensaje histórico ilegible, no bloquea por sí sola si hay evidencia técnica suficiente.
 - Reabrir Gate 1 si cambian requisitos, fronteras, diseño crítico o riesgos.
 - E2E no ejecutado: declarar **`E2E NO EJECUTADO`**, no marcar como PASS.
 

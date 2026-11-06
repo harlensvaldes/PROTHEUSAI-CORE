@@ -1,0 +1,19 @@
+# Reforma de Quality — adenda al plan, ciclo 02
+
+Esta adenda sustituye únicamente las cláusulas contradictorias del `PLAN-CONTINUIDAD-QUALITY.md`. El FAIL técnico `REVIEW-CONTINUIDAD-QUALITY-01.md` permanece intacto. Base y mandato son los del plan. Nueva revisión requerida; no constituye PASS.
+
+## Aplicación prospectiva y casos
+
+La política nueva regula las **acciones y evaluaciones futuras**, no cambia bytes, fechas, veredictos ni atribuciones de registros existentes. La CLI evalúa la matriz vigente al decidir transiciones, como ya hace, y no convierte PENDING, FAIL o PWR en PASS. Un PASS previo solo conserva el alcance y artefacto que su propia revisión identifica; no autoriza por sí solo otros bytes ni acredita las garantías eliminadas. Se mantienen reglas de reapertura por cambios materiales y la decisión del Owner sobre la transición; para BOOTSTRAP el plan actual necesita nuevo Gate 1 sobre su hash y su FAIL técnico histórico permanece. No se fabrica un campo de migración o etiqueta de certificación. Pruebas: v3 abierto con PENDING/FAIL, PASS válido existente sin alterarlo, plan cambiado y nueva revisión, aprobado/aceptado histórico y snapshots de bytes; verificar que CLI no pueda inferir equivalencia entre dos artefactos y declarar expresamente cuando tal comprobación corresponde a Quality/Owner y no a la CLI. v1/v2 retienen su tratamiento histórico estructural sin habilitar transiciones.
+
+Si los registros permiten determinar que revisor y autor son la misma persona/agente, la revisión no es independiente y no puede aprobarse. Mantener identificadores declarados, declaración de independencia y comprobación de igualdad de identificadores; no exigir certificación de identidad ni inventar separación cuando se desconoce. Si la identidad real no puede establecerse, la revisión informa límites; la sola ausencia de certificación no bloquea. Las declaraciones no prueban identidad: la CLI comprueba coherencia de identificadores declarados y nunca resuelve identidades reales.
+
+## Compatibilidad v4 y v5
+
+v4: `waiver_errors` debe validar el registro con las reglas históricas y sus hashes, acciones, alcance, secuencia, caducidad y revocación, sin comparar la matriz actual contra la antigua tupla I1/G1/identity. El waiver sigue siendo autorización manual con CLI no habilitante, sin transferir aprobación ni crear vía nueva automática; no alterar registros existentes. Aceptados y pendientes siguen diferenciados; probar registro válido, vencido, revocado, malformado, aceptado y abierto. Eliminar el bloqueo de igualdad de matriz solo para garantizar lectura/transición bajo esa semántica; no reinterpretar la autorización del Owner ni extender el waiver.
+
+v5: preservar semántica de informes históricos y no exigir retroactivamente un archivo estructurado `execution`. Para revisiones nuevas, pruebas reales y comandos/resultados siguen siendo requisito técnico narrativo en Gate 3, comprobado por Quality, sin introducir un campo o selector nuevo que falsamente separe registros históricos; evidencia estructurada opcional conserva validación de ruta y hash. v3/v4 desde MEDIUM mantienen evidencia estructurada de ejecución Gate 3 bajo matriz G0; probar su ausencia y hash adulterado, con casos v5 antiguos y nuevos. Esto corrige la generalización de la primera versión: no se exige un archivo estructurado a v5.
+
+## Verificación adicional
+
+Probar autoaprobación, PWR, evidencia opcional inválida, hash alterado, fijación de Gate 2, matriz incompleta, owner pendiente y v1/v2. Una referencia `git:` es declarada y la CLI no verifica su existencia ni que corresponda al artefacto: controles humanos deben fijar y examinar bytes; tests y documentación no afirmarán lo contrario. Mantener comparación de cambios y evidencia técnica actual; los mensajes históricos no disponibles se documentan sin reconstrucción ni bloqueo por esa sola falta.

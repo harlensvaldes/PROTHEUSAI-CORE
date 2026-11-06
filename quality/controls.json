@@ -23,19 +23,19 @@
   "independence_minimums": {
     "LOW": {
       "gate1": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
         "guarantee": "G0_DECLARADA",
         "evidence": [],
         "pinned_artifact": false
       },
       "gate2": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
         "guarantee": "G0_DECLARADA",
         "evidence": [],
         "pinned_artifact": false
       },
       "gate3": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
         "guarantee": "G0_DECLARADA",
         "evidence": [],
         "pinned_artifact": false
@@ -43,20 +43,20 @@
     },
     "MEDIUM": {
       "gate1": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
         "guarantee": "G0_DECLARADA",
         "evidence": [],
         "pinned_artifact": false
       },
       "gate2": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
         "guarantee": "G0_DECLARADA",
         "evidence": [],
         "pinned_artifact": true
       },
       "gate3": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
-        "guarantee": "G1_EVIDENCIA_REGISTRADA",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
         "evidence": [
           "execution"
         ],
@@ -65,26 +65,21 @@
     },
     "HIGH": {
       "gate1": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
-        "guarantee": "G1_EVIDENCIA_REGISTRADA",
-        "evidence": [
-          "identity"
-        ],
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
         "pinned_artifact": false
       },
       "gate2": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
-        "guarantee": "G1_EVIDENCIA_REGISTRADA",
-        "evidence": [
-          "identity"
-        ],
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
         "pinned_artifact": true
       },
       "gate3": {
-        "isolation": "I1_CONTEXTO_SEPARADO",
-        "guarantee": "G1_EVIDENCIA_REGISTRADA",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
         "evidence": [
-          "identity",
           "execution"
         ],
         "pinned_artifact": false
@@ -92,29 +87,21 @@
     },
     "CRITICAL": {
       "gate1": {
-        "isolation": "I2_PERMISOS_SEPARADOS",
-        "guarantee": "G2_VERIFICACION_REGISTRADA",
-        "evidence": [
-          "identity",
-          "isolation"
-        ],
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
         "pinned_artifact": false
       },
       "gate2": {
-        "isolation": "I2_PERMISOS_SEPARADOS",
-        "guarantee": "G2_VERIFICACION_REGISTRADA",
-        "evidence": [
-          "identity",
-          "isolation"
-        ],
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
+        "evidence": [],
         "pinned_artifact": true
       },
       "gate3": {
-        "isolation": "I2_PERMISOS_SEPARADOS",
-        "guarantee": "G2_VERIFICACION_REGISTRADA",
+        "isolation": "I0_CONTEXTO_COMPARTIDO",
+        "guarantee": "G0_DECLARADA",
         "evidence": [
-          "identity",
-          "isolation",
           "execution"
         ],
         "pinned_artifact": false

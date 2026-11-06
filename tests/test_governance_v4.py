@@ -17,6 +17,39 @@ from new_mission import create_mission
 
 
 class GovernanceWaiverTests(GovernanceV3Tests):
+    def test_existing_waivers_with_current_matrix(self):
+        root = Path(__file__).resolve().parents[1]
+        shutil.copyfile(root / 'quality/controls.json', self.root / 'quality/controls.json')
+        for kind in ('valid', 'expired', 'revoked', 'malformed', 'accepted'):
+            with self.subTest(kind=kind):
+                folder, mission = self.case()
+                if kind == 'expired':
+                    mission['gate1_waiver']['expires_at'] = '2021-01-01T00:00:00Z'
+                if kind == 'revoked':
+                    mission['gate1_waiver']['revocations'] = [{'at':'2026-11-06T00:00:00Z','reason':'revoked','owner_ref':'owner'}]
+                if kind == 'malformed':
+                    mission['gate1_waiver']['exceptions'] = []
+                if kind == 'accepted':
+                    self.record(folder, mission, 'gate2')
+                    self.record(folder, mission, 'gate3')
+                    mission['owner_acceptance'] = {'status':'APPROVED','approved_by':'owner','date':'2026-11-05'}
+                (folder / 'mission.json').write_text(json.dumps(mission), encoding='utf-8')
+                out = io.StringIO()
+                with contextlib.redirect_stdout(out):
+                    code = main(['can-implement', '--mission', folder.name, '--root', str(self.root)])
+                self.assertEqual(1, code)
+                self.assertEqual('MANUAL_OWNER_VERIFICATION_REQUIRED' in out.getvalue(), kind in ('valid', 'accepted'))
+                if kind == 'accepted':
+                    self.assertEqual('APPROVED', mission['owner_acceptance']['status'])
+                    self.assertEqual([], mission_errors(folder, mission))
+                    with contextlib.redirect_stdout(io.StringIO()):
+                        self.assertEqual(1, main(['can-close', '--mission', folder.name, '--root', str(self.root)]))
+                    mission['gate1_waiver']['revocations'].append({'at':'2026-11-06T00:00:00Z','reason':'revoked','owner_ref':'owner'})
+                    self.assertEqual([], mission_errors(folder, mission))
+                    (folder / 'mission.json').write_text(json.dumps(mission), encoding='utf-8')
+                    with contextlib.redirect_stdout(io.StringIO()):
+                        self.assertEqual(1, main(['can-close', '--mission', folder.name, '--root', str(self.root)]))
+
     def case(self):
         self.case_number = getattr(self, 'case_number', 0) + 1
         folder = create_mission(self.root, f'CASE-{self.case_number}', 'Test', 'HIGH', 'orch', 'arch')

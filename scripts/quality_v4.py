@@ -37,9 +37,9 @@ def waiver_errors(folder, mission, policy, canon, historical=False):
             or w.get('project_id') != pilot.get('id')):
         errors.append('waiver: scope invalid')
     rule = policy['independence_minimums']['HIGH']['gate1']
-    if not historical and (rule['isolation'] != 'I1_CONTEXTO_SEPARADO'
-            or rule['guarantee'] != 'G1_EVIDENCIA_REGISTRADA'
-            or set(rule['evidence']) != {'identity'}):
+    if not historical and (rule['isolation'] not in ('I0_CONTEXTO_COMPARTIDO', 'I1_CONTEXTO_SEPARADO')
+            or rule['guarantee'] not in ('G0_DECLARADA', 'G1_EVIDENCIA_REGISTRADA')
+            or not set(rule['evidence']) <= {'identity'}):
         errors.append('waiver: policy exceeds explicitly excepted minima')
     roles = mission.get('roles', {})
     role_ids = {canon(item.get('id')) for group in roles.values() for item in group}

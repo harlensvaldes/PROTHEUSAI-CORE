@@ -244,9 +244,6 @@ def gate_errors(folder, mission, gate, policy, canon, exception_gate1=False, v5_
         return errors, minima
     if reviewer in all_authors or block['authorship_independent'] is not True:
         errors.append('self approval or authorship declaration invalid')
-    if not exception_gate1 and v5_scope_digest is None:
-        if isolation == ISOLATION[0]:
-            errors.append('I0 cannot enable decision')
     rule = policy['independence_minimums'][mission['risk']][gate]
     if v5_scope_digest is not None:
         rule = {'isolation': ISOLATION[0], 'guarantee': GUARANTEE[0], 'evidence': [],

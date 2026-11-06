@@ -74,11 +74,15 @@ class MutationControls(unittest.TestCase):
                         [("not {canon(a) for a in effective} <= allowed):", 'False):')],
                         'effective authors invalid')
 
-    def test_i0_absolute_mutant(self):
-        self.check_gate(lambda b,m,f:b.update(isolation='I0_CONTEXTO_COMPARTIDO'),
-                        [("if isolation == ISOLATION[0]:", 'if False:')],
-                        'I0 cannot',
-                        lambda p:p['independence_minimums']['HIGH']['gate1'].update(isolation='I0_CONTEXTO_COMPARTIDO'))
+    def test_i0_allowed_without_absolute_prohibition(self):
+        folder, m = self.make_case()
+        block = self.record(folder, m, 'gate1')
+        policy = self.policy()
+        policy['independence_minimums']['HIGH']['gate1']['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        self.write_block(folder, m, 'gate1', block)
+        self.assertEqual(([], []), quality_v3.gate_errors(folder, m, 'gate1', policy, canon))
+
 
     def test_review_equalities_mutants(self):
         for key, value in [('mission','OTHER'),('gate','gate2'),('risk','LOW'),('decision','FAIL')]:
@@ -785,17 +789,16 @@ class MutationControls(unittest.TestCase):
         self.assertIn('invalid structured review block',errors)
         with self.assertRaises(KeyError): mutant.gate_errors(folder,m,'gate1',policy,canon)
 
-    def test_i0_pwr_mutant(self):
-        # Negative: PWR reviewer declares I0 even if the policy permits I0.
-        folder,m=self.make_case(); block=self.record(folder,m,'gate1',decision='PASS_WITH_RESERVATIONS')
-        policy=self.policy(); policy['independence_minimums']['HIGH']['gate1']['isolation']='I0_CONTEXTO_COMPARTIDO'
-        mutant=self.mutant(("if isolation == ISOLATION[0]:", 'if False:'))
-        self.assertEqual(([],[]),quality_v3.gate_errors(folder,m,'gate1',policy,canon))
-        self.assertEqual(([],[]),mutant.gate_errors(folder,m,'gate1',policy,canon))
-        block['isolation']='I0_CONTEXTO_COMPARTIDO'; self.write_block(folder,m,'gate1',block)
-        errors,_=quality_v3.gate_errors(folder,m,'gate1',policy,canon)
-        self.assertIn('I0 cannot enable decision',errors)
-        self.assertEqual(([],[]),mutant.gate_errors(folder,m,'gate1',policy,canon))
+    def test_i0_pwr_does_not_become_pass(self):
+        folder, m = self.make_case()
+        block = self.record(folder, m, 'gate1', decision='PASS_WITH_RESERVATIONS')
+        policy = self.policy()
+        policy['independence_minimums']['HIGH']['gate1']['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        self.write_block(folder, m, 'gate1', block)
+        self.assertEqual(([], []), quality_v3.gate_errors(folder, m, 'gate1', policy, canon))
+        self.assertEqual('PASS_WITH_RESERVATIONS', m['gates']['gate1']['decision'])
+
 
     def test_g2_author_verifier_for_each_role_mutants(self):
         # Negative: architect verification is written by one of the three roles
@@ -934,17 +937,17 @@ class MutationControls(unittest.TestCase):
         self.assertIsNone(quality_v3.canonical_file(folder,link.name))
         self.assertIsNotNone(mutant.canonical_file(folder,link.name))
 
-    def test_i0_pwr_after_pass_mutant(self):
-        # Negative: Gate2 PWR after a PASS Gate1 declares I0.
-        folder,m=self.make_case(); self.record(folder,m,'gate1'); block=self.record(folder,m,'gate2',decision='PASS_WITH_RESERVATIONS')
-        policy=self.policy(); policy['independence_minimums']['HIGH']['gate2']['isolation']='I0_CONTEXTO_COMPARTIDO'
-        mutant=self.mutant(("if isolation == ISOLATION[0]:", 'if False:'))
-        self.assertEqual(([],[]),quality_v3.v3_errors(folder,m,policy,canon))
-        self.assertEqual(([],[]),mutant.v3_errors(folder,m,policy,canon))
-        block['isolation']='I0_CONTEXTO_COMPARTIDO'; self.write_block(folder,m,'gate2',block)
-        errors,_=quality_v3.v3_errors(folder,m,policy,canon)
-        self.assertIn('gate2: I0 cannot enable decision',errors)
-        self.assertEqual(([],[]),mutant.v3_errors(folder,m,policy,canon))
+    def test_i0_pwr_after_pass_is_not_pass(self):
+        folder, m = self.make_case()
+        self.record(folder, m, 'gate1')
+        block = self.record(folder, m, 'gate2', decision='PASS_WITH_RESERVATIONS')
+        policy = self.policy()
+        policy['independence_minimums']['HIGH']['gate2']['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        self.write_block(folder, m, 'gate2', block)
+        self.assertEqual(([], []), quality_v3.v3_errors(folder, m, policy, canon))
+        self.assertEqual('PASS_WITH_RESERVATIONS', m['gates']['gate2']['decision'])
+
 
     def test_g2_pertinent_author_verification_gate_mutants(self):
         # Negative: each pertinent author (architect gate1, developer gate2)

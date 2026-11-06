@@ -344,7 +344,7 @@ def main(argv=None):
             else:
                 print('Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.')
             return 0
-        print('BLOCKED: Gate 1 sin PASS independiente documentado.')
+        print('REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.')
         for error in errs: print(' -',error)
         return 1
     elif args.command=='can-close':
@@ -365,7 +365,7 @@ def main(argv=None):
                 and m['owner_acceptance']['status']=='APPROVED'):
             print('Registro formal consistente; no autoriza cierre ni despliegue.' if m['schema_version']==5 else 'Registro formal cerrado; no equivale a autorización de despliegue.')
             return 0
-        print('BLOCKED: Gates 1/2/3 y owner no aprobados.')
+        print('REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.')
         for error in errs: print(' -',error)
         return 1
     if errs:

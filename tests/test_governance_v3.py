@@ -12,6 +12,65 @@ from quality_cli import FILES, mission_errors
 
 
 class GovernanceV3Tests(unittest.TestCase):
+    def test_continuity_i0_without_identity_and_execution_still_required(self):
+        from quality_v3 import v3_errors
+        from quality_cli import canon
+        for risk in ('HIGH', 'CRITICAL'):
+            with self.subTest(risk=risk):
+                folder = create_mission(self.root, 'TEST-' + risk, 'Test', risk, 'orch', 'arch')
+                m = json.loads((folder / 'mission.json').read_text(encoding='utf-8'))
+                m['roles']['developer'] = [{'id': 'dev', 'evidence': None, 'verification': None}]
+                block = self.record(folder, m, 'gate1')
+                block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+                block['evidence'] = []
+                self.write_block(folder, m, 'gate1', block)
+                policy = json.loads((ROOT / 'quality/controls.json').read_text(encoding='utf-8'))
+                self.assertEqual(([], []), v3_errors(folder, m, policy, canon))
+                for gate in ('gate2', 'gate3'):
+                    block = self.record(folder, m, gate)
+                    block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+                    block['evidence'] = [e for e in block['evidence'] if e['kind'] == 'execution']
+                    self.write_block(folder, m, gate, block)
+                self.assertEqual(([], []), v3_errors(folder, m, policy, canon))
+                block['evidence'] = []
+                self.write_block(folder, m, 'gate3', block)
+                self.assertTrue(v3_errors(folder, m, policy, canon)[1])
+
+    def test_current_cli_i0_and_fail_remains_distinct(self):
+        from quality_cli import main
+        shutil.copyfile(ROOT / 'quality/controls.json', self.root / 'quality/controls.json')
+        folder, m = self.make_case('HIGH')
+        block = self.record(folder, m, 'gate1')
+        block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+        block['evidence'] = []
+        self.write_block(folder, m, 'gate1', block)
+        (folder / 'mission.json').write_text(json.dumps(m), encoding='utf-8')
+        args = ['--mission', folder.name, '--root', str(self.root)]
+        self.assertEqual(0, main(['can-implement'] + args))
+        block['decision'] = 'FAIL'
+        self.write_block(folder, m, 'gate1', block)
+        (folder / 'mission.json').write_text(json.dumps(m), encoding='utf-8')
+        self.assertEqual(1, main(['can-implement'] + args))
+        self.assertEqual('PENDING', m['owner_acceptance']['status'])
+
+    def test_current_close_requires_owner_without_runtime_message(self):
+        from quality_cli import main
+        shutil.copyfile(ROOT / 'quality/controls.json', self.root / 'quality/controls.json')
+        folder, m = self.make_case('HIGH')
+        for gate in ('gate1', 'gate2', 'gate3'):
+            block = self.record(folder, m, gate)
+            block['isolation'] = 'I0_CONTEXTO_COMPARTIDO'
+            block['evidence'] = [e for e in block['evidence'] if e['kind'] == 'execution']
+            self.write_block(folder, m, gate, block)
+        path = folder / 'mission.json'
+        path.write_text(json.dumps(m), encoding='utf-8')
+        args = ['can-close', '--mission', folder.name, '--root', str(self.root)]
+        self.assertEqual(1, main(args))
+        m['owner_acceptance'] = {'status':'APPROVED', 'approved_by':'owner', 'date':'2026-11-06'}
+        path.write_text(json.dumps(m), encoding='utf-8')
+        self.assertEqual(0, main(args))
+        self.assertFalse((folder / 'runtime-message.txt').exists())
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
@@ -20,6 +79,8 @@ class GovernanceV3Tests(unittest.TestCase):
             dest = self.root / name
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / name, dest)
+        # Legacy fixture tests optional stricter matrices; continuity uses current controls.
+        shutil.copyfile(ROOT / 'tests/fixtures/legacy-controls.json', self.root / 'quality/controls.json')
         for source in (ROOT / 'docs/templates').glob('*.md'):
             shutil.copyfile(source, self.root / 'docs/templates' / source.name)
 
@@ -222,7 +283,7 @@ class GovernanceV3Tests(unittest.TestCase):
         m['owner_acceptance']={'status':'PENDING','approved_by':None,'date':None}
         self.assertTrue(mission_errors(folder,m))
 
-    def test_i0_never_enables_even_if_policy_attempts_to_allow_it(self):
+    def test_i0_accepted_when_policy_allows_it(self):
         folder,m=self.make_case('LOW')
         path=self.root/'quality/controls.json'
         policy=json.loads(path.read_text(encoding='utf-8'))
@@ -231,7 +292,7 @@ class GovernanceV3Tests(unittest.TestCase):
         block=self.record(folder,m,'gate1')
         block['isolation']='I0_CONTEXTO_COMPARTIDO'
         self.write_block(folder,m,'gate1',block)
-        self.assertTrue(any('I0' in x for x in mission_errors(folder,m)))
+        self.assertEqual([], mission_errors(folder,m))
 
     def test_owner_whitespace_identity_and_date_do_not_close(self):
         from quality_cli import main

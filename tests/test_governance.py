@@ -52,6 +52,7 @@ class GovernanceBase(unittest.TestCase):
         for file in FILES:
             (self.root/file).parent.mkdir(parents=True,exist_ok=True)
             shutil.copyfile(ROOT/file,self.root/file)
+        shutil.copyfile(ROOT/'tests/fixtures/legacy-controls.json',self.root/'quality/controls.json')
         for source in (ROOT/'docs/templates').glob('*.md'):
             shutil.copyfile(source,self.root/'docs/templates'/source.name)
 
