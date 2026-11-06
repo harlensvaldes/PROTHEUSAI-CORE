@@ -1,0 +1,7 @@
+# DELIVERY-001 · Comparación posterior al commit
+
+Fecha: 2026-11-06. Commit comparado: `46e9318cc02b561e7125d64e6864e0915b7eb6b6`; baseline `1b14c34ad4a87792a73d4fc9de20d209bfdb4565`. Ancla Gate 2: `GATE2-INPUT-04.sha256`, SHA-256 LF `4a7e0d84db57f1cca2a3ca4d918b3f9ae359ef8ba4840bf0cfc848b23b1b19f9`, citado por `GATE2-REVIEW-04.md`.
+
+Se comparó cada archivo del commit con las 43 entradas de hash LF del ancla. Coinciden todas salvo `mission.json`, que incorporó las decisiones e informes de Gate 2 y Gate 3 posteriores al anclaje. Los ocho archivos adicionales del commit son el ancla, informe Gate 2, informe e identidad/ejecución de Gate 3, script de evidencia de fallo de copia y las dos lecturas independientes del ancla. Son registros y evidencia posterior al anclaje; no se modificó código de producto después de Gate 2. `git diff --cached --check` antes del commit terminó con salida 0; Git advirtió de acceso denegado al ignore global.
+
+La lectura independiente directa del registro runtime no ha podido acreditar la instrucción al revisor: `LECTURA-ANCLA-04.md`, `LECTURA-ANCLA-04-SEGUNDA.md` y `LECTURA-ANCLA-04-TERCERA.md`; la última precisa que el campo del mensaje es opaco y que no se puede inferir que la transmisión no ocurrió. Por tanto no se declara completada la condición previa a aceptación, aunque los hashes del archivo y reporte coinciden. La CLI no comprueba esta lectura ni certifica identidad o aislamiento. Esta comparación es declaración del Orchestrator, no certificación independiente ni aceptación del Owner.
