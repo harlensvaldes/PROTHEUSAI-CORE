@@ -1,0 +1,11 @@
+# CONTEXT-OPT-001 · Verificación efectiva final
+
+Fecha: 2026-11-06. Verificador declarado: `codex /root`, Orchestrator y autor del registro; esto no es un nuevo dictamen de Quality ni aceptación del Owner.
+
+La delegación real y breve de `codex /root/quality_observacion` produjo `21-OBSERVACION-EFECTIVA.md`, 1.882 caracteres y SHA-256 de bytes `6b50423a79f32cc87477d641a8e38cf8a15776651779da5a0ee0eab34fbc36b4`. Comprobé los seis apartados: veredicto y resultado, hallazgos, evidencia por referencias, riesgos e incertidumbres, bloqueos y próxima acción. La delegación declara acceso directo al informe completo y a las fuentes originales. Su comprobación detectó que la entrega previa `18-ENTREGA-REAL.md` no declaraba explícitamente bloqueos ni próxima acción; el PASS limitado previo no evaluó esos campos. La nueva observación no reescribe ese resultado.
+
+Comparé el contenido del archivo con el texto final de `rollout-2026-11-06T21-28-52-01a1b28c-c292-7820-81ab-f14f6567f496.jsonl:235` y con el texto tras `Payload:` de `rollout-2026-11-06T20-49-15-01a1b268-8005-7972-9954-92b25bac03cf.jsonl:694`, registros locales disponibles de emisión y recepción; coincidencia byte a byte en UTF-8. No se incorporan JSONL completos. Los registros y el workspace compartidos no certifican identidad, aislamiento ni integridad histórica.
+
+El tag `CONTEXT-OPT-001-baseline-A` desreferencia a `c4a1c67`; los 17 blobs coinciden con los SHA-256 del `BASELINE-A.json`. Los commits `7c55f77` y `c2cc68b` cambian solo `AGENTS.md`. Se volvió a ejecutar en clon temporal el procedimiento de `20-CIERRE-TECNICO.md`: ambas reversiones y el diff del resultado frente al baseline salieron 0; el árbol principal no se modificó. `git -c core.autocrlf=false -c core.whitespace=cr-at-eol diff --check CONTEXT-OPT-001-baseline-A HEAD -- AGENTS.md` salió 0.
+
+La revisión se limita a esta muestra y no certifica respuestas futuras. Gate 3 permanece **PASS_WITH_RESERVATIONS**; el FAIL histórico se conserva. Falta el bloque formal de Gate 1 (`08-GATE1-QUALITY.md`), sin validación CLI. **E2E NO EJECUTADO**. Ahorro económico no demostrado; el Owner decidirá la aceptación. La observación futura en DESIGN-001 con MET-001 será no causal; DESIGN-001 no se ha iniciado.
