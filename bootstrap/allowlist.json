@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "source": "AGENTS.md",
+      "destination": "AGENTS.md",
+      "reason": "Base de proyecto"
+    },
+    {
+      "source": "START_HERE.md",
+      "destination": "START_HERE.md",
+      "reason": "Base de proyecto"
+    },
+    {
+      "source": ".editorconfig",
+      "destination": ".editorconfig",
+      "reason": "Base de proyecto"
+    },
+    {
+      "source": ".gitignore",
+      "destination": ".gitignore",
+      "reason": "Base de proyecto"
+    },
+    {
+      "source": "agents/architect.md",
+      "destination": "agents/architect.md",
+      "reason": "Roles"
+    },
+    {
+      "source": "agents/developer.md",
+      "destination": "agents/developer.md",
+      "reason": "Roles"
+    },
+    {
+      "source": "agents/quality.md",
+      "destination": "agents/quality.md",
+      "reason": "Roles"
+    },
+    {
+      "source": "agents/release_manager.md",
+      "destination": "agents/release_manager.md",
+      "reason": "Roles"
+    },
+    {
+      "source": "prompts/00_START_PROJECT.md",
+      "destination": "prompts/00_START_PROJECT.md",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "prompts/01_GATE1_INDEPENDENT.md",
+      "destination": "prompts/01_GATE1_INDEPENDENT.md",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "prompts/02_IMPLEMENT.md",
+      "destination": "prompts/02_IMPLEMENT.md",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "prompts/03_GATE2_DIFF_REVIEW.md",
+      "destination": "prompts/03_GATE2_DIFF_REVIEW.md",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "prompts/04_GATE3_ACCEPTANCE.md",
+      "destination": "prompts/04_GATE3_ACCEPTANCE.md",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "quality/controls.json",
+      "destination": "quality/controls.json",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "quality/RISK_MATRIX.md",
+      "destination": "quality/RISK_MATRIX.md",
+      "reason": "Discovery y Quality"
+    },
+    {
+      "source": "docs/PROJECT_CHARTER.md",
+      "destination": "docs/PROJECT_CHARTER.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/ARCHITECTURE.md",
+      "destination": "docs/ARCHITECTURE.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/PROJECT_BOOTSTRAP_CHECKLIST.md",
+      "destination": "docs/PROJECT_BOOTSTRAP_CHECKLIST.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/QUALITY_POLICY.md",
+      "destination": "docs/QUALITY_POLICY.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/QUALITY_EVIDENCE_PROTOCOL.md",
+      "destination": "docs/QUALITY_EVIDENCE_PROTOCOL.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/README_CONTRACT.md",
+      "destination": "docs/README_CONTRACT.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/RELEASE_POLICY.md",
+      "destination": "docs/RELEASE_POLICY.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/ROLE_MATRIX.md",
+      "destination": "docs/ROLE_MATRIX.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/SECURITY_AND_DATA.md",
+      "destination": "docs/SECURITY_AND_DATA.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/TEST_STRATEGY.md",
+      "destination": "docs/TEST_STRATEGY.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/ADR/0001-quality-gates.md",
+      "destination": "docs/ADR/0001-quality-gates.md",
+      "reason": "Contratos"
+    },
+    {
+      "source": "docs/templates/ADR.md",
+      "destination": "docs/templates/ADR.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/DECISION.md",
+      "destination": "docs/templates/DECISION.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/GATE1_REVIEW.md",
+      "destination": "docs/templates/GATE1_REVIEW.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/GATE2_REVIEW.md",
+      "destination": "docs/templates/GATE2_REVIEW.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/GATE3_EVIDENCE.md",
+      "destination": "docs/templates/GATE3_EVIDENCE.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/IMPLEMENTATION_REPORT.md",
+      "destination": "docs/templates/IMPLEMENTATION_REPORT.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/INCIDENT.md",
+      "destination": "docs/templates/INCIDENT.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/MISSION_PLAN.md",
+      "destination": "docs/templates/MISSION_PLAN.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "docs/templates/README_PRODUCT.md",
+      "destination": "docs/templates/README_PRODUCT.md",
+      "reason": "Plantillas"
+    },
+    {
+      "source": "scripts/new_mission.py",
+      "destination": "scripts/new_mission.py",
+      "reason": "Herramientas"
+    },
+    {
+      "source": "scripts/quality_cli.py",
+      "destination": "scripts/quality_cli.py",
+      "reason": "Herramientas"
+    },
+    {
+      "source": "scripts/quality_v3.py",
+      "destination": "scripts/quality_v3.py",
+      "reason": "Herramientas"
+    },
+    {
+      "source": "scripts/quality_v4.py",
+      "destination": "scripts/quality_v4.py",
+      "reason": "Herramientas"
+    },
+    {
+      "source": "scripts/quality_v5.py",
+      "destination": "scripts/quality_v5.py",
+      "reason": "Herramientas"
+    },
+    {
+      "source": "bootstrap/MISSIONS_README.md",
+      "destination": "docs/MISSIONS/README.md",
+      "reason": "Instrucciones de misiones sin expedientes"
+    }
+  ]
+}

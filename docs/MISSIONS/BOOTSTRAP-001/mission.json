@@ -1,0 +1,43 @@
+{
+  "schema_version": 3,
+  "id": "BOOTSTRAP-001",
+  "title": "Creacion determinista de proyectos independientes",
+  "risk": "HIGH",
+  "created_at": "2026-11-06",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "codex-root",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "codex-root",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": []
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate2": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate3": {
+      "decision": "PENDING",
+      "review": null
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}
