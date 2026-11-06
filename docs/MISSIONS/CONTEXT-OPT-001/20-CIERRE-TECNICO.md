@@ -1,0 +1,13 @@
+# CONTEXT-OPT-001 · Cierre técnico mínimo
+
+Fecha: 2026-11-06. Estado: preparado para decisión del Owner; sin registrar aceptación. No se ha ejecutado A/B adicional ni se ha iniciado DESIGN-001.
+
+**Entrega real y acceso.** El subagente `/root/entrega_compacta` entregó la respuesta transcrita sin cambios en `18-ENTREGA-REAL.md`: 1.804 caracteres, SHA-256 de bytes `c93775efffcb9547f4d466420f4bfd69d7559777e8c3dc7f3fa23e7152b82450`. El revisor independiente `19-QUALITY-CIERRE.md` cotejó la respuesta, los eventos disponibles de emisión y recepción, el informe completo y las fuentes. Dictamen: PASS limitado a esa muestra y acceso; el FAIL anterior y el Gate 3 `PASS_WITH_RESERVATIONS` conservan su significado. Los registros compartidos no certifican identidad, aislamiento ni integridad histórica.
+
+**Baseline y commits.** La referencia `CONTEXT-OPT-001-baseline-A` apunta a `c4a1c67`; los 17 blobs inventariados en `BASELINE-A.json` coinciden byte a byte con sus SHA-256. Los commits `7c55f77` y `c2cc68b` afectan únicamente `AGENTS.md`; sus comparaciones con las anclas constan en `POST-GATE-VALIDATION-A.md` y `POST-GATE-VALIDATION-B.md`.
+
+**Reversión ejecutada en copia aislada.** Con Python se ejecutó `git clone --quiet --no-hardlinks -c core.autocrlf=false . <directorio-temporal>`, se configuró una identidad local ficticia en el clon, y se ejecutaron `git -c core.autocrlf=false revert --no-edit c2cc68b` y después `git -c core.autocrlf=false revert --no-edit 7c55f77`: ambos salieron 0. En ese clon, `git -c core.autocrlf=false diff --exit-code CONTEXT-OPT-001-baseline-A HEAD -- AGENTS.md` salió 0. La prueba no alteró el árbol principal; una reversión futura puede requerir resolver conflictos por cambios posteriores.
+
+**Conservación.** Se seleccionan para Git el encargo, análisis y datos resumidos, plan, revisiones, anclas, inventario y evidencias de cierre. Los JSONL runtime, ZIP, cortes y otros archivos preexistentes de la misión no se incluyen en este conjunto; algunas entradas históricas de las anclas solo permanecen disponibles localmente. Una búsqueda por patrones comunes de credenciales y rutas personales no encontró coincidencias en la selección; no acredita ausencia completa de datos sensibles. Gate 1 conserva su PASS técnico y el bloque formal pendiente (`08-GATE1-QUALITY.md`); no se inventa validación CLI.
+
+**Medición futura.** Por decisión posterior del Owner, observar la eficacia durante DESIGN-001, usando MET-001 y el criterio de `07-PLAN-INTERVENCION.md`. Es una comparación no causal entre misiones diferentes. No se ha demostrado ahorro económico. **E2E NO EJECUTADO**. La aceptación y cualquier decisión sobre reservas corresponden al Owner.

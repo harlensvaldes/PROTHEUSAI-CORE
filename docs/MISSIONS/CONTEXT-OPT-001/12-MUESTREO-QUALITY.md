@@ -1,0 +1,17 @@
+﻿# CONTEXT-OPT-001 · Muestreo independiente de informe compacto
+
+Fecha: 2026-11-06. Revisor declarado: `codex /root/quality_sample`, delegado por `/root`; no redacté el informe ni implementé A. Identidad e aislamiento no certificados; workspace compartido. Revisión estática con acceso directo a artefactos; no ejecuté pruebas ni experimento. **E2E NO EJECUTADO**.
+
+**Dictamen del muestreo: FAIL para el cumplimiento completo de la estructura de la respuesta breve observada**, con alcance limitado a una muestra. No es un dictamen Gate 2 o Gate 3 ni evaluación de respuestas futuras. La información omitida de la respuesta está en el informe detallado; no detecté pérdida de decisiones, requisitos ni evidencia necesarios para verificar el alcance muestreado cuando se consulta ese archivo. La preservación en el archivo reduce el impacto, pero no satisface por completo el contrato de incluir riesgos e incertidumbres y referencias de evidencia en la respuesta.
+
+## Muestra y procedencia
+
+Informe revisado: `docs/MISSIONS/CONTEXT-OPT-001/10-GATE2-A-QUALITY.md`, SHA-256 de bytes `a6dc043075c6bc047b45133774094dc957980305097b0747fe43b09fcc29cbe5`. Respuesta breve: copia textual comunicada por `/root` de la respuesta final de `/root/quality_plan`; no accedí al registro runtime original y no puedo autenticar su integridad o procedencia. Su longitud copiada es muy inferior a 6.000 caracteres. Esta revisión no acredita que el ancla se transmitiera antes de la revisión; el informe lo declara, pero no comprobé la instrucción original.
+
+## Hallazgos
+
+1. La respuesta copiada conserva el PASS técnico, las 21 entradas y coincidencia declarada, el alcance del diff A, la necesidad de comparación post-commit, la falta de `mission.json` y validación CLI, y E2E NO EJECUTADO; remite al informe real. El informe aporta ancla y hash, baseline, hash de `AGENTS.md`, alcance y limitaciones. Cotejé `07-PLAN-INTERVENCION.md:7-15`, `GATE2-INPUT-01.sha256` y `git diff c4a1c67 7c55f77 -- AGENTS.md`: el commit A cambia solo la regla A. No reconstruí el estado de las 21 rutas al momento histórico de revisión ni certifiqué identidad.
+2. La respuesta copiada no comunica explícitamente el riesgo MEDIUM provisional ni la ausencia de certificación de identidad y aislamiento, ambos declarados en `10-GATE2-A-QUALITY.md:3`. Sí comunica incertidumbres formales (manifiesto y CLI). Tampoco incluye por sí misma ruta y línea o hash de la evidencia: solo nombra el archivo de informe. `AGENTS.md:35` exige riesgos e incertidumbres y evidencia por ruta y línea o hash en la respuesta; el archivo referenciado contiene el detalle, pero no suple esos campos en el mensaje. **Acción correctiva:** complementar la respuesta con el riesgo, límites de identidad/aislamiento y al menos una referencia específica con hash o línea, sin sustituir el informe.
+3. La revisión detallada concierne únicamente a A; el encargo del Owner incluye además B, límites, reversión y medición futura. No exijo que un informe Gate 2 de A duplique todo el encargo: el plan los conserva en `07-PLAN-INTERVENCION.md:7-21`. La muestra no verifica su ejecución. La comparación post-commit registrada en `POST-GATE-VALIDATION-A.md:3` la hizo el Developer; no la presento como dictamen independiente.
+
+La copia del mensaje y el archivo son una sola muestra, elegida por disponibilidad y no representativa. No se infiere la calidad de informes futuros, ahorro de tokens ni resultado de la medición de la próxima misión. La comparación entre misiones diferentes será no causal. No se registra aceptación del Owner.

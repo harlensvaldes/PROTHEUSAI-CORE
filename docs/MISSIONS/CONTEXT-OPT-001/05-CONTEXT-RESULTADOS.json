@@ -1,0 +1,141 @@
+{
+  "responses": 24,
+  "first_input": 21205,
+  "last_input": 66917,
+  "input_sum": 1218852,
+  "cache_sum": 1146496,
+  "input_min": 21205,
+  "input_max": 66917,
+  "ols_slope_per_response": 2106.241739130435,
+  "ols_intercept_index_zero": 24457.478260869564,
+  "ols_r2": 0.8511138857671473,
+  "positive_increments": 23,
+  "negative_increments": 0,
+  "zero_increments": 0,
+  "largest_increase": {
+    "index": 7,
+    "timestamp": "2026-11-06T18:57:10.964Z",
+    "response_id": "resp_0abc6175f0174c02016aee22fb650487d29891dfb67ae9f70f",
+    "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+    "line": 56,
+    "input_tokens": 38295,
+    "cached_input_tokens": 29056,
+    "output_tokens": 62,
+    "uncached_input_tokens": 9239,
+    "input_delta": 9187
+  },
+  "smallest_increment": {
+    "index": 6,
+    "timestamp": "2026-11-06T18:56:49.836Z",
+    "response_id": "resp_0abc6175f0174c02016aee22e4270887d2ac11b92b73db153a",
+    "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+    "line": 50,
+    "input_tokens": 29108,
+    "cached_input_tokens": 24064,
+    "output_tokens": 80,
+    "uncached_input_tokens": 5044,
+    "input_delta": 53
+  },
+  "compact_named_events_to_last_usage": {},
+  "limitations": "Only observed MET references; named-event scan cannot establish absence of compaction.",
+  "first_observed_by_thread": [
+    {
+      "thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0",
+      "identity": {
+        "agent_path": null,
+        "evidence": "unknown",
+        "parent_thread_id": null
+      },
+      "timestamp": "2026-11-06T18:55:23.244Z",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-15-01a1b237-0edf-7182-b1cd-c120f4816af0.jsonl",
+      "line": 19,
+      "input_tokens": 21205,
+      "cached_input_tokens": 7168,
+      "output_tokens": 110
+    },
+    {
+      "thread_id": "01a1b237-4df4-7030-a145-7e6565eb8db0",
+      "identity": {
+        "agent_path": "/root/quality",
+        "evidence": "session_meta.payload.source.subagent.thread_spawn",
+        "parent_thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0"
+      },
+      "timestamp": "2026-11-06T18:55:40.546Z",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-31-01a1b237-4df4-7030-a145-7e6565eb8db0.jsonl",
+      "line": 29,
+      "input_tokens": 21080,
+      "cached_input_tokens": 13184,
+      "output_tokens": 212
+    },
+    {
+      "thread_id": "01a1b237-1173-7130-8c5c-040515725058",
+      "identity": {
+        "agent_path": null,
+        "evidence": "unknown",
+        "parent_thread_id": null
+      },
+      "timestamp": "2026-11-06T18:57:25.371Z",
+      "file": "2026/11/06/rollout-2026-11-06T19-55-16-01a1b237-1173-7130-8c5c-040515725058.jsonl",
+      "line": 14,
+      "input_tokens": 14800,
+      "cached_input_tokens": 6144,
+      "output_tokens": 100
+    },
+    {
+      "thread_id": "01a1b23b-14b7-75d1-9915-c8696c5cbbde",
+      "identity": {
+        "agent_path": "/root/continuidad",
+        "evidence": "session_meta.payload.source.subagent.thread_spawn",
+        "parent_thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0"
+      },
+      "timestamp": "2026-11-06T18:59:46.419Z",
+      "file": "2026/11/06/rollout-2026-11-06T19-59-38-01a1b23b-14b7-75d1-9915-c8696c5cbbde.jsonl",
+      "line": 16,
+      "input_tokens": 20843,
+      "cached_input_tokens": 17664,
+      "output_tokens": 164
+    },
+    {
+      "thread_id": "01a1b247-ae68-7b92-9c81-0c880f3455a7",
+      "identity": {
+        "agent_path": "/root/experimento_a",
+        "evidence": "session_meta.payload.source.subagent.thread_spawn",
+        "parent_thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0"
+      },
+      "timestamp": "2026-11-06T19:13:33.054Z",
+      "file": "2026/11/06/rollout-2026-11-06T20-13-24-01a1b247-ae68-7b92-9c81-0c880f3455a7.jsonl",
+      "line": 16,
+      "input_tokens": 20882,
+      "cached_input_tokens": 20480,
+      "output_tokens": 286
+    },
+    {
+      "thread_id": "01a1b247-c6b6-7fd0-93e8-581d85a46e1b",
+      "identity": {
+        "agent_path": "/root/experimento_b",
+        "evidence": "session_meta.payload.source.subagent.thread_spawn",
+        "parent_thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0"
+      },
+      "timestamp": "2026-11-06T19:13:38.115Z",
+      "file": "2026/11/06/rollout-2026-11-06T20-13-31-01a1b247-c6b6-7fd0-93e8-581d85a46e1b.jsonl",
+      "line": 16,
+      "input_tokens": 20861,
+      "cached_input_tokens": 13184,
+      "output_tokens": 101
+    },
+    {
+      "thread_id": "01a1b247-e38a-71c3-b194-f2023f116d92",
+      "identity": {
+        "agent_path": "/root/verificador",
+        "evidence": "session_meta.payload.source.subagent.thread_spawn",
+        "parent_thread_id": "01a1b237-0edf-7182-b1cd-c120f4816af0"
+      },
+      "timestamp": "2026-11-06T19:13:46.539Z",
+      "file": "2026/11/06/rollout-2026-11-06T20-13-38-01a1b247-e38a-71c3-b194-f2023f116d92.jsonl",
+      "line": 16,
+      "input_tokens": 20835,
+      "cached_input_tokens": 20480,
+      "output_tokens": 250
+    }
+  ]
+}

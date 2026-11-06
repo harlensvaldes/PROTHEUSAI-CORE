@@ -1,0 +1,93 @@
+{
+  "head": "722053b381ad1dbe88c082ddf4109883e3d9ff9d",
+  "branch": "master",
+  "archive_sha256": "1a4508fca7537eab1dd2bc2d98b68954f569f1b35cd640502968831660070d14",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 7144,
+      "sha256": "d42a6ff739e2c2aecb5df53fc2d535ca60228531fac40e13895c02cd9ace0fbf"
+    },
+    {
+      "path": "docs/CONTEXT-001.md",
+      "bytes": 2937,
+      "sha256": "9af7da103b75855a0340709b88ac0cf9e5cc2386d2a6ccf72c3f6c91af567262"
+    },
+    {
+      "path": "docs/templates/CHECKPOINT.md",
+      "bytes": 563,
+      "sha256": "29a4419bbd05c02a368274724858fb5dc81889eaeebb7783fe7b3ceb28abfa76"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/00-ENCARGO-OWNER.md",
+      "bytes": 10944,
+      "sha256": "4c6e37613b25a30eb4857e2945a1913bc487afd29e407fb2d75a7d69050422cf"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/01-PLAN.md",
+      "bytes": 2774,
+      "sha256": "846c07a228e7fa9fd2198d8e6d23db1832c93293b197a4cf8ec37f6bb083073b"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/02-EVIDENCIA.md",
+      "bytes": 4651,
+      "sha256": "00e982fb3de95007c6a0f3595b1b11f4808bbdc3ce7c74386a7480e19a4a69ea"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/03-CONTINUIDAD.md",
+      "bytes": 2261,
+      "sha256": "abe93ea51af0bc83b0b2ef9cedb530d41ac06ed40bb55b59332b22782eb71210"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/04-QUALITY.md",
+      "bytes": 2893,
+      "sha256": "82508131c9b3b826f5e7b8c7358cc46127ce6674a2207076d3b5d565d9c480d6"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/05-EXPERIMENTO.md",
+      "bytes": 2162,
+      "sha256": "e214eb2296bfe2c9c6de92ce4c893750c908d1f8019ee03d461473465851c5be"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/05-MET-AB.json",
+      "bytes": 42554,
+      "sha256": "f5d5ae23699ea5935a77ad640da754b4bf78191b3b96da234e07061350fad9b2"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/05-MET-CORTE-1.json",
+      "bytes": 10576,
+      "sha256": "71e764374ed1575e18563bf9300a9e679b895bcf10563b57afca3101d7f51517"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/05-MET-CORTE-2.json",
+      "bytes": 19641,
+      "sha256": "ecfba1e11094ac08d6223f6f9c5a6327d040bc00b8b7678ad55d51d2249ec86d"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/05-RESPUESTA-A.json",
+      "bytes": 6005,
+      "sha256": "67367e351e66313aadfb272bc3cc7d13a129cbf8eee17fedd1743c5835f9ec4a"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/05-RESPUESTA-B.json",
+      "bytes": 5932,
+      "sha256": "ca02e960f310426087c8837666257e0c18c2bf6444ca3ac83305f6a3bab54d03"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/07-VERIFICACION.md",
+      "bytes": 7183,
+      "sha256": "f5a9ba09d016c2454d1654d06faf5befbfd45f3cd15aa5a02dc1e8fc6a5e711c"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/08-RESULTADO-AB.md",
+      "bytes": 4236,
+      "sha256": "a14a109bc4aa9f1e0a946f11282a4c0cd6eb69d9f170e2eb9e6aa28ed9a31205"
+    },
+    {
+      "path": "docs/MISSIONS/CONTEXT-001/CHECKPOINT.md",
+      "bytes": 1832,
+      "sha256": "2e94620749b026e45dc4b913102a13e8cd0c96f2e7454ed51d42f399ff6f1a6e"
+    }
+  ],
+  "note": "HEAD + archive capture the pre-existing working tree files; no historical modifications staged or committed."
+}

@@ -1,0 +1,9 @@
+# CONTEXT-OPT-001 · Revisión independiente Gate 2 de A
+
+Fecha: 2026-11-06. Revisor declarado: `codex /root/quality_plan`, distinto del autor declarado `codex /root`; identidad y aislamiento no certificados. Revisión estática directa; no implementé el cambio ni ejecuté pruebas.
+
+**Dictamen: PENDING.** El contenido revisado no presenta un defecto identificado, pero falta el anclaje de todo el árbol exigido para MEDIUM o superior. El riesgo no consta clasificado en el plan; por el alcance transversal de instrucciones para subagentes se considera MEDIUM provisionalmente hasta que se justifique otra clasificación. `docs/QUALITY_EVIDENCE_PROTOCOL.md:27-31` exige estado completo y hashes de cada archivo cambiado o nuevo en ancla transmitida antes del encargo. Solo se transmitió el hash de `AGENTS.md`; existen archivos sin seguimiento en la carpeta de misión. Esta narración tampoco contiene el bloque estructurado previsto en el protocolo:9-17.
+
+Se comparó `git -c core.autocrlf=false diff CONTEXT-OPT-001-baseline-A -- AGENTS.md` y se leyó el archivo. El diff añade únicamente `AGENTS.md:35`: límite aproximado, estructura, archivo de detalle, acceso de Quality a artefactos y prohibición de omitir decisiones, requisitos y evidencia. No se observó modificación de los demás requisitos en ese archivo. La baseline etiquetada apunta al commit `c4a1c67e6a0e9c69ebf91104835613e1d683b3f1` y coincide con HEAD en la revisión.
+
+Versión examinada de `AGENTS.md`: SHA-256 de bytes `6a92d0d1c7fca8a0e6b6028890808353e6ddfbd211bd23289a58821234bf949d`; SHA-256 con CRLF sustituido por LF `533ff44e9119e5054f66bbf57eac1cce97c2b8052f008b392204b5bb27b9a4c7`. Ambos coinciden con el encargo. El hash de un archivo no acredita el estado completo ni la identidad o integridad histórica. La muestra de informes y Gate 3 permanecen pendientes; E2E NO EJECUTADO.

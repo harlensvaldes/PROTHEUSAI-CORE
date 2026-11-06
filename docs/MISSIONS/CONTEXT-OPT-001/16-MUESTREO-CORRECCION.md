@@ -1,0 +1,11 @@
+﻿# CONTEXT-OPT-001 · Revisión de corrección del resumen
+
+Fecha: 2026-11-06. Revisor declarado `codex /root/quality_sample`; no redacté `13-RESUMEN-CORREGIDO.md` ni implementé A. Identidad y aislamiento no certificados; workspace compartido. Revisión estática con acceso a fuentes reales; no ejecuté pruebas ni experimentos. **E2E NO EJECUTADO**.
+
+**Dictamen: PASS para la corrección documental revisada**, limitada a los hallazgos de `12-MUESTREO-QUALITY.md:13-15`. El FAIL anterior permanece íntegro y conserva su significado para la respuesta original; esta revisión no lo cambia ni aprueba un Gate. No evalué mi propio informe.
+
+Artefacto revisado: `docs/MISSIONS/CONTEXT-OPT-001/13-RESUMEN-CORREGIDO.md`, SHA-256 de bytes `a3bece84e35048e4f93ad70330900898928243c4907f75dd4d6a00a62a41038f`; 982 caracteres leídos en UTF-8. La corrección declara el riesgo MEDIUM provisional, la falta de certificación de identidad y aislamiento, y aporta ruta y líneas del informe y hash del ancla. Incluye veredicto, hallazgos, evidencia, riesgos e incertidumbres y referencia el informe detallado. Conserva el PASS técnico de A, alcance de una sola regla, limitaciones de manifiesto y CLI, ausencia de aceptación y E2E NO EJECUTADO. No identifiqué pérdida de decisiones, requisitos o evidencia necesarios para comprobar la muestra revisada.
+
+Cotejé directamente `10-GATE2-A-QUALITY.md:3-7`, `GATE2-INPUT-01.sha256`, el diff `c4a1c67..7c55f77` de `AGENTS.md` y `POST-GATE-VALIDATION-A.md:3`. Recalculé SHA-256 normalizado LF del ancla (`24121d3e1778e5facd934e3343d5ac8166c692b628470e76bf266a4d55971d82`) y del `AGENTS.md` en el commit A (`533ff44e9119e5054f66bbf57eac1cce97c2b8052f008b392204b5bb27b9a4c7`); coinciden con la corrección y el ancla. El commit contiene únicamente `AGENTS.md`. La comparación post-commit fue registrada por el Developer; esta revisión de la corrección no la convierte en dictamen independiente completo del Gate.
+
+La coincidencia histórica de las 21 entradas y transmisión previa del ancla se recogen como afirmaciones del informe revisado; no reconstruí aquel estado ni verifiqué la instrucción runtime. Revisé el archivo correctivo, no la entrega efectiva de un nuevo mensaje del autor original. La muestra sigue siendo única y no representa respuestas futuras ni mide ahorro. No se registra aceptación del Owner.
