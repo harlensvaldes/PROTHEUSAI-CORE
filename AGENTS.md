@@ -32,6 +32,7 @@ Un nombre de agente en `agents/*.md` es un **rol documentado**, no una capacidad
 - Las instrucciones rutinarias entre agentes serán compactas, estructuradas y basadas en referencias. Incluirán, cuando corresponda, identificador de misión, acción, rutas o identificadores de artefactos, versión o hash y resultado esperado.
 - Los planes, informes y evidencias completos permanecen en sus artefactos; los mensajes los referencian y no los reproducen íntegramente sin necesidad.
 - Las respuestas identificarán de forma interpretable el estado, el resultado o dictamen, los hallazgos y las referencias de evidencia pertinentes.
+- Cada subagente devuelve un máximo aproximado de 6.000 caracteres: veredicto, hallazgos clave, evidencia por ruta y línea o hash, riesgos e incertidumbres. El detalle se conserva en un archivo de la carpeta de misión y se referencia; no se pega. Quality accede siempre a los artefactos reales y no depende del resumen. No se omiten decisiones, requisitos ni evidencia necesarios para verificar.
 - Toda revisión Quality identifica inequívocamente la versión del artefacto revisado, preferiblemente mediante hash cuando esté disponible. Una aprobación no se transfiere automáticamente a versiones posteriores.
 - La concisión no reduce los requisitos de trazabilidad, evidencia, acceso o independencia de Quality. Si una referencia o el contexto necesario no pueden recuperarse, el agente declara el bloqueo; no inventa su contenido.
 
