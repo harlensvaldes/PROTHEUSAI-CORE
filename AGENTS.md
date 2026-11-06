@@ -60,6 +60,8 @@ Un nombre de agente en `agents/*.md` es un **rol documentado**, no una capacidad
 - Registrar comandos y códigos de salida de tests/build/lint; no citar números históricos como ejecuciones recientes.
 - Ningún agente declara cerrada una misión sin dictamen independiente y aceptación según política.
 
+Tras la aceptación del Owner, el Orchestrator evalúa las actividades posteriores aplicables: entrega independiente, informe de producción, conservación de evidencias, preparación del taller y eventual despliegue. Registra cada una como completada, pendiente, bloqueada o no aplicable; ejecuta autónomamente lo ya autorizado y consulta las decisiones materiales que requieran al Owner. No impone entregas, despliegues ni trabajos fuera del alcance acordado. `can-close` comprueba la consistencia formal del registro; no acredita por sí solo la finalización del servicio al cliente.
+
 ## 6. Primera tarea en un repositorio nuevo
 Leer `START_HERE.md`; preparar Charter, Arquitectura, Riesgos y primera misión. **No generar aplicación de negocio hasta tener alcance y Gate 1 aplicable.**
 
