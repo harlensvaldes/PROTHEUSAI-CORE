@@ -1,0 +1,43 @@
+{
+  "schema_version": 3,
+  "id": "CONTINUITY-002",
+  "title": "Continuidad posterior a la aceptación",
+  "risk": "LOW",
+  "created_at": "2026-11-07",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "Codex",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "Codex",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": []
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate2": {
+      "decision": "PENDING",
+      "review": null
+    },
+    "gate3": {
+      "decision": "PENDING",
+      "review": null
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

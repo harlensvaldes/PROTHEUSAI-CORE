@@ -71,6 +71,15 @@ python scripts/quality_cli.py can-close --mission INIT-001
 
 `can-implement` solo comprueba registro formal de Gate 1 PASS y revisor distinto del autor; **no verifica** la competencia del revisor ni la validez técnica del informe. La evidencia siempre debe ser contrastada por un responsable autorizado.
 
+### Verificación determinista de anclas
+
+```bash
+python scripts/quality_cli.py manifest docs/MISSIONS/INIT-001/GATE2-INPUT-01.sha256
+python scripts/quality_cli.py audit --mission INIT-001
+```
+
+`manifest` recalcula `sha256_lf` de cada entrada contra el árbol actual (0 todas coinciden, 1 discrepancias, 2 lectura imposible). `audit` contrasta el registro de la misión con los hashes anclados en sus manifiestos: los errores señalan discrepancias de registro y la deriva del árbol se informa como aviso; un manifiesto histórico puede ya no coincidir con el árbol. La clasificación gobernanza/producto es informativa y no altera qué artefactos forman parte de un Gate. Ninguno de los dos comandos emite dictamen de Quality ni comprueba identidades.
+
 ## Notas de uso
 
 - Pensado para iniciar proyectos nuevos y para introducir Quality progresivamente en productos existentes.

@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "id": "DET-001",
+  "title": "Verificacion determinista de evidencias",
+  "risk": "MEDIUM",
+  "created_at": "2026-11-07",
+  "roles": {
+    "orchestrator": [
+      {
+        "id": "Cline",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "architect": [
+      {
+        "id": "Cline",
+        "evidence": null,
+        "verification": null
+      }
+    ],
+    "developer": [
+      {
+        "id": "Cline",
+        "evidence": null,
+        "verification": null
+      }
+    ]
+  },
+  "gates": {
+    "gate1": {
+      "decision": "PASS",
+      "review": {
+        "file": "02-GATE1-REVIEW.md",
+        "sha256_lf": "3ae758a91bf303a397ff9c59fe63859cde57d8b11c9dc2e21fa7e8080c3c4b9a",
+        "reviewer_verification": null
+      }
+    },
+    "gate2": {
+      "decision": "PASS",
+      "review": {
+        "file": "04-GATE2-REVIEW.md",
+        "sha256_lf": "440edabc283b3c8459dc2f12218fd8bc96d133f392359ec10844fb399274b8f4",
+        "reviewer_verification": null
+      }
+    },
+    "gate3": {
+      "decision": "PASS",
+      "review": {
+        "file": "05-GATE3-EVIDENCE.md",
+        "sha256_lf": "b8ea3e0472344842d3ba44fb63458796e2e486ad12bbb0fd34253cf8cc47e1bd",
+        "reviewer_verification": null
+      }
+    }
+  },
+  "owner_acceptance": {
+    "status": "PENDING",
+    "approved_by": null,
+    "date": null
+  }
+}

@@ -32,6 +32,12 @@ After commit compare every committed change, including new or deleted paths, to 
 
 Before Owner acceptance compare the reviewed artifact and committed bytes where applicable. If a historical instruction is not readable, record that limitation without reconstructing its content; its absence alone does not block progress when current technical evidence is sufficient. The CLI cannot authenticate messages, Git references, or the provenance of the comparison.
 
+## Deterministic anchor checks
+
+The CLI offers two read-only checks for the mechanical comparisons that reviewers used to perform manually. `manifest <path>` recalculates the sha256_lf of every declared entry against the current tree and returns 0 when all match, 1 for mismatches, missing files, non-canonical paths, duplicates, ambiguous entries or a readable manifest without entries, and 2 when the manifest cannot be read or decoded. Prose and `#` comments are ignored, including comments containing a hash; any `git status --porcelain` token is accepted. Because it verifies the current tree, a historical manifest may legitimately no longer match after later changes.
+
+`audit --mission <ID>` reuses the record checks and cross-checks registered review and evidence hashes with the anchors of the mission's manifests. A registered hash that matches no anchor is a discrepancy; a hash that matches an older cycle is reported as stale; drift between the effective anchor and the current file is advisory. Manifest anchors are repository-relative while record paths are mission-relative, so the cross-check maps the latter to `docs/MISSIONS/<ID>/<path>`. A manifest that cannot be read takes precedence (2). Product/governance classification is informative and never changes Gate membership. Neither command issues a Quality verdict, authenticates identities or isolation, or enables a transition.
+
 ## Gate 3
 
 Record actual commands, exact artifact, environment, runtime, date, exit code and results, including negative cases. E2E NO EJECUTADO when applicable evidence is absent.

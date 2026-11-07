@@ -1,0 +1,38 @@
+# DET-001 Gate 3 - targeted DET-001 tests
+# command: python -m unittest tests.test_det001 -v
+# date: 2026-11-07
+# environment: Windows, Python 3.13.12
+# exit_code: 0
+# source console encoding decoded to UTF-8
+
+test_audit_anchored_consistency_passes (tests.test_det001.AuditCommandTests.test_audit_anchored_consistency_passes) ... ok
+test_audit_detects_record_divergence (tests.test_det001.AuditCommandTests.test_audit_detects_record_divergence) ... ok
+test_audit_foreign_mission_anchor_is_not_error (tests.test_det001.AuditCommandTests.test_audit_foreign_mission_anchor_is_not_error) ... ok
+test_audit_invalid_mission_returns_two (tests.test_det001.AuditCommandTests.test_audit_invalid_mission_returns_two) ... ok
+test_audit_invalid_vs_unreadable_manifest (tests.test_det001.AuditCommandTests.test_audit_invalid_vs_unreadable_manifest) ... ok
+test_audit_maps_mission_relative_to_repo_relative (tests.test_det001.AuditCommandTests.test_audit_maps_mission_relative_to_repo_relative) ... ok
+test_audit_missing_anchor_is_warning_only (tests.test_det001.AuditCommandTests.test_audit_missing_anchor_is_warning_only) ... ok
+test_audit_mission_without_manifests (tests.test_det001.AuditCommandTests.test_audit_mission_without_manifests) ... ok
+test_audit_multi_cycle_precedence (tests.test_det001.AuditCommandTests.test_audit_multi_cycle_precedence) ... ok
+test_audit_record_not_anchored (tests.test_det001.AuditCommandTests.test_audit_record_not_anchored) ... ok
+test_audit_reuses_mission_record_checks (tests.test_det001.AuditCommandTests.test_audit_reuses_mission_record_checks) ... ok
+test_audit_structural_record_failure_returns_one (tests.test_det001.AuditCommandTests.test_audit_structural_record_failure_returns_one) ... ok
+test_audit_tree_drift_is_warning (tests.test_det001.AuditCommandTests.test_audit_tree_drift_is_warning) ... ok
+test_audit_unreadable_takes_precedence (tests.test_det001.AuditCommandTests.test_audit_unreadable_takes_precedence) ... ok
+test_classify_is_presentation_only (tests.test_det001.ManifestCommandTests.test_classify_is_presentation_only) ... ok
+test_manifest_ambiguous_and_empty (tests.test_det001.ManifestCommandTests.test_manifest_ambiguous_and_empty) ... ok
+test_manifest_hash_is_case_insensitive (tests.test_det001.ManifestCommandTests.test_manifest_hash_is_case_insensitive) ... ok
+test_manifest_path_resolved_from_cwd (tests.test_det001.ManifestCommandTests.test_manifest_path_resolved_from_cwd) ... ok
+test_manifest_porcelain_tokens (tests.test_det001.ManifestCommandTests.test_manifest_porcelain_tokens) ... ok
+test_manifest_prose_and_single_space (tests.test_det001.ManifestCommandTests.test_manifest_prose_and_single_space) ... ok
+test_manifest_rejects_symlink (tests.test_det001.ManifestCommandTests.test_manifest_rejects_symlink) ... skipped "symlink privilege unavailable: [WinError 1314] Le client ne dispose pas d’un privilège nécessaire: 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpggbnffdc\\\\real.txt' -> 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpggbnffdc\\\\link.txt'"
+test_manifest_reports_mismatch_missing_duplicate_and_unsafe_paths (tests.test_det001.ManifestCommandTests.test_manifest_reports_mismatch_missing_duplicate_and_unsafe_paths) ... ok
+test_manifest_root_missing_or_outside (tests.test_det001.ManifestCommandTests.test_manifest_root_missing_or_outside) ... ok
+test_manifest_truncated_hash_is_ambiguous (tests.test_det001.ManifestCommandTests.test_manifest_truncated_hash_is_ambiguous) ... ok
+test_manifest_unreadable_returns_two (tests.test_det001.ManifestCommandTests.test_manifest_unreadable_returns_two) ... ok
+test_manifest_valid_crlf_status_and_classification (tests.test_det001.ManifestCommandTests.test_manifest_valid_crlf_status_and_classification) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.909s
+
+OK (skipped=1)

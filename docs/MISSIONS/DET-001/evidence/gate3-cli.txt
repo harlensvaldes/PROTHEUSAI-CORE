@@ -1,0 +1,71 @@
+# DET-001 Gate 3 - CLI checks
+# command prefix: python
+# date: 2026-11-07
+# environment: Windows, Python 3.13.12 (UTF-8 console output)
+
+$ python scripts/quality_cli.py validate
+AVISO: CONTEXT-001 v1 historico; no habilita autorizaciones
+AVISO: CONTEXT-OPT-001 v1 historico; no habilita autorizaciones
+AVISO: DESIGN-001 v1 historico; no habilita autorizaciones
+OK — estructura consistente. NO es certificación de Quality ni comprobación de identidades.
+exit_code: 0
+
+$ python scripts/quality_cli.py manifest docs/MISSIONS/DET-001/GATE2-INPUT-02.sha256
+manifiesto: docs\MISSIONS\DET-001\GATE2-INPUT-02.sha256
+entradas: 8 (gobernanza 6, producto/implementación 2)
+FAIL (integridad de manifiesto)
+ - docs/MISSIONS/DET-001/mission.json: sha256_lf no coincide (declarado 20e458216b7fb53baffc8e9e0e67b9ba5943a1ba14d87a992439855eb85769f0, calculado 4aa736eb11250f9f077a945045bea8a0b2babf4551609706ab14cd30523876e1)
+exit_code: 1
+
+$ python scripts/quality_cli.py audit --mission DET-001
+AUDITORÍA DET-001 | MEDIUM | schema v3
+manifiesto GATE2-INPUT-01.sha256: 8 entradas (gobernanza 6, producto/implementación 2)
+manifiesto GATE2-INPUT-02.sha256: 8 entradas (gobernanza 6, producto/implementación 2)
+AVISO: deriva del árbol respecto al ancla efectiva: docs/MISSIONS/DET-001/mission.json (actual 4aa736eb11250f9f077a945045bea8a0b2babf4551609706ab14cd30523876e1, ancla 20e458216b7fb53baffc8e9e0e67b9ba5943a1ba14d87a992439855eb85769f0 en GATE2-INPUT-02.sha256)
+AVISO: gate2.review: 04-GATE2-REVIEW.md no figura en ningún manifiesto de la misión (no es requisito de Gate)
+OK — registro y anclas coherentes. No es dictamen de Quality ni comprueba identidades.
+exit_code: 0
+
+$ python scripts/quality_cli.py status --mission DET-001
+DET-001 | Verificacion determinista de evidencias | MEDIUM | schema v3
+GATE1 PASS review: {'file': '02-GATE1-REVIEW.md', 'sha256_lf': '3ae758a91bf303a397ff9c59fe63859cde57d8b11c9dc2e21fa7e8080c3c4b9a', 'reviewer_verification': None}
+GATE2 PASS review: {'file': '04-GATE2-REVIEW.md', 'sha256_lf': '440edabc283b3c8459dc2f12218fd8bc96d133f392359ec10844fb399274b8f4', 'reviewer_verification': None}
+GATE3 PENDING review: None
+OWNER PENDING
+Identidad y aislamiento: declarados, no comprobada por la CLI.
+exit_code: 0
+
+$ python scripts/quality_cli.py can-implement --mission DET-001
+Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.
+exit_code: 0
+
+$ python scripts/quality_cli.py can-close --mission DET-001
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+exit_code: 1
+
+$ python scripts/quality_cli.py manifest docs/STRUCTURAL-CONSISTENCY-INPUT.sha256
+manifiesto: docs\STRUCTURAL-CONSISTENCY-INPUT.sha256
+entradas: 7 (gobernanza 6, producto/implementación 1)
+OK — 7/7 hashes sha256_lf coinciden. Clasificación informativa: no altera qué artefactos forman parte de un Gate.
+exit_code: 0
+
+$ python scripts/quality_cli.py manifest docs/MISSIONS/BOOTSTRAP-001/GATE2-INPUT-04.sha256
+manifiesto: docs\MISSIONS\BOOTSTRAP-001\GATE2-INPUT-04.sha256
+entradas: 5 (gobernanza 1, producto/implementación 4)
+FAIL (integridad de manifiesto)
+ - bootstrap/allowlist.json: sha256_lf no coincide (declarado 927462db9f7524f71aab2180f3272c7ec7db9eccd866d1fd7c17cb2c30c8abe5, calculado 11682968af8a68ec92772d408c0fb366f3b76df62a38e11899936adf7c8b135b)
+ - tests/test_bootstrap001.py: sha256_lf no coincide (declarado de352868b71b4be1efc9ff66fe5580c08020623d25adef959bc39af84eed2ee2, calculado e108d33b5380a24e162f925f064195e25c1e5c485096951d3d400b0d82011020)
+exit_code: 1
+
+$ python scripts/quality_cli.py audit --mission DOC-001
+AUDITORÍA DOC-001 | MEDIUM | schema v3
+manifiesto GATE2-INPUT-01.sha256: 17 entradas (gobernanza 14, producto/implementación 3)
+AVISO: deriva del árbol respecto al ancla efectiva: docs/MISSIONS/DOC-001/04-GATE2-REVIEW.md (actual 252a90affcfcbd6d72ef637016b41efc3d121a5498b56903d67cf169234e6ce4, ancla 536764bcf5ed58e172bfdf4fda39435b2efdff8467176affa226fa3eb34de166 en GATE2-INPUT-01.sha256)
+AVISO: deriva del árbol respecto al ancla efectiva: docs/MISSIONS/DOC-001/05-GATE3-EVIDENCE.md (actual c99091b6419face7a70009ec92538f6c3157d00bace869a3206c7f3c0dd57f19, ancla 8331504a02f20993f8d6da363a4cd3b62948072c1a575e752cc2f2a245df27ee en GATE2-INPUT-01.sha256)
+AVISO: deriva del árbol respecto al ancla efectiva: docs/MISSIONS/DOC-001/mission.json (actual 5b0bab675ba589d31b1dbcc386b13130d8d281148a1df0a373919aa9c5538ce0, ancla ae6cf4a0f49cb2b6c3ff39f5d7a4985ea5213bcf58e44d06cfdf8343ecd3b7ac en GATE2-INPUT-01.sha256)
+AVISO: gate3.review: REVISION-GATE3-03.md no figura en ningún manifiesto de la misión (no es requisito de Gate)
+AVISO: gate3.evidence[1]: ESCENARIO-WEB-03.md no figura en ningún manifiesto de la misión (no es requisito de Gate)
+FAIL (discrepancias documentales)
+ - gate2.review: 04-GATE2-REVIEW.md versión registrada no anclada (registrado 252a90affcfcbd6d72ef637016b41efc3d121a5498b56903d67cf169234e6ce4, anclas 536764bcf5ed58e172bfdf4fda39435b2efdff8467176affa226fa3eb34de166)
+exit_code: 1
+

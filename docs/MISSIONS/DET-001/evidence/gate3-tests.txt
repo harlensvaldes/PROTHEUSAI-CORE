@@ -1,0 +1,379 @@
+# DET-001 Gate 3 - full suite
+# command: python -m unittest discover -s tests -v
+# date: 2026-11-07
+# environment: Windows, Python 3.13.12
+# exit_code: 0
+# source console encoding decoded to UTF-8
+
+test_committed_traversal_in_allowlist_is_rejected (test_bootstrap001.BootstrapTests.test_committed_traversal_in_allowlist_is_rejected) ... ok
+test_concurrent_creations_never_overwrite (test_bootstrap001.BootstrapTests.test_concurrent_creations_never_overwrite) ... ok
+test_existing_destination_and_invalid_id_are_rejected (test_bootstrap001.BootstrapTests.test_existing_destination_and_invalid_id_are_rejected) ... ok
+test_existing_symlink_destination_is_rejected (test_bootstrap001.BootstrapTests.test_existing_symlink_destination_is_rejected) ... skipped "symlink privilege unavailable: [WinError 1314] Le client ne dispose pas d’un privilège nécessaire: 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmprb2hwlfk\\\\link-target' -> 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmprb2hwlfk\\\\link'"
+test_generated_readme_collision_is_not_overwritten (test_bootstrap001.BootstrapTests.test_generated_readme_collision_is_not_overwritten) ... ok
+test_hostile_git_environment_and_template_do_not_redirect (test_bootstrap001.BootstrapTests.test_hostile_git_environment_and_template_do_not_redirect) ... ok
+test_missing_git_retains_partial_destination (test_bootstrap001.BootstrapTests.test_missing_git_retains_partial_destination) ... ok
+test_modified_source_and_nested_repository_are_rejected (test_bootstrap001.BootstrapTests.test_modified_source_and_nested_repository_are_rejected) ... ok
+test_new_project_is_independent_and_can_start_mission (test_bootstrap001.BootstrapTests.test_new_project_is_independent_and_can_start_mission) ... ok
+test_post_creation_failure_retains_partial_directory (test_bootstrap001.BootstrapTests.test_post_creation_failure_retains_partial_directory) ... ok
+test_reproducible_tree_and_project_specific_exclusions (test_bootstrap001.BootstrapTests.test_reproducible_tree_and_project_specific_exclusions) ... ok
+test_skip_worktree_cannot_hide_modified_source (test_bootstrap001.BootstrapTests.test_skip_worktree_cannot_hide_modified_source) ... ok
+test_source_reads_are_pinned_if_head_changes (test_bootstrap001.BootstrapTests.test_source_reads_are_pinned_if_head_changes) ... ok
+test_content_scans_detect_database_secret_and_known_root (test_delivery001.DeliveryTests.test_content_scans_detect_database_secret_and_known_root) ... ok
+test_linked_root_is_rejected (test_delivery001.DeliveryTests.test_linked_root_is_rejected) ... skipped 'directory symlinks unavailable'
+test_paths_secrets_and_existing_output_are_rejected (test_delivery001.DeliveryTests.test_paths_secrets_and_existing_output_are_rejected) ... ok
+test_prepare_and_verify_detects_added_file (test_delivery001.DeliveryTests.test_prepare_and_verify_detects_added_file) ... ok
+test_rejects_secrets_collisions_and_missing_inputs (test_delivery001.DeliveryTests.test_rejects_secrets_collisions_and_missing_inputs) ... ok
+test_rejects_workshop_root_in_review_metadata_before_json_escaping (test_delivery001.DeliveryTests.test_rejects_workshop_root_in_review_metadata_before_json_escaping) ... ok
+test_review_requires_provenance_hash_and_resolved_findings (test_delivery001.DeliveryTests.test_review_requires_provenance_hash_and_resolved_findings) ... ok
+test_audit_anchored_consistency_passes (test_det001.AuditCommandTests.test_audit_anchored_consistency_passes) ... ok
+test_audit_detects_record_divergence (test_det001.AuditCommandTests.test_audit_detects_record_divergence) ... ok
+test_audit_foreign_mission_anchor_is_not_error (test_det001.AuditCommandTests.test_audit_foreign_mission_anchor_is_not_error) ... ok
+test_audit_invalid_mission_returns_two (test_det001.AuditCommandTests.test_audit_invalid_mission_returns_two) ... ok
+test_audit_invalid_vs_unreadable_manifest (test_det001.AuditCommandTests.test_audit_invalid_vs_unreadable_manifest) ... ok
+test_audit_maps_mission_relative_to_repo_relative (test_det001.AuditCommandTests.test_audit_maps_mission_relative_to_repo_relative) ... ok
+test_audit_missing_anchor_is_warning_only (test_det001.AuditCommandTests.test_audit_missing_anchor_is_warning_only) ... ok
+test_audit_mission_without_manifests (test_det001.AuditCommandTests.test_audit_mission_without_manifests) ... ok
+test_audit_multi_cycle_precedence (test_det001.AuditCommandTests.test_audit_multi_cycle_precedence) ... ok
+test_audit_record_not_anchored (test_det001.AuditCommandTests.test_audit_record_not_anchored) ... ok
+test_audit_reuses_mission_record_checks (test_det001.AuditCommandTests.test_audit_reuses_mission_record_checks) ... ok
+test_audit_structural_record_failure_returns_one (test_det001.AuditCommandTests.test_audit_structural_record_failure_returns_one) ... ok
+test_audit_tree_drift_is_warning (test_det001.AuditCommandTests.test_audit_tree_drift_is_warning) ... ok
+test_audit_unreadable_takes_precedence (test_det001.AuditCommandTests.test_audit_unreadable_takes_precedence) ... ok
+test_classify_is_presentation_only (test_det001.ManifestCommandTests.test_classify_is_presentation_only) ... ok
+test_manifest_ambiguous_and_empty (test_det001.ManifestCommandTests.test_manifest_ambiguous_and_empty) ... ok
+test_manifest_hash_is_case_insensitive (test_det001.ManifestCommandTests.test_manifest_hash_is_case_insensitive) ... ok
+test_manifest_path_resolved_from_cwd (test_det001.ManifestCommandTests.test_manifest_path_resolved_from_cwd) ... ok
+test_manifest_porcelain_tokens (test_det001.ManifestCommandTests.test_manifest_porcelain_tokens) ... ok
+test_manifest_prose_and_single_space (test_det001.ManifestCommandTests.test_manifest_prose_and_single_space) ... ok
+test_manifest_rejects_symlink (test_det001.ManifestCommandTests.test_manifest_rejects_symlink) ... skipped "symlink privilege unavailable: [WinError 1314] Le client ne dispose pas d’un privilège nécessaire: 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpila6wzr6\\\\real.txt' -> 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpila6wzr6\\\\link.txt'"
+test_manifest_reports_mismatch_missing_duplicate_and_unsafe_paths (test_det001.ManifestCommandTests.test_manifest_reports_mismatch_missing_duplicate_and_unsafe_paths) ... ok
+test_manifest_root_missing_or_outside (test_det001.ManifestCommandTests.test_manifest_root_missing_or_outside) ... ok
+test_manifest_truncated_hash_is_ambiguous (test_det001.ManifestCommandTests.test_manifest_truncated_hash_is_ambiguous) ... ok
+test_manifest_unreadable_returns_two (test_det001.ManifestCommandTests.test_manifest_unreadable_returns_two) ... ok
+test_manifest_valid_crlf_status_and_classification (test_det001.ManifestCommandTests.test_manifest_valid_crlf_status_and_classification) ... ok
+test_author_alias_is_deprecated_and_only_sets_orchestrator (test_governance.TemplateQualityTests.test_author_alias_is_deprecated_and_only_sets_orchestrator) ... ok
+test_cli_never_claims_identity_checks (test_governance.TemplateQualityTests.test_cli_never_claims_identity_checks) ... ok
+test_effective_author_may_be_subset_of_developers (test_governance.TemplateQualityTests.test_effective_author_may_be_subset_of_developers) ... ok
+test_fail_must_be_traceable_but_never_enables (test_governance.TemplateQualityTests.test_fail_must_be_traceable_but_never_enables) ... ok
+test_filled_templates_satisfy_report_rules (test_governance.TemplateQualityTests.test_filled_templates_satisfy_report_rules) ... ok
+test_full_chain_with_registered_verifications (test_governance.TemplateQualityTests.test_full_chain_with_registered_verifications) ... ok
+test_gate2_requires_known_developer (test_governance.TemplateQualityTests.test_gate2_requires_known_developer) ... ok
+test_identities_need_registered_verification (test_governance.TemplateQualityTests.test_identities_need_registered_verification) ... ok
+test_malformed_records_fail_without_exceptions (test_governance.TemplateQualityTests.test_malformed_records_fail_without_exceptions) ... ok
+test_must_pass_gate1_before_gate2 (test_governance.TemplateQualityTests.test_must_pass_gate1_before_gate2) ... ok
+test_new_mission_starts_pending_and_preserves_existing (test_governance.TemplateQualityTests.test_new_mission_starts_pending_and_preserves_existing) ... ok
+test_no_self_approval_or_missing_evidence (test_governance.TemplateQualityTests.test_no_self_approval_or_missing_evidence) ... ok
+test_orchestrator_acting_as_developer (test_governance.TemplateQualityTests.test_orchestrator_acting_as_developer) ... ok
+test_owner_approval_cannot_come_from_authors (test_governance.TemplateQualityTests.test_owner_approval_cannot_come_from_authors) ... ok
+test_package_has_all_required_files_and_example_pending (test_governance.TemplateQualityTests.test_package_has_all_required_files_and_example_pending) ... ok
+test_pass_with_reservations_never_enables (test_governance.TemplateQualityTests.test_pass_with_reservations_never_enables) ... ok
+test_report_must_match_manifest (test_governance.TemplateQualityTests.test_report_must_match_manifest) ... ok
+test_reviewed_artifact_requires_name_and_version (test_governance.TemplateQualityTests.test_reviewed_artifact_requires_name_and_version) ... ok
+test_v1_manifests_are_historical (test_governance.TemplateQualityTests.test_v1_manifests_are_historical) ... ok
+test_artifact_grammar_mutant (test_governance_mutations.MutationControls.test_artifact_grammar_mutant) ... ok
+test_artifact_name_canonical_mutant (test_governance_mutations.MutationControls.test_artifact_name_canonical_mutant) ... ok
+test_author_evidence_method_canonical_mutant (test_governance_mutations.MutationControls.test_author_evidence_method_canonical_mutant) ... ok
+test_author_evidence_ref_canonical_mutant (test_governance_mutations.MutationControls.test_author_evidence_ref_canonical_mutant) ... ok
+test_author_verification_date_canonical_mutant (test_governance_mutations.MutationControls.test_author_verification_date_canonical_mutant) ... ok
+test_author_verification_method_canonical_mutant (test_governance_mutations.MutationControls.test_author_verification_method_canonical_mutant) ... ok
+test_author_verification_ref_canonical_mutant (test_governance_mutations.MutationControls.test_author_verification_ref_canonical_mutant) ... ok
+test_authorship_mutants (test_governance_mutations.MutationControls.test_authorship_mutants) ... ok
+test_authorship_nonboolean_mutant (test_governance_mutations.MutationControls.test_authorship_nonboolean_mutant) ... ok
+test_cli_approved_matrix_can_close_mutant (test_governance_mutations.MutationControls.test_cli_approved_matrix_can_close_mutant) ... ok
+test_cli_historical_v2_cannot_close_mutant (test_governance_mutations.MutationControls.test_cli_historical_v2_cannot_close_mutant) ... ok
+test_cli_historical_v2_cannot_implement_mutant (test_governance_mutations.MutationControls.test_cli_historical_v2_cannot_implement_mutant) ... ok
+test_cli_pwr_cannot_close_mutant (test_governance_mutations.MutationControls.test_cli_pwr_cannot_close_mutant) ... ok
+test_cli_pwr_cannot_implement_mutant (test_governance_mutations.MutationControls.test_cli_pwr_cannot_implement_mutant) ... ok
+test_cli_unqualified_verification_claim_mutant (test_governance_mutations.MutationControls.test_cli_unqualified_verification_claim_mutant) ... ok
+test_cli_validate_accepted_matrix_warning_mutant (test_governance_mutations.MutationControls.test_cli_validate_accepted_matrix_warning_mutant) ... ok
+test_cli_validate_open_matrix_mutant (test_governance_mutations.MutationControls.test_cli_validate_open_matrix_mutant) ... ok
+test_critical_missing_isolation_evidence_mutant (test_governance_mutations.MutationControls.test_critical_missing_isolation_evidence_mutant) ... ok
+test_developer_reviewer_mutant (test_governance_mutations.MutationControls.test_developer_reviewer_mutant) ... ok
+test_effective_author_mutant (test_governance_mutations.MutationControls.test_effective_author_mutant) ... ok
+test_empty_artifact_name_mutant (test_governance_mutations.MutationControls.test_empty_artifact_name_mutant) ... ok
+test_empty_developer_gate2_pass_fail_mutants (test_governance_mutations.MutationControls.test_empty_developer_gate2_pass_fail_mutants) ... ok
+test_empty_effective_authors_mutant (test_governance_mutations.MutationControls.test_empty_effective_authors_mutant) ... ok
+test_evidence_hash_mutant (test_governance_mutations.MutationControls.test_evidence_hash_mutant) ... ok
+test_evidence_unknown_kind_mutant (test_governance_mutations.MutationControls.test_evidence_unknown_kind_mutant) ... ok
+test_excluded_evidence_mutant (test_governance_mutations.MutationControls.test_excluded_evidence_mutant) ... ok
+test_excluded_manifest_mutant (test_governance_mutations.MutationControls.test_excluded_manifest_mutant) ... ok
+test_excluded_review_mutant (test_governance_mutations.MutationControls.test_excluded_review_mutant) ... ok
+test_excluded_reviewed_artifact_mutant (test_governance_mutations.MutationControls.test_excluded_reviewed_artifact_mutant) ... ok
+test_g2_author_verification_missing_mutant (test_governance_mutations.MutationControls.test_g2_author_verification_missing_mutant) ... ok
+test_g2_author_verifier_for_each_role_mutants (test_governance_mutations.MutationControls.test_g2_author_verifier_for_each_role_mutants) ... ok
+test_g2_pertinent_author_verification_gate_mutants (test_governance_mutations.MutationControls.test_g2_pertinent_author_verification_gate_mutants) ... ok
+test_g2_reviewer_id_mutant (test_governance_mutations.MutationControls.test_g2_reviewer_id_mutant) ... ok
+test_g2_reviewer_verifier_mutant (test_governance_mutations.MutationControls.test_g2_reviewer_verifier_mutant) ... ok
+test_g2_verifier_for_each_role_mutants (test_governance_mutations.MutationControls.test_g2_verifier_for_each_role_mutants) ... ok
+test_gate3_missing_execution_mutant (test_governance_mutations.MutationControls.test_gate3_missing_execution_mutant) ... ok
+test_gate_order_mutant (test_governance_mutations.MutationControls.test_gate_order_mutant) ... ok
+test_hash_lf_normalization_mutant (test_governance_mutations.MutationControls.test_hash_lf_normalization_mutant) ... ok
+test_historical_v1_cannot_transition_mutants (test_governance_mutations.MutationControls.test_historical_v1_cannot_transition_mutants) ... ok
+test_i0_allowed_without_absolute_prohibition (test_governance_mutations.MutationControls.test_i0_allowed_without_absolute_prohibition) ... ok
+test_i0_pwr_after_pass_is_not_pass (test_governance_mutations.MutationControls.test_i0_pwr_after_pass_is_not_pass) ... ok
+test_i0_pwr_does_not_become_pass (test_governance_mutations.MutationControls.test_i0_pwr_does_not_become_pass) ... ok
+test_invalid_fence_mutant (test_governance_mutations.MutationControls.test_invalid_fence_mutant) ... ok
+test_isolation_below_matrix_mutant (test_governance_mutations.MutationControls.test_isolation_below_matrix_mutant) ... ok
+test_junction_path_mutant (test_governance_mutations.MutationControls.test_junction_path_mutant) ... ok
+test_matrix_g1_empty_types_mutant (test_governance_mutations.MutationControls.test_matrix_g1_empty_types_mutant) ... ok
+test_matrix_invalid_evidence_enum_mutant (test_governance_mutations.MutationControls.test_matrix_invalid_evidence_enum_mutant) ... ok
+test_matrix_invalid_guarantee_enum_mutant (test_governance_mutations.MutationControls.test_matrix_invalid_guarantee_enum_mutant) ... ok
+test_matrix_invalid_isolation_enum_mutant (test_governance_mutations.MutationControls.test_matrix_invalid_isolation_enum_mutant) ... ok
+test_matrix_missing_gate_mutant (test_governance_mutations.MutationControls.test_matrix_missing_gate_mutant) ... ok
+test_matrix_missing_mutant (test_governance_mutations.MutationControls.test_matrix_missing_mutant) ... ok
+test_matrix_monotonicity_mutant (test_governance_mutations.MutationControls.test_matrix_monotonicity_mutant) ... ok
+test_matrix_nonmonotonic_guarantee_mutant (test_governance_mutations.MutationControls.test_matrix_nonmonotonic_guarantee_mutant) ... ok
+test_matrix_nonmonotonic_pin_mutant (test_governance_mutations.MutationControls.test_matrix_nonmonotonic_pin_mutant) ... ok
+test_matrix_nonmonotonic_types_mutant (test_governance_mutations.MutationControls.test_matrix_nonmonotonic_types_mutant) ... ok
+test_medium_gate2_pinned_artifact_mutant (test_governance_mutations.MutationControls.test_medium_gate2_pinned_artifact_mutant) ... ok
+test_medium_gate3_missing_execution_mutant (test_governance_mutations.MutationControls.test_medium_gate3_missing_execution_mutant) ... ok
+test_missing_authorship_declaration_mutant (test_governance_mutations.MutationControls.test_missing_authorship_declaration_mutant) ... ok
+test_missing_required_evidence_mutant (test_governance_mutations.MutationControls.test_missing_required_evidence_mutant) ... ok
+test_noncanonical_path_mutant (test_governance_mutations.MutationControls.test_noncanonical_path_mutant) ... ok
+test_orchestrator_developer_reviewer_mutant (test_governance_mutations.MutationControls.test_orchestrator_developer_reviewer_mutant) ... ok
+test_owner_author_mutant (test_governance_mutations.MutationControls.test_owner_author_mutant) ... ok
+test_owner_canonical_empty_date_mutant (test_governance_mutations.MutationControls.test_owner_canonical_empty_date_mutant) ... ok
+test_owner_canonical_empty_mutant (test_governance_mutations.MutationControls.test_owner_canonical_empty_mutant) ... ok
+test_parser_absent_block_mutant (test_governance_mutations.MutationControls.test_parser_absent_block_mutant) ... ok
+test_parser_extra_key_mutant (test_governance_mutations.MutationControls.test_parser_extra_key_mutant) ... ok
+test_parser_invalid_json_mutant (test_governance_mutations.MutationControls.test_parser_invalid_json_mutant) ... ok
+test_parser_missing_key_mutant (test_governance_mutations.MutationControls.test_parser_missing_key_mutant) ... ok
+test_parser_nested_fence_mutant (test_governance_mutations.MutationControls.test_parser_nested_fence_mutant) ... ok
+test_parser_nul_mutant (test_governance_mutations.MutationControls.test_parser_nul_mutant) ... ok
+test_parser_utf8_mutant (test_governance_mutations.MutationControls.test_parser_utf8_mutant) ... ok
+test_path_case_mutant (test_governance_mutations.MutationControls.test_path_case_mutant) ... ok
+test_path_dot_segment_mutant (test_governance_mutations.MutationControls.test_path_dot_segment_mutant) ... ok
+test_path_traversal_mutant (test_governance_mutations.MutationControls.test_path_traversal_mutant) ... ok
+test_pending_template_decision_mutant (test_governance_mutations.MutationControls.test_pending_template_decision_mutant) ... ok
+test_pinned_artifact_mutant (test_governance_mutations.MutationControls.test_pinned_artifact_mutant) ... ok
+test_pinned_input_hash_mutant (test_governance_mutations.MutationControls.test_pinned_input_hash_mutant) ... ok
+test_real_junction_path_mutant (test_governance_mutations.MutationControls.test_real_junction_path_mutant) ... ok
+test_real_symlink_path_mutant (test_governance_mutations.MutationControls.test_real_symlink_path_mutant) ... skipped "symbolic-link privilege unavailable: [WinError 1314] Le client ne dispose pas d’un privilège nécessaire: 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpxchlb3d6\\\\docs\\\\MISSIONS\\\\TEST-100\\\\identity-gate1.txt' -> 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpxchlb3d6\\\\docs\\\\MISSIONS\\\\TEST-100\\\\link.txt'"
+test_review_equalities_mutants (test_governance_mutations.MutationControls.test_review_equalities_mutants) ... ok
+test_review_extra_key_mutant (test_governance_mutations.MutationControls.test_review_extra_key_mutant) ... ok
+test_review_hash_mutant (test_governance_mutations.MutationControls.test_review_hash_mutant) ... ok
+test_reviewer_verification_date_canonical_mutant (test_governance_mutations.MutationControls.test_reviewer_verification_date_canonical_mutant) ... ok
+test_reviewer_verification_method_canonical_mutant (test_governance_mutations.MutationControls.test_reviewer_verification_method_canonical_mutant) ... ok
+test_reviewer_verification_missing_g2_mutant (test_governance_mutations.MutationControls.test_reviewer_verification_missing_g2_mutant) ... ok
+test_reviewer_verification_ref_canonical_mutant (test_governance_mutations.MutationControls.test_reviewer_verification_ref_canonical_mutant) ... ok
+test_symlink_signal_mutant (test_governance_mutations.MutationControls.test_symlink_signal_mutant) ... ok
+test_validate_v2_historical_warning_mutant (test_governance_mutations.MutationControls.test_validate_v2_historical_warning_mutant) ... ok
+test_approved_warns_but_current_minima_block_close (test_governance_v3.GovernanceV3Tests.test_approved_warns_but_current_minima_block_close) ... ok
+test_block_structure_invalid_and_path_traversal (test_governance_v3.GovernanceV3Tests.test_block_structure_invalid_and_path_traversal) ... ok
+test_canonical_paths_and_integrity_rejections (test_governance_v3.GovernanceV3Tests.test_canonical_paths_and_integrity_rejections) ... ok
+test_continuity_i0_without_identity_and_execution_still_required (test_governance_v3.GovernanceV3Tests.test_continuity_i0_without_identity_and_execution_still_required) ... ok
+test_critical_requires_third_party_verification (test_governance_v3.GovernanceV3Tests.test_critical_requires_third_party_verification) ... ok
+test_current_cli_i0_and_fail_remains_distinct (test_governance_v3.GovernanceV3Tests.test_current_cli_i0_and_fail_remains_distinct) ... ok
+test_current_close_requires_owner_without_runtime_message (test_governance_v3.GovernanceV3Tests.test_current_close_requires_owner_without_runtime_message) ... ok
+test_fail_traceable_never_enables (test_governance_v3.GovernanceV3Tests.test_fail_traceable_never_enables) ... ok
+test_high_full_chain_and_mutated_authorship (test_governance_v3.GovernanceV3Tests.test_high_full_chain_and_mutated_authorship) ... ok
+test_i0_accepted_when_policy_allows_it (test_governance_v3.GovernanceV3Tests.test_i0_accepted_when_policy_allows_it) ... ok
+test_invalid_matrix_fails_closed_and_hash_normalizes (test_governance_v3.GovernanceV3Tests.test_invalid_matrix_fails_closed_and_hash_normalizes) ... ok
+test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability (test_governance_v3.GovernanceV3Tests.test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability) ... ok
+test_low_medium_high_same_environment_and_free_narrative (test_governance_v3.GovernanceV3Tests.test_low_medium_high_same_environment_and_free_narrative) ... ok
+test_matrix_monotonicity_and_missing_policy (test_governance_v3.GovernanceV3Tests.test_matrix_monotonicity_and_missing_policy) ... ok
+test_new_mission_uses_v3_pending_review (test_governance_v3.GovernanceV3Tests.test_new_mission_uses_v3_pending_review) ... ok
+test_owner_whitespace_identity_and_date_do_not_close (test_governance_v3.GovernanceV3Tests.test_owner_whitespace_identity_and_date_do_not_close) ... ok
+test_path_backed_artifact_is_recalculated (test_governance_v3.GovernanceV3Tests.test_path_backed_artifact_is_recalculated) ... ok
+test_pinned_artifact_execution_and_review_hash (test_governance_v3.GovernanceV3Tests.test_pinned_artifact_execution_and_review_hash) ... ok
+test_report_crosschecks_and_block_shapes (test_governance_v3.GovernanceV3Tests.test_report_crosschecks_and_block_shapes) ... ok
+test_report_integrity_missing_evidence_and_excluded_evidence (test_governance_v3.GovernanceV3Tests.test_report_integrity_missing_evidence_and_excluded_evidence) ... ok
+test_review_date_must_be_a_valid_iso_date (test_governance_v3.GovernanceV3Tests.test_review_date_must_be_a_valid_iso_date) ... ok
+test_approved_warns_but_current_minima_block_close (test_governance_v3.GovernanceV3Tests.test_approved_warns_but_current_minima_block_close) ... ok
+test_block_structure_invalid_and_path_traversal (test_governance_v3.GovernanceV3Tests.test_block_structure_invalid_and_path_traversal) ... ok
+test_canonical_paths_and_integrity_rejections (test_governance_v3.GovernanceV3Tests.test_canonical_paths_and_integrity_rejections) ... ok
+test_continuity_i0_without_identity_and_execution_still_required (test_governance_v3.GovernanceV3Tests.test_continuity_i0_without_identity_and_execution_still_required) ... ok
+test_critical_requires_third_party_verification (test_governance_v3.GovernanceV3Tests.test_critical_requires_third_party_verification) ... ok
+test_current_cli_i0_and_fail_remains_distinct (test_governance_v3.GovernanceV3Tests.test_current_cli_i0_and_fail_remains_distinct) ... ok
+test_current_close_requires_owner_without_runtime_message (test_governance_v3.GovernanceV3Tests.test_current_close_requires_owner_without_runtime_message) ... ok
+test_fail_traceable_never_enables (test_governance_v3.GovernanceV3Tests.test_fail_traceable_never_enables) ... ok
+test_high_full_chain_and_mutated_authorship (test_governance_v3.GovernanceV3Tests.test_high_full_chain_and_mutated_authorship) ... ok
+test_i0_accepted_when_policy_allows_it (test_governance_v3.GovernanceV3Tests.test_i0_accepted_when_policy_allows_it) ... ok
+test_invalid_matrix_fails_closed_and_hash_normalizes (test_governance_v3.GovernanceV3Tests.test_invalid_matrix_fails_closed_and_hash_normalizes) ... ok
+test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability (test_governance_v3.GovernanceV3Tests.test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability) ... ok
+test_low_medium_high_same_environment_and_free_narrative (test_governance_v3.GovernanceV3Tests.test_low_medium_high_same_environment_and_free_narrative) ... ok
+test_matrix_monotonicity_and_missing_policy (test_governance_v3.GovernanceV3Tests.test_matrix_monotonicity_and_missing_policy) ... ok
+test_new_mission_uses_v3_pending_review (test_governance_v3.GovernanceV3Tests.test_new_mission_uses_v3_pending_review) ... ok
+test_owner_whitespace_identity_and_date_do_not_close (test_governance_v3.GovernanceV3Tests.test_owner_whitespace_identity_and_date_do_not_close) ... ok
+test_path_backed_artifact_is_recalculated (test_governance_v3.GovernanceV3Tests.test_path_backed_artifact_is_recalculated) ... ok
+test_pinned_artifact_execution_and_review_hash (test_governance_v3.GovernanceV3Tests.test_pinned_artifact_execution_and_review_hash) ... ok
+test_report_crosschecks_and_block_shapes (test_governance_v3.GovernanceV3Tests.test_report_crosschecks_and_block_shapes) ... ok
+test_report_integrity_missing_evidence_and_excluded_evidence (test_governance_v3.GovernanceV3Tests.test_report_integrity_missing_evidence_and_excluded_evidence) ... ok
+test_review_date_must_be_a_valid_iso_date (test_governance_v3.GovernanceV3Tests.test_review_date_must_be_a_valid_iso_date) ... ok
+test_accepted_v4_history_warns_when_matrix_is_strengthened (test_governance_v4.GovernanceWaiverTests.test_accepted_v4_history_warns_when_matrix_is_strengthened) ... ok
+test_approved_warns_but_current_minima_block_close (test_governance_v4.GovernanceWaiverTests.test_approved_warns_but_current_minima_block_close) ... ok
+test_block_structure_invalid_and_path_traversal (test_governance_v4.GovernanceWaiverTests.test_block_structure_invalid_and_path_traversal) ... ok
+test_canonical_paths_and_integrity_rejections (test_governance_v4.GovernanceWaiverTests.test_canonical_paths_and_integrity_rejections) ... ok
+test_chain_is_structural_and_revocation_does_not_rewrite_history (test_governance_v4.GovernanceWaiverTests.test_chain_is_structural_and_revocation_does_not_rewrite_history) ... ok
+test_continuity_i0_without_identity_and_execution_still_required (test_governance_v4.GovernanceWaiverTests.test_continuity_i0_without_identity_and_execution_still_required) ... ok
+test_critical_requires_third_party_verification (test_governance_v4.GovernanceWaiverTests.test_critical_requires_third_party_verification) ... ok
+test_current_cli_i0_and_fail_remains_distinct (test_governance_v4.GovernanceWaiverTests.test_current_cli_i0_and_fail_remains_distinct) ... ok
+test_current_close_requires_owner_without_runtime_message (test_governance_v4.GovernanceWaiverTests.test_current_close_requires_owner_without_runtime_message) ... ok
+test_each_chain_action_is_required (test_governance_v4.GovernanceWaiverTests.test_each_chain_action_is_required) ... ok
+test_existing_waivers_with_current_matrix (test_governance_v4.GovernanceWaiverTests.test_existing_waivers_with_current_matrix) ... ok
+test_fail_traceable_never_enables (test_governance_v4.GovernanceWaiverTests.test_fail_traceable_never_enables) ... ok
+test_gate2_reservations_do_not_satisfy_gate3 (test_governance_v4.GovernanceWaiverTests.test_gate2_reservations_do_not_satisfy_gate3) ... ok
+test_high_full_chain_and_mutated_authorship (test_governance_v4.GovernanceWaiverTests.test_high_full_chain_and_mutated_authorship) ... ok
+test_i0_accepted_when_policy_allows_it (test_governance_v4.GovernanceWaiverTests.test_i0_accepted_when_policy_allows_it) ... ok
+test_invalid_matrix_fails_closed_and_hash_normalizes (test_governance_v4.GovernanceWaiverTests.test_invalid_matrix_fails_closed_and_hash_normalizes) ... ok
+test_invalid_references_and_revocations_fail_closed (test_governance_v4.GovernanceWaiverTests.test_invalid_references_and_revocations_fail_closed) ... ok
+test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability (test_governance_v4.GovernanceWaiverTests.test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability) ... ok
+test_low_medium_high_same_environment_and_free_narrative (test_governance_v4.GovernanceWaiverTests.test_low_medium_high_same_environment_and_free_narrative) ... ok
+test_matrix_monotonicity_and_missing_policy (test_governance_v4.GovernanceWaiverTests.test_matrix_monotonicity_and_missing_policy) ... ok
+test_new_mission_uses_v3_pending_review (test_governance_v4.GovernanceWaiverTests.test_new_mission_uses_v3_pending_review) ... ok
+test_owner_acceptance_cannot_be_attributed_to_orchestrator (test_governance_v4.GovernanceWaiverTests.test_owner_acceptance_cannot_be_attributed_to_orchestrator) ... ok
+test_owner_whitespace_identity_and_date_do_not_close (test_governance_v4.GovernanceWaiverTests.test_owner_whitespace_identity_and_date_do_not_close) ... ok
+test_path_backed_artifact_is_recalculated (test_governance_v4.GovernanceWaiverTests.test_path_backed_artifact_is_recalculated) ... ok
+test_pinned_artifact_execution_and_review_hash (test_governance_v4.GovernanceWaiverTests.test_pinned_artifact_execution_and_review_hash) ... ok
+test_prior_failure_integrity (test_governance_v4.GovernanceWaiverTests.test_prior_failure_integrity) ... ok
+test_report_crosschecks_and_block_shapes (test_governance_v4.GovernanceWaiverTests.test_report_crosschecks_and_block_shapes) ... ok
+test_report_integrity_missing_evidence_and_excluded_evidence (test_governance_v4.GovernanceWaiverTests.test_report_integrity_missing_evidence_and_excluded_evidence) ... ok
+test_review_date_must_be_a_valid_iso_date (test_governance_v4.GovernanceWaiverTests.test_review_date_must_be_a_valid_iso_date) ... ok
+test_review_integrity_and_execution_are_required (test_governance_v4.GovernanceWaiverTests.test_review_integrity_and_execution_are_required) ... ok
+test_revocation_expiry_and_action_never_authorize (test_governance_v4.GovernanceWaiverTests.test_revocation_expiry_and_action_never_authorize) ... ok
+test_scope_authority_and_exception_mutations_fail (test_governance_v4.GovernanceWaiverTests.test_scope_authority_and_exception_mutations_fail) ... ok
+test_symlink_to_evidence_is_rejected_when_supported (test_governance_v4.GovernanceWaiverTests.test_symlink_to_evidence_is_rejected_when_supported) ... skipped "symlink unavailable: [WinError 1314] Le client ne dispose pas d’un privilège nécessaire: 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpqwz7bigz\\\\docs\\\\MISSIONS\\\\CASE-1\\\\execution-record.txt' -> 'C:\\\\Users\\\\MANU\\\\AppData\\\\Local\\\\Temp\\\\tmpqwz7bigz\\\\docs\\\\MISSIONS\\\\CASE-1\\\\evidence-link.txt'"
+test_technical_review_mutations_are_rejected (test_governance_v4.GovernanceWaiverTests.test_technical_review_mutations_are_rejected) ... ok
+test_utc_window_boundaries (test_governance_v4.GovernanceWaiverTests.test_utc_window_boundaries) ... ok
+test_v3_downgrade_with_extra_fields_stays_blocked (test_governance_v4.GovernanceWaiverTests.test_v3_downgrade_with_extra_fields_stays_blocked) ... ok
+test_v4_duplicate_json_keys_are_rejected (test_governance_v4.GovernanceWaiverTests.test_v4_duplicate_json_keys_are_rejected) ... ok
+test_valid_waiver_is_structural_not_automatic_authorization (test_governance_v4.GovernanceWaiverTests.test_valid_waiver_is_structural_not_automatic_authorization) ... ok
+test_waiver_fields_are_rejected_by_all_legacy_versions (test_governance_v4.GovernanceWaiverTests.test_waiver_fields_are_rejected_by_all_legacy_versions) ... ok
+test_waiver_never_bypasses_stronger_matrix_minima (test_governance_v4.GovernanceWaiverTests.test_waiver_never_bypasses_stronger_matrix_minima) ... ok
+test_waiver_rejects_changed_guarantee_or_extra_evidence (test_governance_v4.GovernanceWaiverTests.test_waiver_rejects_changed_guarantee_or_extra_evidence) ... ok
+test_approved_warns_but_current_minima_block_close (test_governance_v3.GovernanceV3Tests.test_approved_warns_but_current_minima_block_close) ... ok
+test_block_structure_invalid_and_path_traversal (test_governance_v3.GovernanceV3Tests.test_block_structure_invalid_and_path_traversal) ... ok
+test_canonical_paths_and_integrity_rejections (test_governance_v3.GovernanceV3Tests.test_canonical_paths_and_integrity_rejections) ... ok
+test_continuity_i0_without_identity_and_execution_still_required (test_governance_v3.GovernanceV3Tests.test_continuity_i0_without_identity_and_execution_still_required) ... ok
+test_critical_requires_third_party_verification (test_governance_v3.GovernanceV3Tests.test_critical_requires_third_party_verification) ... ok
+test_current_cli_i0_and_fail_remains_distinct (test_governance_v3.GovernanceV3Tests.test_current_cli_i0_and_fail_remains_distinct) ... ok
+test_current_close_requires_owner_without_runtime_message (test_governance_v3.GovernanceV3Tests.test_current_close_requires_owner_without_runtime_message) ... ok
+test_fail_traceable_never_enables (test_governance_v3.GovernanceV3Tests.test_fail_traceable_never_enables) ... ok
+test_high_full_chain_and_mutated_authorship (test_governance_v3.GovernanceV3Tests.test_high_full_chain_and_mutated_authorship) ... ok
+test_i0_accepted_when_policy_allows_it (test_governance_v3.GovernanceV3Tests.test_i0_accepted_when_policy_allows_it) ... ok
+test_invalid_matrix_fails_closed_and_hash_normalizes (test_governance_v3.GovernanceV3Tests.test_invalid_matrix_fails_closed_and_hash_normalizes) ... ok
+test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability (test_governance_v3.GovernanceV3Tests.test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability) ... ok
+test_low_medium_high_same_environment_and_free_narrative (test_governance_v3.GovernanceV3Tests.test_low_medium_high_same_environment_and_free_narrative) ... ok
+test_matrix_monotonicity_and_missing_policy (test_governance_v3.GovernanceV3Tests.test_matrix_monotonicity_and_missing_policy) ... ok
+test_new_mission_uses_v3_pending_review (test_governance_v3.GovernanceV3Tests.test_new_mission_uses_v3_pending_review) ... ok
+test_owner_whitespace_identity_and_date_do_not_close (test_governance_v3.GovernanceV3Tests.test_owner_whitespace_identity_and_date_do_not_close) ... ok
+test_path_backed_artifact_is_recalculated (test_governance_v3.GovernanceV3Tests.test_path_backed_artifact_is_recalculated) ... ok
+test_pinned_artifact_execution_and_review_hash (test_governance_v3.GovernanceV3Tests.test_pinned_artifact_execution_and_review_hash) ... ok
+test_report_crosschecks_and_block_shapes (test_governance_v3.GovernanceV3Tests.test_report_crosschecks_and_block_shapes) ... ok
+test_report_integrity_missing_evidence_and_excluded_evidence (test_governance_v3.GovernanceV3Tests.test_report_integrity_missing_evidence_and_excluded_evidence) ... ok
+test_review_date_must_be_a_valid_iso_date (test_governance_v3.GovernanceV3Tests.test_review_date_must_be_a_valid_iso_date) ... ok
+test_all_gates_require_pass_and_owner_for_close (test_governance_v5.GovernanceV5Tests.test_all_gates_require_pass_and_owner_for_close) ... ok
+test_approved_warns_but_current_minima_block_close (test_governance_v5.GovernanceV5Tests.test_approved_warns_but_current_minima_block_close) ... ok
+test_bad_scope_hybrids_and_critical_rejected (test_governance_v5.GovernanceV5Tests.test_bad_scope_hybrids_and_critical_rejected) ... ok
+test_block_structure_invalid_and_path_traversal (test_governance_v5.GovernanceV5Tests.test_block_structure_invalid_and_path_traversal) ... ok
+test_canonical_paths_and_integrity_rejections (test_governance_v5.GovernanceV5Tests.test_canonical_paths_and_integrity_rejections) ... ok
+test_continuity_i0_without_identity_and_execution_still_required (test_governance_v5.GovernanceV5Tests.test_continuity_i0_without_identity_and_execution_still_required) ... ok
+test_critical_requires_third_party_verification (test_governance_v5.GovernanceV5Tests.test_critical_requires_third_party_verification) ... ok
+test_current_cli_i0_and_fail_remains_distinct (test_governance_v5.GovernanceV5Tests.test_current_cli_i0_and_fail_remains_distinct) ... ok
+test_current_close_requires_owner_without_runtime_message (test_governance_v5.GovernanceV5Tests.test_current_close_requires_owner_without_runtime_message) ... ok
+test_duplicate_keys_are_rejected_in_v5 (test_governance_v5.GovernanceV5Tests.test_duplicate_keys_are_rejected_in_v5) ... ok
+test_explicit_new_v5_mission_starts_pending (test_governance_v5.GovernanceV5Tests.test_explicit_new_v5_mission_starts_pending) ... ok
+test_fail_traceable_never_enables (test_governance_v5.GovernanceV5Tests.test_fail_traceable_never_enables) ... ok
+test_high_full_chain_and_mutated_authorship (test_governance_v5.GovernanceV5Tests.test_high_full_chain_and_mutated_authorship) ... ok
+test_i0_accepted_when_policy_allows_it (test_governance_v5.GovernanceV5Tests.test_i0_accepted_when_policy_allows_it) ... ok
+test_invalid_matrix_fails_closed_and_hash_normalizes (test_governance_v5.GovernanceV5Tests.test_invalid_matrix_fails_closed_and_hash_normalizes) ... ok
+test_invalid_new_scope_must_not_create_directory (test_governance_v5.GovernanceV5Tests.test_invalid_new_scope_must_not_create_directory) ... ok
+test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability (test_governance_v5.GovernanceV5Tests.test_invisible_fields_do_not_satisfy_g2_or_artifact_traceability) ... ok
+test_low_medium_high_same_environment_and_free_narrative (test_governance_v5.GovernanceV5Tests.test_low_medium_high_same_environment_and_free_narrative) ... ok
+test_matrix_monotonicity_and_missing_policy (test_governance_v5.GovernanceV5Tests.test_matrix_monotonicity_and_missing_policy) ... ok
+test_new_mission_uses_v3_pending_review (test_governance_v5.GovernanceV5Tests.test_new_mission_uses_v3_pending_review) ... ok
+test_owner_whitespace_identity_and_date_do_not_close (test_governance_v5.GovernanceV5Tests.test_owner_whitespace_identity_and_date_do_not_close) ... ok
+test_path_backed_artifact_is_recalculated (test_governance_v5.GovernanceV5Tests.test_path_backed_artifact_is_recalculated) ... ok
+test_pending_and_i0_pass_with_distinct_author (test_governance_v5.GovernanceV5Tests.test_pending_and_i0_pass_with_distinct_author) ... ok
+test_pending_invalid_and_reservations_block_commands (test_governance_v5.GovernanceV5Tests.test_pending_invalid_and_reservations_block_commands) ... ok
+test_pinned_artifact_execution_and_review_hash (test_governance_v5.GovernanceV5Tests.test_pinned_artifact_execution_and_review_hash) ... ok
+test_report_crosschecks_and_block_shapes (test_governance_v5.GovernanceV5Tests.test_report_crosschecks_and_block_shapes) ... ok
+test_report_integrity_missing_evidence_and_excluded_evidence (test_governance_v5.GovernanceV5Tests.test_report_integrity_missing_evidence_and_excluded_evidence) ... ok
+test_review_date_must_be_a_valid_iso_date (test_governance_v5.GovernanceV5Tests.test_review_date_must_be_a_valid_iso_date) ... ok
+test_review_integrity_and_scope_session_validation (test_governance_v5.GovernanceV5Tests.test_review_integrity_and_scope_session_validation) ... ok
+test_scope_digest_is_canonical_and_changes_semantics (test_governance_v5.GovernanceV5Tests.test_scope_digest_is_canonical_and_changes_semantics) ... ok
+test_self_approval_and_scope_change_are_rejected (test_governance_v5.GovernanceV5Tests.test_self_approval_and_scope_change_are_rejected) ... ok
+test_v5_duplicate_schema_version_cannot_downgrade_parser (test_governance_v5.GovernanceV5Tests.test_v5_duplicate_schema_version_cannot_downgrade_parser) ... ok
+test_bad_session_metadata_does_not_abort (test_met001.MetricsTest.test_bad_session_metadata_does_not_abort) ... ok
+test_conflicting_duplicate_not_counted_as_exact (test_met001.MetricsTest.test_conflicting_duplicate_not_counted_as_exact) ... ok
+test_dedup_cutoff_incomplete_and_inherited (test_met001.MetricsTest.test_dedup_cutoff_incomplete_and_inherited) ... ok
+test_post_cutoff_and_malformed_payload (test_met001.MetricsTest.test_post_cutoff_and_malformed_payload) ... ok
+test_unattributed_price_phase_and_identity (test_met001.MetricsTest.test_unattributed_price_phase_and_identity) ... ok
+test_new_unregistered_directory_fails_global_validation (test_reconstructed_missions.ReconstructedMissionTests.test_new_unregistered_directory_fails_global_validation) ... ok
+test_real_reconstructed_records_preserve_history_without_enabling_transitions (test_reconstructed_missions.ReconstructedMissionTests.test_real_reconstructed_records_preserve_history_without_enabling_transitions) ... ok
+
+----------------------------------------------------------------------
+Ran 296 tests in 53.582s
+
+OK (skipped=5)
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - gate1: isolation below minimum
+Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+Registro formal cerrado; no equivale a autorización de despliegue.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - gate1: isolation below minimum
+Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+Registro formal cerrado; no equivale a autorización de despliegue.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - gate1: isolation below minimum
+Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+Registro formal cerrado; no equivale a autorización de despliegue.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - gate1: isolation below minimum
+Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+Registro formal cerrado; no equivale a autorización de despliegue.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - gate1: isolation below minimum
+Gate 1 record consistent; reviewer identity and isolation are not checked by the CLI.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+Registro formal cerrado; no equivale a autorización de despliegue.
+REVIEW_NOT_PASS: Gate 1 sin PASS; resultado de revisión, no decisión de permisos del entorno ni del Owner.
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+REVIEW_INCOMPLETE: no constan tres PASS y aceptación del Owner; diagnóstico documental, no control de permisos.
+ - owner approval missing identity/date
+BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.
+BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.
+BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.
+BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.
+BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.
+BLOCKED: historical v1/v2 manifest; migrate or revalidate in v3.

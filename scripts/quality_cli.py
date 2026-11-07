@@ -5,7 +5,8 @@ import json
 import re
 import unicodedata
 import hashlib
-from quality_v3 import policy_errors, v3_errors, digest, _unique
+from quality_v3 import policy_errors, v3_errors, digest, _unique, canonical_file, parse_block, HEX
+from quality_v3 import PATH as RELATIVE_PATH
 from quality_v4 import ROOT_KEYS, waiver_errors, waiver_current
 from quality_v5 import scope_errors, v5_errors
 from pathlib import Path
@@ -23,6 +24,69 @@ FILES=('AGENTS.md','docs/PROJECT_CHARTER.md','docs/ARCHITECTURE.md',
 MISSION_FILES=('01-PLAN.md','02-GATE1-REVIEW.md','03-IMPLEMENTATION.md',
                '04-GATE2-REVIEW.md','05-GATE3-EVIDENCE.md','06-DECISION.md')
 NOT_CHECKED='no comprobada por la CLI'
+MANIFEST_LINE=re.compile(r'^[ \t]*(?:[ MADRCU?!]{1,2}[ \t]+)?([0-9a-fA-F]{64})[ \t]+([^ \t].*?)[ \t]*$')
+HEX_TOKEN=HEX
+TRUNCATED_HEX=re.compile(r'[0-9a-fA-F]{63}(?![0-9a-fA-F])')
+CYCLE=re.compile(r'-([0-9]+)(?:\.RECONSTRUCTED)?\.sha256$')
+GOVERNANCE_DIRS=('docs/','quality/','agents/')
+GOVERNANCE_FILES={'AGENTS.md','START_HERE.md','CONTRIBUTING.md','FILE_INDEX.md','README.md'}
+GOVERNANCE_RECORD=re.compile(r'(?:PLAN|REVIEW|OWNER|CORE)-[^/]*\.(?:md|sha256)')
+
+
+def classify(name):
+    """Presentation heuristic only: never changes which artifacts belong to a Gate."""
+    if name.startswith(GOVERNANCE_DIRS) or name in GOVERNANCE_FILES:
+        return 'gobernanza'
+    if '/' not in name and GOVERNANCE_RECORD.fullmatch(name):
+        return 'gobernanza'
+    return 'producto/implementación'
+
+
+def parse_manifest(path: Path):
+    """Reads declared sha256_lf entries; unknown prose is ignored, ambiguity is not guessed."""
+    text=path.read_bytes().decode('utf-8')
+    entries, errors = [], []
+    for number,line in enumerate(text.splitlines(),1):
+        if not line.strip() or line.lstrip().startswith('#'):
+            continue
+        match=MANIFEST_LINE.match(line)
+        if match:
+            entries.append((number, match.group(2).strip(), match.group(1).lower()))
+        elif HEX.search(line) or TRUNCATED_HEX.search(line):
+            errors.append(f'línea {number}: entrada ambigua (hash sha256 no interpretable)')
+    return entries, errors
+
+
+def manifest_report(root: Path, path: Path):
+    entries, errors = parse_manifest(path)
+    if not entries and not errors:
+        errors.append('manifiesto sin entradas')
+    seen=set()
+    verified=0
+    counts={'gobernanza':0,'producto/implementación':0}
+    for number,name,declared in entries:
+        counts[classify(name)]+=1
+        if name in seen:
+            errors.append(f'{name}: ruta duplicada en el manifiesto')
+            continue
+        seen.add(name)
+        if not RELATIVE_PATH.fullmatch(name) or any(part in ('.','..') for part in name.split('/')):
+            errors.append(f'{name}: ruta no canónica')
+            continue
+        target=canonical_file(root,name)
+        if target is None:
+            errors.append(f'{name}: archivo ausente, no regular o fuera de la raíz')
+            continue
+        try:
+            actual=digest(target.read_bytes())
+        except OSError as exc:
+            errors.append(f'{name}: ilegible ({exc.__class__.__name__})')
+            continue
+        if actual.lower()!=declared:
+            errors.append(f'{name}: sha256_lf no coincide (declarado {declared}, calculado {actual})')
+        else:
+            verified+=1
+    return {'entries':entries,'verified':verified,'errors':errors,'counts':counts}
 
 
 def read_json(path: Path):
@@ -248,6 +312,160 @@ def project_errors(root: Path):
     return project_report(root)[0]
 
 
+def _anchor_key(item):
+    cycle, reconstructed, name, declared = item
+    return (cycle, -reconstructed, name)
+
+
+def _check_anchor(label, relative, declared, anchors, mission, errors, warnings):
+    anchored=anchors.get(f'docs/MISSIONS/{mission}/{relative}')
+    if not anchored:
+        warnings.append(f'{label}: {relative} no figura en ningún manifiesto de la misión (no es requisito de Gate)')
+        return
+    hashes={item[3] for item in anchored}
+    if declared not in hashes:
+        errors.append(f'{label}: {relative} versión registrada no anclada '
+                      f'(registrado {declared}, anclas {", ".join(sorted(hashes))})')
+        return
+    effective=max(anchored,key=_anchor_key)
+    if declared!=effective[3]:
+        warnings.append(f'{label}: {relative} coincide con un ciclo anterior ({declared}); '
+                        f'ancla efectiva {effective[3]} en {effective[2]}')
+
+
+def audit_report(root: Path, mission: str):
+    """Cross-checks record hashes against manifest anchors; tree drift is advisory only."""
+    folder=root/'docs/MISSIONS'/mission
+    m=read_json(folder/'mission.json')
+    errors=mission_errors(folder,m)
+    warnings=[]
+    anchors={}
+    summaries=[]
+    for path in sorted(p for p in folder.glob('*.sha256') if p.is_file()):
+        try:
+            entries, format_errors=parse_manifest(path)
+        except (OSError,UnicodeError) as exc:
+            return m, None, [], [f'{path.name}: no se puede leer ({exc.__class__.__name__})']
+        if not entries and not format_errors:
+            format_errors=['manifiesto sin entradas']
+        match=CYCLE.search(path.name)
+        cycle=int(match.group(1)) if match else 0
+        reconstructed=1 if '.RECONSTRUCTED' in path.name else 0
+        counts={'gobernanza':0,'producto/implementación':0}
+        seen=set()
+        for number,name,declared in entries:
+            counts[classify(name)]+=1
+            if name in seen:
+                format_errors.append(f'{name}: ruta duplicada en el manifiesto')
+                continue
+            seen.add(name)
+            if (not RELATIVE_PATH.fullmatch(name)
+                    or any(part in ('.','..') for part in name.split('/'))):
+                format_errors.append(f'{name}: ruta no canónica')
+                continue
+            anchors.setdefault(name,[]).append((cycle,reconstructed,path.name,declared))
+        if format_errors:
+            errors.extend(f'{path.name}: {error}' for error in format_errors)
+        if entries:
+            summaries.append((path.name,len(entries),counts))
+    for name in sorted(anchors):
+        effective=max(anchors[name],key=_anchor_key)
+        target=canonical_file(root,name)
+        if target is None:
+            continue
+        try:
+            actual=digest(target.read_bytes())
+        except OSError:
+            continue
+        if actual.lower()!=effective[3]:
+            warnings.append(f'deriva del árbol respecto al ancla efectiva: {name} '
+                            f'(actual {actual.lower()}, ancla {effective[3]} en {effective[2]})')
+    v5=m.get('schema_version')==5
+    gates=m.get('gates')
+    for gate in GATES:
+        record=gates.get(gate) if isinstance(gates,dict) else None
+        if not isinstance(record,dict):
+            continue
+        review=record.get('review')
+        if record.get('decision')=='PENDING' or not isinstance(review,dict):
+            continue
+        file=review.get('file')
+        raw=review.get('sha256_lf')
+        declared=raw.lower() if isinstance(raw,str) else ''
+        if not isinstance(file,str) or not declared:
+            continue
+        _check_anchor(f'{gate}.review',file,declared,anchors,mission,errors,warnings)
+        report=canonical_file(folder,file)
+        if report is None:
+            continue
+        try:
+            block=parse_block(report.read_bytes(),v5=v5)
+        except OSError:
+            continue
+        if block is None:
+            warnings.append(f'{gate}: bloque protheusai-review no interpretable; cruce de evidencias omitido')
+            continue
+        evidence=block.get('evidence')
+        if not isinstance(evidence,list):
+            continue
+        for index,item in enumerate(evidence):
+            if (not isinstance(item,dict) or not isinstance(item.get('path'),str)
+                    or not isinstance(item.get('sha256_lf'),str)
+                    or not HEX_TOKEN.fullmatch(item['sha256_lf'])):
+                continue
+            _check_anchor(f'{gate}.evidence[{index}]',item['path'],item['sha256_lf'].lower(),
+                          anchors,mission,errors,warnings)
+    return m, errors, warnings, summaries
+
+
+def print_manifest(path: Path, root: Path):
+    try:
+        report=manifest_report(root,path)
+    except (OSError,UnicodeError) as exc:
+        print(f'ERROR: no se puede leer {path}: {exc.__class__.__name__}')
+        return 2
+    counts=report['counts']
+    print(f'manifiesto: {path}')
+    print(f"entradas: {len(report['entries'])} (gobernanza {counts['gobernanza']}, "
+          f"producto/implementación {counts['producto/implementación']})")
+    if report['errors']:
+        print('FAIL (integridad de manifiesto)')
+        for error in report['errors']: print(' -',error)
+        return 1
+    print(f"OK — {report['verified']}/{len(report['entries'])} hashes sha256_lf coinciden. "
+          'Clasificación informativa: no altera qué artefactos forman parte de un Gate.')
+    return 0
+
+
+def print_audit(root: Path, mission: str):
+    try:
+        m, errors, warnings, summaries = audit_report(root,mission)
+    except (ValueError,KeyError,TypeError,AttributeError) as exc:
+        print(f'ERROR: {exc}')
+        return 2
+    risk=m.get('risk')
+    version=m.get('schema_version')
+    print(f"AUDITORÍA {mission} | {risk if isinstance(risk,str) else 'DESCONOCIDO'} | "
+          f"schema v{version if type(version) is int else '?'}")
+    if errors is None:
+        print('ERROR: no se puede completar la verificación')
+        for failure in summaries: print(' -',failure)
+        return 2
+    if not summaries:
+        print('manifiestos: 0 — la misión no declara manifiestos que cruzar')
+    for name,total,counts in summaries:
+        print(f"manifiesto {name}: {total} entradas (gobernanza {counts['gobernanza']}, "
+              f"producto/implementación {counts['producto/implementación']})")
+    for warning in warnings: print('AVISO:',warning)
+    if errors:
+        print('FAIL (discrepancias documentales)')
+        for error in errors: print(' -',error)
+        return 1
+    print('OK — registro y anclas coherentes. No es dictamen de Quality ni comprueba identidades.')
+    return 0
+
+
+
 def print_status(m: dict, errs: list):
     if structure_errors(m):
         print('INVALID')
@@ -268,7 +486,7 @@ def print_status(m: dict, errs: list):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description='Validación FORMAL; no emite PASS ni comprueba identidades')
-    parser.add_argument('command',choices=['validate','status','can-implement','can-close','hash'])
+    parser.add_argument('command',choices=['validate','status','can-implement','can-close','hash','manifest','audit'])
     parser.add_argument('path',nargs='?')
     parser.add_argument('--mission')
     parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
@@ -283,6 +501,9 @@ def main(argv=None):
         print('sha256_lf:',digest(data))
         print('sha256:',hashlib.sha256(data).hexdigest())
         return 0
+    if args.command=='manifest':
+        if not args.path: parser.error('manifest requires a path')
+        return print_manifest(Path(args.path),root)
     if args.command=='validate':
         errors,warnings=project_report(root)
         for warning in warnings: print('AVISO:',warning)
@@ -297,6 +518,8 @@ def main(argv=None):
     if not re.fullmatch(r'[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+', args.mission):
         print('ERROR: ID de misión inválido')
         return 2
+    if args.command=='audit':
+        return print_audit(root,args.mission)
     folder=root/'docs/MISSIONS'/args.mission
     try:
         m=read_json(folder/'mission.json')

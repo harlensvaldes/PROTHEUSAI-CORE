@@ -1,0 +1,8 @@
+# CONTEXT-OPT-001 · Checkpoint
+
+- Owner: encargo `00-ENCARGO-ORIGINAL.md`; adiciones: análisis previo de eventos, medición inicial por rol, dos repeticiones mínimas por celda corta, rúbrica previa y presupuesto de 2.000.000 tokens observados para toda la misión. No registrar aceptación final.
+- Estado: diagnóstico y protocolo preliminares; no hay Gate 1 independiente ni implementación de optimización. A/B nuevo y mediciones por rol pendientes. No hay dictamen de Quality para esta misión.
+- Git inicial: `master`, HEAD `722053b381ad1dbe88c082ddf4109883e3d9ff9d`, AGENTS.md modificado y CONTEXT-001 sin seguimiento; conservar. `BASELINE-A.json` y `BASELINE-A.zip` fijan el estado previo por hashes además del HEAD. No se ha creado tag ni commit.
+- Medición: `03-MET-CORTE.json` es un corte parcial exclusivo a las 19:28:14.866 UTC del 2026-11-06, 725.707 tokens totales observados y dos errores de lectura. La ejecución siguió después del corte; antes de cualquier nueva prueba hacer otro corte. Nunca tratar el saldo como exacto si hay registros ausentes.
+- Evidencia y límites: `02-DIAGNOSTICO-PARCIAL.md`. Los JSONL de DELIVERY-001 no se encontraron en la ruta local esperada; esperar una copia accesible antes de graficar. `01-PROTOCOLO.md` es propuesta no revisada. La primera entrada por rol incluirá tarea y runner, no aislará el prompt base.
+- Siguiente acción: recuperar los eventos históricos, verificar cobertura y graficar; preparar revisión independiente real del protocolo; asegurar capacidad de medir y saldo suficiente antes de iniciar experimentos. No repetir ni sumar cortes acumulativos. No iniciar APP-005 o DESIGN-001. **E2E NO EJECUTADO**.
